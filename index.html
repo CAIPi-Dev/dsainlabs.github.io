@@ -35,7 +35,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 /* ── Utility ── */
 .container { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
 .section { padding: 100px 0; }
-.section-border { border-top: 1px solid var(--border); }
+.section-border { border-top: 1px solid var(--border); position: relative; z-index: 1; background: var(--bg); }
 .mono { font-family: var(--mono); }
 .tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
 
@@ -476,16 +476,22 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
     </div>
   </div>
 </div>
+        <div class="research-pubs" style="margin-top:20px">
         <h4>Institution</h4>
         <div class="pub-item">
           <div class="pub-title">Doctor of Business Administration Program</div>
-          <div class="pub-venue">Haskayne School of Business</div>
+          <div class="pub-venue">Haskayne School of Business, University of Calgary</div>
         </div>
         <div class="pub-item">
           <div class="pub-title">Research Supervisor</div>
-          <div class="pub-venue">Dr. Alain Verbeke</div>
+          <div class="pub-venue">Dr. Alain Verbeke — Strategy & International Business</div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-title">Methodology</div>
+          <div class="pub-venue">Design Science (Hevner et al., 2004) · Manuscript-based three-paper format</div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </div>
