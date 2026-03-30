@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSAIN Research Labs — The Independent AI Reliability Layer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090c;
+  --bg2: #0e1017;
+  --bg3: #151820;
+  --surface: #1a1e28;
+  --border: #242936;
+  --border2: #2e3444;
+  --text: #e8eaf0;
+  --text2: #9ca3b4;
+  --text3: #626a7e;
+  --red: #ef4444;
+  --amber: #f59e0b;
+  --green: #22c55e;
+  --blue: #3b82f6;
+  --purple: #a855f7;
+  --pink: #ec4899;
+  --cyan: #06b6d4;
+  --font: 'DM Sans', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+/* ── Utility ── */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+.section { padding: 100px 0; }
+.section-border { border-top: 1px solid var(--border); }
+.mono { font-family: var(--mono); }
+.tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+
+/* ── Nav ── */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,9,12,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+.nav-inner { max-width: 1120px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-icon { width: 30px; height: 30px; }
+.nav-logo-text { font-size: 16px; font-weight: 700; color: var(--text); letter-spacing: 0.02em; }
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a { color: var(--text3); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta { background: var(--text); color: var(--bg); padding: 7px 18px; border-radius: 6px; font-size: 12px; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
+.nav-cta:hover { opacity: 0.85; }
+
+/* ── Hero ── */
+.hero { padding: 160px 0 100px; position: relative; overflow: hidden; }
+.hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:600px; background:radial-gradient(ellipse,rgba(59,130,246,0.06) 0%,transparent 70%); pointer-events:none; }
+.hero-eyebrow { font-family: var(--mono); font-size: 12px; color: var(--blue); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+.hero-eyebrow::before { content:''; width: 20px; height: 1px; background: var(--blue); }
+.hero h1 { font-size: clamp(36px, 5vw, 56px); font-weight: 700; line-height: 1.1; max-width: 800px; margin-bottom: 24px; letter-spacing: -0.02em; }
+.hero h1 em { font-style: normal; color: var(--red); }
+.hero-sub { font-size: 17px; color: var(--text2); max-width: 600px; line-height: 1.7; margin-bottom: 40px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--text); color: var(--bg); padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,255,255,0.1); }
+.btn-secondary { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border2); color: var(--text2); padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.2s; }
+.btn-secondary:hover { border-color: var(--text3); color: var(--text); }
+
+/* ── ARP Visual ── */
+.arp-visual { margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; }
+.arp-card { background: var(--bg2); padding: 28px; }
+.arp-card-label { font-family: var(--mono); font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+.arp-bar-group { margin-bottom: 16px; }
+.arp-bar-label { font-size: 11px; color: var(--text3); margin-bottom: 4px; display: flex; justify-content: space-between; }
+.arp-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin-bottom: 8px; }
+.arp-bar-fill { height: 100%; border-radius: 3px; transition: width 1.5s ease; }
+.arp-card-desc { font-size: 12px; color: var(--text3); line-height: 1.5; }
+.arp-card-verdict { font-size: 13px; font-weight: 600; margin-top: 12px; display: flex; align-items: center; gap: 6px; }
+
+/* ── Problem ── */
+.problem-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 48px; }
+.problem-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 28px; transition: border-color 0.3s; }
+.problem-card:hover { border-color: var(--border2); }
+.problem-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 16px; }
+.problem-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.problem-card p { font-size: 13px; color: var(--text2); line-height: 1.6; }
+
+/* ── Platform ── */
+.platform-header { text-align: center; margin-bottom: 60px; }
+.platform-header h2 { font-size: clamp(28px, 3.5vw, 40px); font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em; }
+.platform-header p { font-size: 15px; color: var(--text2); max-width: 600px; margin: 0 auto; }
+.platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; }
+.platform-item { background: var(--bg2); padding: 32px; }
+.platform-item-number { font-family: var(--mono); font-size: 11px; color: var(--text3); margin-bottom: 12px; }
+.platform-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+.platform-item p { font-size: 13px; color: var(--text2); line-height: 1.6; }
+.platform-item .detail { font-family: var(--mono); font-size: 11px; color: var(--text3); margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); line-height: 1.7; }
+
+/* ── Lens Suite ── */
+.lens-intro { font-size: 15px; color: var(--text2); max-width: 650px; margin-bottom: 40px; line-height: 1.7; }
+.lens-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.lens-card { border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: all 0.3s; position: relative; overflow: hidden; }
+.lens-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+.lens-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.lens-card:nth-child(1)::before { background: var(--blue); }
+.lens-card:nth-child(2)::before { background: var(--amber); }
+.lens-card:nth-child(3)::before { background: var(--red); }
+.lens-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 14px; margin-bottom: 14px; }
+.lens-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.lens-card .lens-desc { font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 16px; }
+.lens-card .lens-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 16px; }
+.lens-card .lens-tag { font-size: 10px; padding: 2px 8px; border-radius: 8px; background: var(--surface); color: var(--text3); }
+.lens-link { font-size: 12px; font-weight: 600; color: var(--text2); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: color 0.2s; }
+.lens-link:hover { color: var(--text); }
+
+/* ── Enterprise ── */
+.enterprise-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.enterprise-content h2 { font-size: clamp(28px, 3.5vw, 40px); font-weight: 700; margin-bottom: 16px; letter-spacing: -0.02em; }
+.enterprise-content > p { font-size: 15px; color: var(--text2); line-height: 1.7; margin-bottom: 28px; }
+.enterprise-points { list-style: none; }
+.enterprise-points li { padding: 12px 0; border-top: 1px solid var(--border); font-size: 14px; display: flex; gap: 12px; align-items: flex-start; }
+.enterprise-points li span.ep-label { font-weight: 600; min-width: 160px; flex-shrink: 0; }
+.enterprise-points li span.ep-desc { color: var(--text2); }
+.enterprise-sidebar { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
+.enterprise-sidebar h3 { font-size: 14px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.enterprise-stat { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.enterprise-stat .es-label { font-size: 13px; color: var(--text2); }
+.enterprise-stat .es-value { font-family: var(--mono); font-size: 13px; font-weight: 600; }
+.eu-callout { margin-top: 24px; background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.15); border-radius: 8px; padding: 16px; }
+.eu-callout p { font-size: 12px; color: var(--text2); line-height: 1.6; }
+.eu-callout strong { color: var(--red); }
+
+/* ── Research ── */
+.research-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; }
+.research-content h2 { font-size: clamp(28px, 3.5vw, 36px); font-weight: 700; margin-bottom: 16px; letter-spacing: -0.02em; }
+.research-content > p { font-size: 15px; color: var(--text2); line-height: 1.7; margin-bottom: 20px; }
+.research-framework { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-top: 24px; }
+.research-framework h4 { font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+.rf-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 12px; }
+.rf-row:last-child { border-bottom: none; }
+.rf-label { color: var(--text2); }
+.rf-value { font-family: var(--mono); color: var(--text3); font-size: 11px; }
+.research-pubs { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.research-pubs h4 { font-size: 13px; font-weight: 600; margin-bottom: 16px; }
+.pub-item { padding: 10px 0; border-bottom: 1px solid var(--border); }
+.pub-item:last-child { border-bottom: none; }
+.pub-title { font-size: 12px; font-weight: 500; margin-bottom: 2px; }
+.pub-venue { font-size: 11px; color: var(--text3); font-style: italic; }
+
+/* ── Team ── */
+.team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; max-width: 700px; }
+.team-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.team-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.team-card .team-role { font-size: 13px; color: var(--blue); margin-bottom: 10px; }
+.team-card p { font-size: 12px; color: var(--text2); line-height: 1.6; }
+
+/* ── Contact ── */
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.contact-form { display: flex; flex-direction: column; gap: 14px; }
+.contact-form input, .contact-form textarea { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; color: var(--text); font-family: var(--font); font-size: 14px; outline: none; transition: border-color 0.2s; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--blue); }
+.contact-form textarea { min-height: 100px; resize: vertical; }
+.contact-form button { background: var(--text); color: var(--bg); border: none; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: var(--font); transition: opacity 0.2s; }
+.contact-form button:hover { opacity: 0.85; }
+.contact-info h3 { font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+.contact-detail { font-size: 13px; color: var(--text2); margin-bottom: 8px; }
+.contact-detail a { color: var(--text); text-decoration: none; }
+
+/* ── Footer ── */
+footer { border-top: 1px solid var(--border); padding: 40px 0; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; }
+.footer-left { font-size: 12px; color: var(--text3); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 12px; color: var(--text3); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--text2); }
+
+/* ── Section headers ── */
+.section-eyebrow { font-family: var(--mono); font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .arp-visual, .problem-grid, .platform-grid, .lens-grid { grid-template-columns: 1fr; }
+  .enterprise-layout, .research-layout, .contact-layout, .team-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .section { padding: 60px 0; }
+  .hero { padding: 100px 0 60px; }
+}
+
+/* ── Animations ── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.hero h1, .hero-sub, .hero-actions { animation: fadeUp 0.8s ease both; }
+.hero-sub { animation-delay: 0.1s; }
+.hero-actions { animation-delay: 0.2s; }
+.arp-visual { animation: fadeUp 0.8s ease 0.3s both; }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+<div class="nav-inner">
+  <a href="#" class="nav-logo">
+    <img src="https://framerusercontent.com/images/Ms5Y5sGzz6sJ4RgcaNp3pQtpg.png?width=148&height=175" alt="DSAIN" class="nav-logo-icon">
+    <span class="nav-logo-text">DSAIN</span>
+  </a>
+  <div class="nav-links">
+    <a href="#platform">Platform</a>
+    <a href="#tools">Free Tools</a>
+    <a href="#enterprise">Enterprise</a>
+    <a href="#research">Research</a>
+    <a href="#contact" class="nav-cta">Contact Us</a>
+  </div>
+</div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+<div class="container">
+  <div class="hero-eyebrow">DSAIN Research Labs</div>
+  <h1>AI systems cannot credibly verify <em>their own outputs.</em></h1>
+  <p class="hero-sub">We build the independent reliability layer — from enterprise decision engines to free public tools. Grounded in peer-reviewed research on how AI augmentation creates reliability risk.</p>
+  <div class="hero-actions">
+    <a href="#tools" class="btn-primary">Install Free Tools →</a>
+    <a href="#platform" class="btn-secondary">Explore the Platform</a>
+  </div>
+
+  <!-- ARP Visual — replaces the globe -->
+  <div class="arp-visual">
+    <div class="arp-card">
+      <div class="arp-card-label">AI Chatbot Response</div>
+      <div class="arp-bar-group">
+        <div class="arp-bar-label"><span>Expressed confidence</span><span style="color:var(--amber)">87%</span></div>
+        <div class="arp-bar"><div class="arp-bar-fill" style="width:87%;background:var(--amber)"></div></div>
+      </div>
+      <div class="arp-bar-group">
+        <div class="arp-bar-label"><span>Warranted confidence</span><span style="color:var(--green)">12%</span></div>
+        <div class="arp-bar"><div class="arp-bar-fill" style="width:12%;background:var(--green)"></div></div>
+      </div>
+      <div class="arp-card-verdict" style="color:var(--red)">● 75% calibration gap</div>
+      <div class="arp-card-desc">Sounds authoritative. Zero sources cited. Classic ARP manifestation.</div>
+    </div>
+    <div class="arp-card">
+      <div class="arp-card-label">News Headline</div>
+      <div class="arp-bar-group">
+        <div class="arp-bar-label"><span>Emotional loading</span><span style="color:var(--amber)">11%</span></div>
+        <div class="arp-bar"><div class="arp-bar-fill" style="width:68%;background:var(--amber)"></div></div>
+      </div>
+      <div class="arp-bar-group">
+        <div class="arp-bar-label"><span>Factual content</span><span style="color:var(--green)">23%</span></div>
+        <div class="arp-bar"><div class="arp-bar-fill" style="width:23%;background:var(--green)"></div></div>
+      </div>
+      <div class="arp-card-verdict" style="color:var(--amber)">● Heavy manipulation</div>
+      <div class="arp-card-desc">8 loaded words. 2 facts. Tells you how to feel before you think.</div>
+    </div>
+    <div class="arp-card">
+      <div class="arp-card-label">Phishing Email</div>
+      <div class="arp-bar-group">
+        <div class="arp-bar-label"><span>Pressure intensity</span><span style="color:var(--red)">92%</span></div>
+        <div class="arp-bar"><div class="arp-bar-fill" style="width:92%;background:var(--red)"></div></div>
+      </div>
+      <div class="arp-bar-group">
+        <div class="arp-bar-label"><span>Verifiable claims</span><span style="color:var(--green)">0%</span></div>
+        <div class="arp-bar"><div class="arp-bar-fill" style="width:0%;background:var(--green)"></div></div>
+      </div>
+      <div class="arp-card-verdict" style="color:var(--red)">● Critical — 14 tactics</div>
+      <div class="arp-card-desc">Urgency, authority, greed. All psychological. Zero substance.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ PROBLEM ═══ -->
+<section class="section section-border">
+<div class="container">
+  <div class="section-eyebrow">The Problem</div>
+  <h2 style="font-size:clamp(26px,3vw,36px);font-weight:700;max-width:700px;margin-bottom:16px;letter-spacing:-0.02em">The same pattern. Three domains. One company.</h2>
+  <p style="font-size:15px;color:var(--text2);max-width:600px">Confidence without evidence is the most dangerous form of misinformation — because it's the hardest to detect. We call this the <strong style="color:var(--text)">Augmentation-Reliability Paradox</strong>.</p>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="problem-icon" style="background:rgba(59,130,246,0.12)">🏛</div>
+      <h3>In the Boardroom</h3>
+      <p>AI generates strategic recommendations that sound authoritative but can't trace reasoning to verified evidence. Boards can't audit what they can't see. No governance framework exists for AI-augmented decisions.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon" style="background:rgba(239,68,68,0.12)">⚖</div>
+      <h3>In Regulated Industries</h3>
+      <p>The EU AI Act requires independent assessment of high-risk AI systems by August 2026. LLM providers cannot credibly self-certify — the same way accounting firms cannot audit their own books. A structural gap exists.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon" style="background:rgba(245,158,11,0.12)">👤</div>
+      <h3>In Everyday Life</h3>
+      <p>AI chatbots reinforce delusions. Headlines manipulate emotions. Phishing exploits psychological pressure. The confidence-without-evidence pattern operates everywhere — and nobody was making it visible.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ PLATFORM ═══ -->
+<section class="section section-border" id="platform">
+<div class="container">
+  <div class="platform-header">
+    <div class="section-eyebrow">The Platform</div>
+    <h2>Strategic Cognition Engine</h2>
+    <p>A multi-agent deliberation architecture with evidence grounding, adversarial challenge, and auditable reasoning. Every recommendation is traceable.</p>
+  </div>
+  <div class="platform-grid">
+    <div class="platform-item">
+      <div class="platform-item-number mono">01</div>
+      <h3>Multi-Agent Council</h3>
+      <p>Five role-specialized agents — CFO, Strategy, Risk, Devil's Advocate, Fact Checker — deliberate across three adversarial rounds with position evolution tracking.</p>
+      <div class="detail">Agents: 5 specialized roles<br>Rounds: 3 adversarial<br>Governance: GM1–GM7 parameterizable</div>
+    </div>
+    <div class="platform-item">
+      <div class="platform-item-number mono">02</div>
+      <h3>Financial Knowledge Graph</h3>
+      <p>Neo4j-powered corporate model connecting financial statements, ratios, external factors, and causal relationships. Compustat-grounded with 28 financial ratios.</p>
+      <div class="detail">Database: Neo4j graph<br>Ratios: 28 Compustat-grounded<br>Links: ExternalFactor → Metric</div>
+    </div>
+    <div class="platform-item">
+      <div class="platform-item-number mono">03</div>
+      <h3>Scenario Propagation Engine</h3>
+      <p>What-if analysis that propagates assumptions through the financial graph. ExternalFactor → EstimationFunction → FinancialMetric chains with explicit assumptions exposed.</p>
+      <div class="detail">Propagation: Full causal chain<br>Visualization: Kill Chain Sankey<br>Mode: Forward + reverse resolution</div>
+    </div>
+    <div class="platform-item">
+      <div class="platform-item-number mono">04</div>
+      <h3>Evidence Grounding Layer</h3>
+      <p>Every factual claim tagged with source provenance. Source hierarchy: Compustat → verified search → knowledge graph → training knowledge. EGR computed automatically.</p>
+      <div class="detail">Sources: Tiered verification<br>Metric: Evidence Grounding Ratio<br>Enforcement: Architectural, not prompt</div>
+    </div>
+    <div class="platform-item">
+      <div class="platform-item-number mono">05</div>
+      <h3>Governance Architecture</h3>
+      <p>Seven parameterizable governance microfoundations controlling decision rights, aggregation, diversity, evidence depth, disclosure, overrides, and auditability.</p>
+      <div class="detail">Parameters: GM1–GM7<br>Analogs: Board governance theory<br>Manipulable: Full ablation support</div>
+    </div>
+    <div class="platform-item">
+      <div class="platform-item-number mono">06</div>
+      <h3>Dual Confidence Decomposition</h3>
+      <p>Every output assessed on two dimensions: expressed confidence (how certain it sounds) vs. warranted confidence (how much evidence supports it). The gap is the ARP manifesting.</p>
+      <div class="detail">Expressed: Griffin & Tversky "strength"<br>Warranted: Epistemic "weight"<br>Gap: The Paradox, quantified</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ LENS SUITE ═══ -->
+<section class="section section-border" id="tools">
+<div class="container">
+  <div class="section-eyebrow">Free Public Tools</div>
+  <h2 style="font-size:clamp(26px,3vw,36px);font-weight:700;margin-bottom:12px;letter-spacing:-0.02em">The DSAIN Lens Suite</h2>
+  <p class="lens-intro">We released core detection capabilities as free browser extensions — proving the framework works and building awareness of epistemic manipulation across AI, media, and email.</p>
+  <div class="lens-grid">
+    <div class="lens-card">
+      <div class="lens-icon" style="background:linear-gradient(135deg,#3b82f6,#7c3aed)">R</div>
+      <h3>Reliability Lens</h3>
+      <p class="lens-desc">Assesses AI chatbot outputs for evidence grounding, sycophancy, false precision, and the confidence-evidence gap. Works on ChatGPT, Claude, Gemini, Copilot, Perplexity.</p>
+      <div class="lens-tags">
+        <span class="lens-tag">AI Chatbots</span>
+        <span class="lens-tag">Evidence Grounding</span>
+        <span class="lens-tag">Sycophancy</span>
+      </div>
+      <a href="#" class="lens-link">Install from Chrome Web Store →</a>
+    </div>
+    <div class="lens-card">
+      <div class="lens-icon" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">C</div>
+      <h3>Clarity Lens</h3>
+      <p class="lens-desc">Highlights emotionally loaded language in news articles, YouTube titles, and social media posts. Detects intensifiers, loaded verbs, fear signals, and manipulative framing.</p>
+      <div class="lens-tags">
+        <span class="lens-tag">News & Media</span>
+        <span class="lens-tag">YouTube</span>
+        <span class="lens-tag">Social Media</span>
+      </div>
+      <a href="#" class="lens-link">Install from Chrome Web Store →</a>
+    </div>
+    <div class="lens-card">
+      <div class="lens-icon" style="background:linear-gradient(135deg,#ef4444,#f59e0b)">E</div>
+      <h3>Email Lens</h3>
+      <p class="lens-desc">Detects urgency, authority impersonation, greed triggers, and social pressure in emails. Catches the psychological manipulation that makes phishing work — regardless of sender.</p>
+      <div class="lens-tags">
+        <span class="lens-tag">Gmail</span>
+        <span class="lens-tag">Outlook</span>
+        <span class="lens-tag">Phishing</span>
+      </div>
+      <a href="#" class="lens-link">Install from Chrome Web Store →</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ ENTERPRISE ═══ -->
+<section class="section section-border" id="enterprise">
+<div class="container">
+  <div class="enterprise-layout">
+    <div class="enterprise-content">
+      <div class="section-eyebrow">Enterprise</div>
+      <h2>Independent LLM Reliability Assessment</h2>
+      <p>The same auditor independence principle that prevents accounting firms from auditing their own books creates structural demand for third-party AI output verification. DSAIN fills that gap.</p>
+      <ul class="enterprise-points">
+        <li><span class="ep-label">Evidence Grounding API</span><span class="ep-desc">Verify LLM claims against authoritative domain-specific databases — financial, legal, medical, scientific.</span></li>
+        <li><span class="ep-label">Source Quality Ranking</span><span class="ep-desc">Tiered verification hierarchy from primary sources through institutional to unverifiable training knowledge.</span></li>
+        <li><span class="ep-label">Cross-Model Verification</span><span class="ep-desc">Assess outputs using a different model family than the one that generated them. Structural independence by design.</span></li>
+        <li><span class="ep-label">Compliance Reporting</span><span class="ep-desc">Structured reliability reports mapped to EU AI Act, ISO 42001, and sector-specific regulatory frameworks.</span></li>
+        <li><span class="ep-label">Enterprise Knowledge Integration</span><span class="ep-desc">Verify LLM claims against your internal approved documents, policies, and data — without data leaving your environment.</span></li>
+      </ul>
+    </div>
+    <div class="enterprise-sidebar">
+      <h3>📊 Market Context</h3>
+      <div class="enterprise-stat"><span class="es-label">EU AI Act high-risk deadline</span><span class="es-value" style="color:var(--red)">Aug 2026</span></div>
+      <div class="enterprise-stat"><span class="es-label">Max non-compliance penalty</span><span class="es-value">€35M / 7%</span></div>
+      <div class="enterprise-stat"><span class="es-label">High-risk systems requiring assessment</span><span class="es-value">~18% of enterprise AI</span></div>
+      <div class="enterprise-stat"><span class="es-label">Third-party conformity assessment</span><span class="es-value" style="color:var(--green)">Required</span></div>
+      <div class="eu-callout">
+        <p><strong>The structural opportunity:</strong> LLM providers cannot credibly self-certify. The market requires independent assessment — and regulators are mandating it on a known timeline.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ RESEARCH ═══ -->
+<section class="section section-border" id="research">
+<div class="container">
+  <div class="research-layout">
+    <div class="research-content">
+      <div class="section-eyebrow">Research Foundation</div>
+      <h2>This isn't a weekend project. It's a multi-year research program.</h2>
+      <p>DSAIN is built on doctoral research into the governance of AI-augmented strategic decision-making. The theoretical framework, the experimental design, and the working system are inseparable — the artifact embodies the theory.</p>
+      <p>The <strong style="color:var(--text)">Augmentation-Reliability Paradox (ARP)</strong> posits that AI systems that most effectively relax bounded rationality simultaneously create conditions where bounded reliability failures are most consequential. The same features that make AI articulate and capable make it prone to fabrication and sycophancy.</p>
+      <div class="research-framework">
+        <h4>Dual-Constraint Framework</h4>
+        <div class="rf-row"><span class="rf-label">Bounded Rationality (cognitive)</span><span class="rf-value">Simon, 1955 · Kahneman, 2011 · >95K citations</span></div>
+        <div class="rf-row"><span class="rf-label">Bounded Reliability (motivational)</span><span class="rf-value">Verbeke & Greidanus, 2009 · Williamson, 1985</span></div>
+        <div class="rf-row"><span class="rf-label">Dynamic Capabilities</span><span class="rf-value">Teece, 2007 · >21K citations</span></div>
+        <div class="rf-row"><span class="rf-label">Attention-Based View</span><span class="rf-value">Ocasio, 1997 · >6.5K citations</span></div>
+        <div class="rf-row"><span class="rf-label">Artificial Certainty</span><span class="rf-value">Leonardi & Leavell, 2026 · Organization Science</span></div>
+        <div class="rf-row"><span class="rf-label">Experimental Design</span><span class="rf-value">E1–E5 within-subject ablation · 12–15 S&P 500 firms</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="research-pubs">
+        <h4>Publication Targets</h4>
+        <div class="pub-item">
+          <div class="pub-title">Paper 1 — The Augmentation-Reliability Paradox</div>
+          <div class="pub-venue">Target: Strategy Science / Academy of Management Review</div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-title">Paper 2 — DSAIN as Natural Laboratory</div>
+          <div class="pub-venue">Target: Academy of Management Journal / Organization Science</div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-title">Paper 3 — Governance Architecture Ablation</div>
+          <div class="pub-venue">Target: Strategic Management Journal / MIS Quarterly</div>
+        </div>
+      </div>
+      <div class="research-pubs" style="margin-top:20px">
+        <h4>Institution</h4>
+        <div class="pub-item">
+          <div class="pub-title">Doctor of Business Administration Program</div>
+          <div class="pub-venue">Haskayne School of Business</div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-title">Research Supervisor</div>
+          <div class="pub-venue">Dr. Alain Verbeke</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ TEAM ═══ -->
+<section class="section section-border">
+<div class="container">
+  <div class="section-eyebrow">Team</div>
+  <h2 style="font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:-0.02em">Built by researchers. Deployed by engineers.</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <h3>Rana Kumar</h3>
+      <div class="team-role">CEO / CTO</div>
+      <p>P.Eng., PMP, MBA, DBA Candidate. 20+ years in enterprise technology, strategy consulting, and AI systems architecture. Built the DSAIN platform end-to-end — from Neo4j knowledge graph to multi-agent deliberation to Chrome extensions.</p>
+    </div>
+    <div class="team-card">
+      <h3>Partner (CPA)</h3>
+      <div class="team-role">CFO</div>
+      <p>Grant compliance, SR&ED, IRAP, financial model validation, and marketing. Covers the regulatory and financial infrastructure that turns research into a sustainable business.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="section section-border" id="contact">
+<div class="container">
+  <div class="contact-layout">
+    <div>
+      <div class="section-eyebrow">Get in Touch</div>
+      <h2 style="font-size:clamp(26px,3vw,36px);font-weight:700;margin-bottom:12px;letter-spacing:-0.02em">Let's talk.</h2>
+      <p style="font-size:15px;color:var(--text2);margin-bottom:28px;max-width:400px">Enterprise inquiries, investment discussions, research collaboration, or just a question about the extensions.</p>
+      <form class="contact-form" onsubmit="event.preventDefault()">
+        <input type="text" placeholder="Full name" required>
+        <input type="email" placeholder="Email address" required>
+        <input type="text" placeholder="Organization">
+        <textarea placeholder="How can we help?"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+    <div class="contact-info" style="padding-top:80px">
+      <h3>DSAIN Research Labs</h3>
+      <div class="contact-detail">Calgary, Alberta, Canada</div>
+      <div class="contact-detail"><a href="mailto:sales@dsain.ca">sales@dsain.ca</a></div>
+      <div class="contact-detail" style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border)">
+        <strong style="color:var(--text);display:block;margin-bottom:8px">What we're looking for</strong>
+        Enterprise design partners deploying LLMs in regulated environments. Accelerator programs focused on AI governance. Investment partners who understand that AI reliability is infrastructure, not a feature.
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+<div class="container">
+  <div class="footer-inner">
+    <div class="footer-left">© 2026 DSAIN Research Labs. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Chrome Web Store</a>
+      <a href="mailto:sales@dsain.ca">Contact</a>
+    </div>
+  </div>
+</div>
+</footer>
+
+</body>
+</html>
