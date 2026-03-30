@@ -496,11 +496,11 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
       <div class="section-eyebrow">Get in Touch</div>
       <h2 style="font-size:clamp(26px,3vw,36px);font-weight:700;margin-bottom:12px;letter-spacing:-0.02em">Let's talk.</h2>
       <p style="font-size:15px;color:var(--text2);margin-bottom:28px;max-width:400px">Enterprise inquiries, investment discussions, research collaboration, or just a question about the extensions.</p>
-      <form class="contact-form" onsubmit="event.preventDefault()">
-        <input type="text" placeholder="Full name" required>
-        <input type="email" placeholder="Email address" required>
-        <input type="text" placeholder="Organization">
-        <textarea placeholder="How can we help?"></textarea>
+      <form class="contact-form" <form class="contact-form" onsubmit="event.preventDefault()">
+        <input type="text" name="name" placeholder="Full name" required>
+        <input type="email" name="email" placeholder="Email address" required>
+        <input type="text" name="organization" placeholder="Organization">
+        <textarea name="message" placeholder="How can we help?"></textarea>
         <button type="submit">Send Message</button>
       </form>
     </div>
