@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DSAIN Research Labs — The Independent AI Reliability Layer</title>
+<title>DSAIN — AI-Governed Strategic Intelligence for Boards & Leadership</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -27,18 +27,18 @@
   --font: 'DM Sans', sans-serif;
   --mono: 'JetBrains Mono', monospace;
 }
-
+ 
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-
+ 
 /* ── Utility ── */
 .container { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
 .section { padding: 100px 0; }
 .section-border { border-top: 1px solid var(--border); position: relative; z-index: 1; background: var(--bg); }
 .mono { font-family: var(--mono); }
 .tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
-
+ 
 /* ── Nav ── */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,9,12,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
 .nav-inner { max-width: 1120px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
@@ -50,7 +50,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba
 .nav-links a:hover { color: var(--text); }
 .nav-cta { background: var(--text); color: var(--bg); padding: 7px 18px; border-radius: 6px; font-size: 12px; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
 .nav-cta:hover { opacity: 0.85; }
-
+ 
 /* ── Hero ── */
 .hero { padding: 160px 0 100px; position: relative; }
 .hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:600px; background:radial-gradient(ellipse,rgba(59,130,246,0.06) 0%,transparent 70%); pointer-events:none; }
@@ -64,7 +64,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba
 .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,255,255,0.1); }
 .btn-secondary { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border2); color: var(--text2); padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.2s; }
 .btn-secondary:hover { border-color: var(--text3); color: var(--text); }
-
+ 
 /* ── ARP Visual ── */
 .arp-visual { margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; }
 .arp-card { background: var(--bg2); padding: 28px; }
@@ -75,7 +75,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba
 .arp-bar-fill { height: 100%; border-radius: 3px; transition: width 1.5s ease; }
 .arp-card-desc { font-size: 12px; color: var(--text3); line-height: 1.5; }
 .arp-card-verdict { font-size: 13px; font-weight: 600; margin-top: 12px; display: flex; align-items: center; gap: 6px; }
-
+ 
 /* ── Problem ── */
 .problem-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 48px; }
 .problem-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 28px; transition: border-color 0.3s; }
@@ -83,7 +83,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba
 .problem-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 16px; }
 .problem-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
 .problem-card p { font-size: 13px; color: var(--text2); line-height: 1.6; }
-
+ 
 /* ── Platform ── */
 .platform-header { text-align: center; margin-bottom: 60px; }
 .platform-header h2 { font-size: clamp(28px, 3.5vw, 40px); font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em; }
@@ -94,7 +94,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba
 .platform-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
 .platform-item p { font-size: 13px; color: var(--text2); line-height: 1.6; }
 .platform-item .detail { font-family: var(--mono); font-size: 11px; color: var(--text3); margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); line-height: 1.7; }
-
+ 
 /* ── Lens Suite ── */
 .lens-intro { font-size: 15px; color: var(--text2); max-width: 650px; margin-bottom: 40px; line-height: 1.7; }
 .lens-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
@@ -111,7 +111,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba
 .lens-card .lens-tag { font-size: 10px; padding: 2px 8px; border-radius: 8px; background: var(--surface); color: var(--text3); }
 .lens-link { font-size: 12px; font-weight: 600; color: var(--text2); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: color 0.2s; }
 .lens-link:hover { color: var(--text); }
-
+ 
 /* ── Enterprise ── */
 .enterprise-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
 .enterprise-content h2 { font-size: clamp(28px, 3.5vw, 40px); font-weight: 700; margin-bottom: 16px; letter-spacing: -0.02em; }
@@ -128,7 +128,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba
 .eu-callout { margin-top: 24px; background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.15); border-radius: 8px; padding: 16px; }
 .eu-callout p { font-size: 12px; color: var(--text2); line-height: 1.6; }
 .eu-callout strong { color: var(--red); }
-
+ 
 /* ── Research ── */
 .research-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; }
 .research-content h2 { font-size: clamp(28px, 3.5vw, 36px); font-weight: 700; margin-bottom: 16px; letter-spacing: -0.02em; }
@@ -145,14 +145,14 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba
 .pub-item:last-child { border-bottom: none; }
 .pub-title { font-size: 12px; font-weight: 500; margin-bottom: 2px; }
 .pub-venue { font-size: 11px; color: var(--text3); font-style: italic; }
-
+ 
 /* ── Team ── */
 .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; max-width: 700px; }
 .team-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
 .team-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
 .team-card .team-role { font-size: 13px; color: var(--blue); margin-bottom: 10px; }
 .team-card p { font-size: 12px; color: var(--text2); line-height: 1.6; }
-
+ 
 /* ── Contact ── */
 .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
 .contact-form { display: flex; flex-direction: column; gap: 14px; }
@@ -164,7 +164,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba
 .contact-info h3 { font-size: 14px; font-weight: 600; margin-bottom: 16px; }
 .contact-detail { font-size: 13px; color: var(--text2); margin-bottom: 8px; }
 .contact-detail a { color: var(--text); text-decoration: none; }
-
+ 
 /* ── Footer ── */
 footer { border-top: 1px solid var(--border); padding: 40px 0; }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; }
@@ -172,19 +172,21 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
 .footer-links { display: flex; gap: 20px; }
 .footer-links a { font-size: 12px; color: var(--text3); text-decoration: none; transition: color 0.2s; }
 .footer-links a:hover { color: var(--text2); }
-
+ 
 /* ── Section headers ── */
 .section-eyebrow { font-family: var(--mono); font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
-
+ 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .arp-visual, .problem-grid, .platform-grid, .lens-grid { grid-template-columns: 1fr; }
-  .enterprise-layout, .research-layout, .contact-layout, .team-grid { grid-template-columns: 1fr; }
+  .arp-visual, .problem-grid, .platform-grid, .lens-grid, .strategy-journey, .strategy-comparison, .verticals-grid, .product-ladder { grid-template-columns: 1fr; }
+  .enterprise-layout, .research-layout, .contact-layout, .team-grid, .capital-layout { grid-template-columns: 1fr; }
+  .platform-item[style*="grid-column"] { grid-column: span 1; }
+  .market-banner { gap: 20px; }
   .nav-links { display: none; }
   .section { padding: 60px 0; }
   .hero { padding: 100px 0 60px; }
 }
-
+ 
 /* ── Animations ── */
 @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 .hero h1, .hero-sub, .hero-actions { animation: fadeUp 0.8s ease both; }
@@ -199,10 +201,78 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
 .hero-visual .ft-e { background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.35); color: rgba(245,158,11,0.9); }
 .hero-visual .ft-w { background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.35); color: rgba(34,197,94,0.85); }
 .hero-visual .ft-g { background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3); color: rgba(239,68,68,0.85); font-size: 9px; }
+/* ── Strategy Section ── */
+.strategy-journey { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; margin-top: 48px; }
+.strategy-step { background: var(--bg2); padding: 32px; position: relative; }
+.strategy-step-num { font-family: var(--mono); font-size: 32px; font-weight: 700; color: var(--border2); margin-bottom: 12px; }
+.strategy-step h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+.strategy-step p { font-size: 13px; color: var(--text2); line-height: 1.6; }
+.strategy-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; margin-top: 48px; }
+.strategy-comp-card { background: var(--bg2); padding: 28px; }
+.strategy-comp-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.strategy-comp-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 12px; }
+.strategy-comp-row:last-child { border-bottom: none; }
+.strategy-comp-label { color: var(--text2); }
+.strategy-comp-value { font-family: var(--mono); font-size: 11px; font-weight: 600; }
+.strategy-personas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.strategy-persona { font-size: 11px; font-weight: 500; padding: 5px 14px; border-radius: 20px; border: 1px solid var(--border2); color: var(--text2); }
+ 
+/* ── Capital Section ── */
+.capital-section { background: linear-gradient(180deg, var(--bg) 0%, #0a0e18 100%); }
+.capital-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.capital-content h2 { font-size: clamp(28px, 3.5vw, 40px); font-weight: 700; margin-bottom: 16px; letter-spacing: -0.02em; }
+.capital-content > p { font-size: 15px; color: var(--text2); line-height: 1.7; margin-bottom: 28px; }
+.capital-features { list-style: none; }
+.capital-features li { padding: 10px 0; border-top: 1px solid var(--border); font-size: 13px; display: flex; gap: 10px; align-items: flex-start; color: var(--text2); }
+.capital-features li strong { color: var(--text); font-weight: 600; }
+.capital-dashboard { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+.capital-dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.capital-dash-header h4 { font-size: 13px; font-weight: 600; }
+.capital-dash-status { font-family: var(--mono); font-size: 10px; color: var(--green); display: flex; align-items: center; gap: 6px; }
+.capital-dash-status::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse-dot 2s ease infinite; }
+@keyframes pulse-dot { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+.capital-alert { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; }
+.capital-alert-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.capital-alert-severity { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 4px; }
+.capital-alert-severity.high { background: rgba(239,68,68,0.15); color: var(--red); }
+.capital-alert-severity.medium { background: rgba(245,158,11,0.15); color: var(--amber); }
+.capital-alert-title { font-size: 12px; font-weight: 500; margin-bottom: 4px; }
+.capital-alert-meta { font-size: 10px; color: var(--text3); }
+.capital-alert-actions { display: flex; gap: 8px; margin-top: 8px; }
+.capital-alert-btn { font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 4px; border: 1px solid var(--border2); color: var(--text2); background: transparent; cursor: pointer; }
+.capital-signals { margin-top: 12px; }
+.capital-signal-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 11px; }
+.capital-signal-row:last-child { border-bottom: none; }
+.capital-signal-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.capital-signal-source { font-family: var(--mono); font-size: 9px; font-weight: 600; padding: 1px 6px; border-radius: 3px; flex-shrink: 0; }
+ 
+/* ── Product Ladder ── */
+.product-ladder { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; margin-top: 48px; }
+.product-ladder-item { background: var(--bg2); padding: 24px; text-align: center; }
+.product-ladder-item h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.product-ladder-tier { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+.product-ladder-item p { font-size: 12px; color: var(--text2); line-height: 1.5; }
+.product-ladder-arrow { font-size: 18px; color: var(--text3); display: flex; align-items: center; justify-content: center; background: var(--bg2); }
+ 
+/* ── Verticals ── */
+.verticals-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 40px; }
+.vertical-card { border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: border-color 0.3s; }
+.vertical-card:hover { border-color: var(--border2); }
+.vertical-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.vertical-card p { font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 12px; }
+.vertical-stat { font-family: var(--mono); font-size: 11px; color: var(--text3); margin-bottom: 8px; }
+.vertical-badge { font-size: 9px; font-weight: 600; padding: 2px 8px; border-radius: 8px; display: inline-block; }
+ 
+/* ── Market Banner ── */
+.market-banner { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-top: 48px; }
+.market-banner-item { text-align: center; }
+.market-banner-value { font-family: var(--mono); font-size: 18px; font-weight: 700; color: var(--text); }
+.market-banner-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+ 
 </style>
 </head>
 <body>
-
+ 
 <!-- ═══ NAV ═══ -->
 <nav>
 <div class="nav-inner">
@@ -211,15 +281,16 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
     <span class="nav-logo-text">DSAIN</span>
   </a>
   <div class="nav-links">
-    <a href="#platform">Platform</a>
-    <a href="#tools">Free Tools</a>
-    <a href="#enterprise">Enterprise</a>
+    <a href="#strategy">Strategy</a>
+    <a href="#capital">Capital</a>
+    <a href="#platform">How It Works</a>
     <a href="#research">Research</a>
-    <a href="#contact" class="nav-cta">Contact Us</a>
+    <a href="#tools">Free Tools</a>
+    <a href="#contact" class="nav-cta">Request Demo</a>
   </div>
 </div>
 </nav>
-
+ 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
 <div class="hero-visual">
@@ -227,92 +298,92 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
   <div class="tag-layer" id="arp-tags"></div>
 </div>
 <div class="container" style="position:relative;z-index:1">
-  <div class="hero-eyebrow">DSAIN Research Labs</div>
-  <h1>AI systems cannot credibly verify <em>their own outputs.</em></h1>
-  <p class="hero-sub">We build the independent reliability layer — from enterprise decision engines to free public tools. Grounded in peer-reviewed research on how AI augmentation creates reliability risk.</p>
+  <div class="hero-eyebrow">DSAIN Strategy</div>
+  <h1>Strategic decisions deserve more than <em>a confident guess.</em></h1>
+  <p class="hero-sub">DSAIN gives CEOs, CSOs, and board members an AI-augmented strategic advisor with adversarial challenge, evidence grounding, and a full audit trail. Not a chatbot. A governed deliberation engine.</p>
   <div class="hero-actions">
-    <a href="#tools" class="btn-primary">Install Free Tools →</a>
-    <a href="#platform" class="btn-secondary">Explore the Platform</a>
+    <a href="#strategy" class="btn-primary">See DSAIN Strategy →</a>
+    <a href="#capital" class="btn-secondary">Explore DSAIN Capital</a>
   </div>
-
-  <!-- ARP Visual — replaces the globe -->
-  <div class="arp-visual">
+ 
+  <!-- ARP Visual — Ungoverned vs Governed comparison -->
+  <div class="arp-visual" style="grid-template-columns:1fr 1fr">
     <div class="arp-card">
-      <div class="arp-card-label">AI Chatbot Response</div>
+      <div class="arp-card-label">Without DSAIN — Single LLM (E1 Condition)</div>
       <div class="arp-bar-group">
-        <div class="arp-bar-label"><span>Expressed confidence</span><span style="color:var(--amber)">87%</span></div>
-        <div class="arp-bar"><div class="arp-bar-fill" style="width:87%;background:var(--amber)"></div></div>
+        <div class="arp-bar-label"><span>Expressed confidence</span><span style="color:var(--amber)">95%</span></div>
+        <div class="arp-bar"><div class="arp-bar-fill" style="width:95%;background:var(--amber)"></div></div>
       </div>
       <div class="arp-bar-group">
-        <div class="arp-bar-label"><span>Warranted confidence</span><span style="color:var(--green)">12%</span></div>
-        <div class="arp-bar"><div class="arp-bar-fill" style="width:12%;background:var(--green)"></div></div>
-      </div>
-      <div class="arp-card-verdict" style="color:var(--red)">● 75% calibration gap</div>
-      <div class="arp-card-desc">Sounds authoritative. Zero sources cited. Classic ARP manifestation.</div>
-    </div>
-    <div class="arp-card">
-      <div class="arp-card-label">News Headline</div>
-      <div class="arp-bar-group">
-        <div class="arp-bar-label"><span>Emotional loading</span><span style="color:var(--amber)">11%</span></div>
-        <div class="arp-bar"><div class="arp-bar-fill" style="width:68%;background:var(--amber)"></div></div>
-      </div>
-      <div class="arp-bar-group">
-        <div class="arp-bar-label"><span>Factual content</span><span style="color:var(--green)">23%</span></div>
-        <div class="arp-bar"><div class="arp-bar-fill" style="width:23%;background:var(--green)"></div></div>
-      </div>
-      <div class="arp-card-verdict" style="color:var(--amber)">● Heavy manipulation</div>
-      <div class="arp-card-desc">8 loaded words. 2 facts. Tells you how to feel before you think.</div>
-    </div>
-    <div class="arp-card">
-      <div class="arp-card-label">Phishing Email</div>
-      <div class="arp-bar-group">
-        <div class="arp-bar-label"><span>Pressure intensity</span><span style="color:var(--red)">92%</span></div>
-        <div class="arp-bar"><div class="arp-bar-fill" style="width:92%;background:var(--red)"></div></div>
-      </div>
-      <div class="arp-bar-group">
-        <div class="arp-bar-label"><span>Verifiable claims</span><span style="color:var(--green)">0%</span></div>
+        <div class="arp-bar-label"><span>Evidence grounding (EGR)</span><span style="color:var(--green)">0%</span></div>
         <div class="arp-bar"><div class="arp-bar-fill" style="width:0%;background:var(--green)"></div></div>
       </div>
-      <div class="arp-card-verdict" style="color:var(--red)">● Critical — 14 tactics</div>
-      <div class="arp-card-desc">Urgency, authority, greed. All psychological. Zero substance.</div>
+      <div class="arp-card-verdict" style="color:var(--red)">● 95% calibration gap</div>
+      <div class="arp-card-desc">No adversarial challenge. No fact checking. Zero sources verified. 23 seconds. Sounds right — but is it?</div>
+    </div>
+    <div class="arp-card">
+      <div class="arp-card-label">With DSAIN Strategy — Full Governance (E0 Baseline)</div>
+      <div class="arp-bar-group">
+        <div class="arp-bar-label"><span>Expressed confidence</span><span style="color:var(--amber)">58%</span></div>
+        <div class="arp-bar"><div class="arp-bar-fill" style="width:58%;background:var(--amber)"></div></div>
+      </div>
+      <div class="arp-bar-group">
+        <div class="arp-bar-label"><span>Evidence grounding (EGR)</span><span style="color:var(--green)">79%</span></div>
+        <div class="arp-bar"><div class="arp-bar-fill" style="width:79%;background:var(--green)"></div></div>
+      </div>
+      <div class="arp-card-verdict" style="color:var(--green)">● Confidence calibrated to evidence</div>
+      <div class="arp-card-desc">5 agents. 3 adversarial rounds. Devil's Advocate challenged 6 assumptions. Every claim traceable. 8 minutes.</div>
     </div>
   </div>
 </div>
 </section>
-
-<!-- ═══ PROBLEM ═══ -->
-<section class="section section-border">
+ 
+<!-- ═══ DSAIN STRATEGY ═══ -->
+<section class="section section-border" id="strategy">
 <div class="container">
-  <div class="section-eyebrow">The Problem</div>
-  <h2 style="font-size:clamp(26px,3vw,36px);font-weight:700;max-width:700px;margin-bottom:16px;letter-spacing:-0.02em">The same pattern. Three domains. One company.</h2>
-  <p style="font-size:15px;color:var(--text2);max-width:600px">Confidence without evidence is the most dangerous form of misinformation — because it's the hardest to detect. We call this the <strong style="color:var(--text)">Augmentation-Reliability Paradox</strong>.</p>
-  <div class="problem-grid">
-    <div class="problem-card">
-      <div class="problem-icon" style="background:rgba(59,130,246,0.12)">🏛</div>
-      <h3>In the Boardroom</h3>
-      <p>AI generates strategic recommendations that sound authoritative but can't trace reasoning to verified evidence. Boards can't audit what they can't see. No governance framework exists for AI-augmented decisions.</p>
+  <div class="section-eyebrow">Flagship Product</div>
+  <h2 style="font-size:clamp(26px,3vw,36px);font-weight:700;max-width:750px;margin-bottom:16px;letter-spacing:-0.02em">DSAIN Strategy — AI-Augmented Strategic Advisory for Leadership</h2>
+  <p style="font-size:15px;color:var(--text2);max-width:650px">Bring your most consequential strategic question. Upload your evidence. Get governance-constrained analysis from five specialized agents who challenge each other, ground every claim in verified data, and produce a traceable reasoning chain your board can audit.</p>
+ 
+  <div class="strategy-journey">
+    <div class="strategy-step">
+      <div class="strategy-step-num">01</div>
+      <h3>Ask</h3>
+      <p>CEO brings a strategic question: "Should we spin off our foundry business?" Optionally uploads internal evidence, market reports, or board materials. Selects which theoretical frameworks to apply — or lets DSAIN auto-select.</p>
     </div>
-    <div class="problem-card">
-      <div class="problem-icon" style="background:rgba(239,68,68,0.12)">⚖</div>
-      <h3>In Regulated Industries</h3>
-      <p>The EU AI Act requires independent assessment of high-risk AI systems by August 2026. LLM providers cannot credibly self-certify — the same way accounting firms cannot audit their own books. A structural gap exists.</p>
+    <div class="strategy-step">
+      <div class="strategy-step-num">02</div>
+      <h3>Deliberate</h3>
+      <p>Five agents analyze in three adversarial rounds. CFO quantifies financial impact. Strategy evaluates competitive positioning. Risk stress-tests downside scenarios. Devil's Advocate challenges consensus with data-backed counter-arguments. Fact Checker verifies every claim against Compustat and SEC filings.</p>
     </div>
-    <div class="problem-card">
-      <div class="problem-icon" style="background:rgba(245,158,11,0.12)">👤</div>
-      <h3>In Everyday Life</h3>
-      <p>AI chatbots reinforce delusions. Headlines manipulate emotions. Phishing exploits psychological pressure. The confidence-without-evidence pattern operates everywhere — and nobody was making it visible.</p>
+    <div class="strategy-step">
+      <div class="strategy-step-num">03</div>
+      <h3>Decide</h3>
+      <p>Board-ready output with Kill Chain Sankey showing full reasoning flow. Minority positions preserved. Scenario engine compiles recommendations into executable what-if financial models. Full audit trail: every claim traceable to its source.</p>
     </div>
+  </div>
+ 
+  <div style="margin-top:36px;padding:24px 0;max-width:750px">
+    <p style="font-size:14px;color:var(--text2);line-height:1.7"><strong style="color:var(--text)">Strategy consulting firms charge millions and deliver in 12 weeks</strong> — and increasingly use their own AI agents behind the scenes. An unstructured LLM hallucinates in 30 seconds. DSAIN Strategy lets you bring cutting-edge strategic advisory in-house: governance-constrained, evidence-grounded, and delivered in 8 minutes — with an audit trail your board can verify.</p>
+  </div>
+ 
+  <div class="strategy-personas">
+    <span class="strategy-persona">CEOs</span>
+    <span class="strategy-persona">Chief Strategy Officers</span>
+    <span class="strategy-persona">Board Directors</span>
+    <span class="strategy-persona">CFOs</span>
+    <span class="strategy-persona">Institutional Investors</span>
   </div>
 </div>
 </section>
-
+ 
 <!-- ═══ PLATFORM ═══ -->
 <section class="section section-border" id="platform">
 <div class="container">
   <div class="platform-header">
-    <div class="section-eyebrow">The Platform</div>
-    <h2>Strategic Cognition Engine</h2>
-    <p>A multi-agent deliberation architecture with evidence grounding, adversarial challenge, and auditable reasoning. Every recommendation is traceable.</p>
+    <div class="section-eyebrow">Architecture</div>
+    <h2>How It Works</h2>
+    <p>Seven governance microfoundations, one deliberation engine, complete auditability. Every recommendation is traceable. Every assumption is exposed. Every dissent is preserved.</p>
   </div>
   <div class="platform-grid">
     <div class="platform-item">
@@ -323,21 +394,21 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
     </div>
     <div class="platform-item">
       <div class="platform-item-number mono">02</div>
-      <h3>Financial Knowledge Graph</h3>
-      <p>Neo4j-powered corporate model connecting financial statements, ratios, external factors, and causal relationships. Compustat-grounded with 28 financial ratios.</p>
-      <div class="detail">Database: Neo4j graph<br>Ratios: 28 Compustat-grounded<br>Links: ExternalFactor → Metric</div>
+      <h3>Risk &amp; Structure Graph</h3>
+      <p>Neo4j-powered risk and structure graph encoding SEC 10-K risk factors, scenario metrics, and causal relationships. Financial data grounded in Compustat via Python with 28 calculated ratios across 10 years.</p>
+      <div class="detail">Neo4j: RiskFactor → IMPACTS → ScenarioMetric<br>Financial data: Compustat via Python (28 ratios)<br>Risk ingestion: SEC 10-K Item 1A (5 tickers × 11 years)</div>
     </div>
     <div class="platform-item">
       <div class="platform-item-number mono">03</div>
       <h3>Scenario Propagation Engine</h3>
-      <p>What-if analysis that propagates assumptions through the financial graph. ExternalFactor → EstimationFunction → FinancialMetric chains with explicit assumptions exposed.</p>
-      <div class="detail">Propagation: Full causal chain<br>Visualization: Kill Chain Sankey<br>Mode: Forward + reverse resolution</div>
+      <p>What-if analysis that compiles council recommendations into executable financial scenarios. Overrides propagate through the Python financial model with constraint enforcement and explicit assumption tracking.</p>
+      <div class="detail">Pipeline: ScenarioCompiler → ScenarioEngine<br>Data: Compustat financial model<br>Visualization: Kill Chain Sankey</div>
     </div>
     <div class="platform-item">
       <div class="platform-item-number mono">04</div>
       <h3>Evidence Grounding Layer</h3>
-      <p>Every factual claim tagged with source provenance. Source hierarchy: Compustat → verified search → knowledge graph → training knowledge. EGR computed automatically.</p>
-      <div class="detail">Sources: Tiered verification<br>Metric: Evidence Grounding Ratio<br>Enforcement: Architectural, not prompt</div>
+      <p>Every factual claim tagged with source provenance. Tiered verification: Compustat via Python → SEC 10-K risk factors via Neo4j → Tavily web research → training knowledge. EGR computed automatically.</p>
+      <div class="detail">Tier 1: Compustat (Python FinancialModel)<br>Tier 2: SEC risk factors (Neo4j)<br>Metric: Evidence Grounding Ratio (EGR)</div>
     </div>
     <div class="platform-item">
       <div class="platform-item-number mono">05</div>
@@ -351,84 +422,148 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
       <p>Every output assessed on two dimensions: expressed confidence (how certain it sounds) vs. warranted confidence (how much evidence supports it). The gap is the ARP manifesting.</p>
       <div class="detail">Expressed: Griffin & Tversky "strength"<br>Warranted: Epistemic "weight"<br>Gap: The Paradox, quantified</div>
     </div>
-  </div>
-</div>
-</section>
-
-<!-- ═══ LENS SUITE ═══ -->
-<section class="section section-border" id="tools">
-<div class="container">
-  <div class="section-eyebrow">Free Public Tools</div>
-  <h2 style="font-size:clamp(26px,3vw,36px);font-weight:700;margin-bottom:12px;letter-spacing:-0.02em">The DSAIN Lens Suite</h2>
-  <p class="lens-intro">We released core detection capabilities as free browser extensions — proving the framework works and building awareness of epistemic manipulation across AI, media, and email.</p>
-  <div class="lens-grid">
-    <div class="lens-card">
-      <div class="lens-icon" style="background:linear-gradient(135deg,#3b82f6,#7c3aed)">R</div>
-      <h3>Reliability Lens</h3>
-      <p class="lens-desc">Assesses AI chatbot outputs for evidence grounding, sycophancy, false precision, and the confidence-evidence gap. Works on ChatGPT, Claude, Gemini, Copilot, Perplexity.</p>
-      <div class="lens-tags">
-        <span class="lens-tag">AI Chatbots</span>
-        <span class="lens-tag">Evidence Grounding</span>
-        <span class="lens-tag">Sycophancy</span>
-      </div>
-      <a href="#" class="lens-link">Install from Chrome Web Store →</a>
-    </div>
-    <div class="lens-card">
-      <div class="lens-icon" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">C</div>
-      <h3>Clarity Lens</h3>
-      <p class="lens-desc">Highlights emotionally loaded language in news articles, YouTube titles, and social media posts. Detects intensifiers, loaded verbs, fear signals, and manipulative framing.</p>
-      <div class="lens-tags">
-        <span class="lens-tag">News & Media</span>
-        <span class="lens-tag">YouTube</span>
-        <span class="lens-tag">Social Media</span>
-      </div>
-      <a href="#" class="lens-link">Install from Chrome Web Store →</a>
-    </div>
-    <div class="lens-card">
-      <div class="lens-icon" style="background:linear-gradient(135deg,#ef4444,#f59e0b)">E</div>
-      <h3>Email Lens</h3>
-      <p class="lens-desc">Detects urgency, authority impersonation, greed triggers, and social pressure in emails. Catches the psychological manipulation that makes phishing work — regardless of sender.</p>
-      <div class="lens-tags">
-        <span class="lens-tag">Gmail</span>
-        <span class="lens-tag">Outlook</span>
-        <span class="lens-tag">Phishing</span>
-      </div>
-      <a href="#" class="lens-link">Install from Chrome Web Store →</a>
+    <div class="platform-item" style="grid-column: span 3">
+      <div class="platform-item-number mono">07</div>
+      <h3>Real-Time Signal Intelligence <span style="font-size:11px;color:var(--cyan);font-weight:400;margin-left:8px">DSAIN Capital</span></h3>
+      <p>Continuous monitoring of market signals, geopolitical events, and macroeconomic indicators. Signals are classified, routed to the living risk graph, and auto-trigger governance-constrained deliberation when materiality thresholds are crossed. The nerve center that never sleeps.</p>
+      <div class="detail">Sources: Finnhub (market) · GDELT (geopolitical) · FRED (macro)<br>Updates: Every 15 minutes<br>Trigger: Auto-deliberation on threshold breach</div>
     </div>
   </div>
 </div>
 </section>
-
-<!-- ═══ ENTERPRISE ═══ -->
-<section class="section section-border" id="enterprise">
+ 
+<!-- ═══ DSAIN CAPITAL ═══ -->
+<section class="section section-border capital-section" id="capital">
 <div class="container">
-  <div class="enterprise-layout">
-    <div class="enterprise-content">
-      <div class="section-eyebrow">Enterprise</div>
-      <h2>Independent LLM Reliability Assessment</h2>
-      <p>The same auditor independence principle that prevents accounting firms from auditing their own books creates structural demand for third-party AI output verification. DSAIN fills that gap.</p>
-      <ul class="enterprise-points">
-        <li><span class="ep-label">Evidence Grounding API</span><span class="ep-desc">Verify LLM claims against authoritative domain-specific databases — financial, legal, medical, scientific.</span></li>
-        <li><span class="ep-label">Source Quality Ranking</span><span class="ep-desc">Tiered verification hierarchy from primary sources through institutional to unverifiable training knowledge.</span></li>
-        <li><span class="ep-label">Cross-Model Verification</span><span class="ep-desc">Assess outputs using a different model family than the one that generated them. Structural independence by design.</span></li>
-        <li><span class="ep-label">Compliance Reporting</span><span class="ep-desc">Structured reliability reports mapped to EU AI Act, ISO 42001, and sector-specific regulatory frameworks.</span></li>
-        <li><span class="ep-label">Enterprise Knowledge Integration</span><span class="ep-desc">Verify LLM claims against your internal approved documents, policies, and data — without data leaving your environment.</span></li>
+  <div class="capital-layout">
+    <div class="capital-content">
+      <div class="section-eyebrow" style="color:var(--cyan)">Premium Tier</div>
+      <h2>DSAIN Capital — The Always-On Strategic Nerve Center</h2>
+      <p>Everything in Strategy, plus continuous signal monitoring. DSAIN Capital watches the world for you — market shifts, geopolitical events, macro indicators — and auto-triggers governed deliberation when materiality thresholds are crossed. Before you know you need it.</p>
+      <ul class="capital-features">
+        <li><strong>Real-time signal ingestion</strong> from financial markets (Finnhub), geopolitical intelligence (GDELT), and macroeconomic data (FRED)</li>
+        <li><strong>Living risk graph</strong> that propagates signals through your company's financial model continuously</li>
+        <li><strong>Alert system</strong> with configurable materiality thresholds per company and signal category</li>
+        <li><strong>Auto-triggered deliberation</strong> — when a signal crosses your threshold, the full DSAIN council convenes automatically</li>
+        <li><strong>Executive dashboard</strong> with signal feed, risk posture overview, alert management, and board report generation</li>
+        <li><strong>All governance of DSAIN Strategy</strong> — adversarial challenge, evidence grounding, audit trail — always on</li>
       </ul>
     </div>
-    <div class="enterprise-sidebar">
-      <h3>📊 Market Context</h3>
-      <div class="enterprise-stat"><span class="es-label">EU AI Act high-risk deadline</span><span class="es-value" style="color:var(--red)">Aug 2026</span></div>
-      <div class="enterprise-stat"><span class="es-label">Max non-compliance penalty</span><span class="es-value">€35M / 7%</span></div>
-      <div class="enterprise-stat"><span class="es-label">High-risk systems requiring assessment</span><span class="es-value">~18% of enterprise AI</span></div>
-      <div class="enterprise-stat"><span class="es-label">Third-party conformity assessment</span><span class="es-value" style="color:var(--green)">Required</span></div>
-      <div class="eu-callout">
-        <p><strong>The structural opportunity:</strong> LLM providers cannot credibly self-certify. The market requires independent assessment — and regulators are mandating it on a known timeline.</p>
+    <div class="capital-dashboard">
+      <div class="capital-dash-header">
+        <h4>DSAIN Capital — AAPL</h4>
+        <div class="capital-dash-status">MONITORING</div>
       </div>
+      <div class="capital-alert">
+        <div class="capital-alert-header">
+          <span class="capital-alert-severity high">HIGH</span>
+          <span style="font-size:10px;color:var(--text3)">2 min ago</span>
+        </div>
+        <div class="capital-alert-title">China semiconductor export controls — 8.2% revenue at risk</div>
+        <div class="capital-alert-meta">Source: GDELT · Category: tariff_trade · Goldstein: -7.2</div>
+        <div class="capital-alert-actions">
+          <button class="capital-alert-btn" style="border-color:var(--blue);color:var(--blue)">Deliberate</button>
+          <button class="capital-alert-btn">Dismiss</button>
+        </div>
+      </div>
+      <div class="capital-alert">
+        <div class="capital-alert-header">
+          <span class="capital-alert-severity medium">MED</span>
+          <span style="font-size:10px;color:var(--text3)">18 min ago</span>
+        </div>
+        <div class="capital-alert-title">10Y Treasury yield rose 15bps — debt service sensitivity flagged</div>
+        <div class="capital-alert-meta">Source: FRED · Category: macroeconomic · T10Y2Y: -0.12</div>
+      </div>
+      <div class="capital-signals">
+        <div class="capital-signal-row">
+          <span class="capital-signal-dot" style="background:var(--green)"></span>
+          <span class="capital-signal-source" style="background:rgba(34,197,94,0.15);color:var(--green)">FINNHUB</span>
+          <span style="color:var(--text2)">AAPL beat Q1 earnings by 4.2% — analyst consensus shifted</span>
+        </div>
+        <div class="capital-signal-row">
+          <span class="capital-signal-dot" style="background:var(--amber)"></span>
+          <span class="capital-signal-source" style="background:rgba(245,158,11,0.15);color:var(--amber)">GDELT</span>
+          <span style="color:var(--text2)">EU Digital Markets Act enforcement action — regulatory risk</span>
+        </div>
+        <div class="capital-signal-row">
+          <span class="capital-signal-dot" style="background:var(--blue)"></span>
+          <span class="capital-signal-source" style="background:rgba(59,130,246,0.15);color:var(--blue)">FRED</span>
+          <span style="color:var(--text2)">CPI +0.4% MoM — above consensus, rate cut expectations repriced</span>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Product Ladder -->
+  <div class="product-ladder">
+    <div class="product-ladder-item">
+      <h4 style="color:var(--purple)">DSAIN Lens Suite</h4>
+      <div class="product-ladder-tier" style="color:var(--text3)">Free</div>
+      <p>Browser extensions for AI, media, and email reliability assessment. Proves the framework works.</p>
+    </div>
+    <div class="product-ladder-item">
+      <h4 style="color:var(--blue)">DSAIN Strategy</h4>
+      <div class="product-ladder-tier" style="color:var(--blue)">Enterprise</div>
+      <p>On-demand governance-constrained strategic deliberation for TMTs and boards. The core product.</p>
+    </div>
+    <div class="product-ladder-item">
+      <h4 style="color:var(--cyan)">DSAIN Capital</h4>
+      <div class="product-ladder-tier" style="color:var(--cyan)">Premium</div>
+      <p>Strategy + continuous signal intelligence and auto-triggered alerts. The always-on nerve center.</p>
     </div>
   </div>
 </div>
 </section>
-
+ 
+<!-- ═══ VERTICALS ═══ -->
+<section class="section section-border">
+<div class="container">
+  <div class="section-eyebrow">Where We're Going</div>
+  <h2 style="font-size:clamp(26px,3vw,36px);font-weight:700;margin-bottom:12px;letter-spacing:-0.02em">Domain-Specific Strategic Intelligence</h2>
+  <p style="font-size:15px;color:var(--text2);max-width:600px">DSAIN Strategy is the core governance engine. Domain verticals add specialized data, agents, and output formats.</p>
+  <div class="verticals-grid">
+    <div class="vertical-card">
+      <h3 style="color:var(--amber)">DSAIN Defense</h3>
+      <p>AI-governed strategic decision support for military command. Kill Chain analysis, adversarial red-team deliberation, evidence-grounded scenario planning for defense leaders.</p>
+      <div class="vertical-stat">Canada: $81.1B defense investment · $38.6B NORAD modernization</div>
+      <div class="vertical-stat">Global military AI: $32.8B by 2031 (30% CAGR)</div>
+      <span class="vertical-badge" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);color:var(--amber)">In Development</span>
+    </div>
+    <div class="vertical-card">
+      <h3 style="color:var(--blue)">DSAIN Supply Chain</h3>
+      <p>Geopolitical risk intelligence for sourcing and reshoring decisions. Tariff scenario propagation, trade policy analysis, and supply chain resilience planning for C-suites.</p>
+      <div class="vertical-stat">Only 20% of leaders can respond to geopolitical disruption within 24 hours</div>
+      <span class="vertical-badge" style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.25);color:var(--blue)">Planned</span>
+    </div>
+    <div class="vertical-card">
+      <h3 style="color:var(--green)">Your Domain</h3>
+      <p>The governance engine is domain-agnostic. Pharma pipeline decisions, energy infrastructure investment, institutional portfolio strategy — the architecture adapts to your strategic context.</p>
+      <div class="vertical-stat">Partner with us to build a vertical for your industry</div>
+      <a href="#contact" class="lens-link" style="margin-top:8px">Get in Touch →</a>
+    </div>
+  </div>
+ 
+  <div class="market-banner">
+    <div class="market-banner-item">
+      <div class="market-banner-value">$32.8B</div>
+      <div class="market-banner-label">Defense AI by 2031</div>
+    </div>
+    <div class="market-banner-item">
+      <div class="market-banner-value">$190B</div>
+      <div class="market-banner-label">AI in Finance by 2030</div>
+    </div>
+    <div class="market-banner-item">
+      <div class="market-banner-value">$81.1B</div>
+      <div class="market-banner-label">Canada Defense Committed</div>
+    </div>
+    <div class="market-banner-item">
+      <div class="market-banner-value">$9B+</div>
+      <div class="market-banner-label">Defense Tech VC in 2025</div>
+    </div>
+  </div>
+</div>
+</section>
+ 
 <!-- ═══ RESEARCH ═══ -->
 <section class="section section-border" id="research">
 <div class="container">
@@ -494,9 +629,56 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
     </div>
     </div>
   </div>
+  <div style="margin-top:32px;background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:8px;padding:20px;max-width:700px">
+    <p style="font-size:13px;color:var(--text2);line-height:1.6"><strong style="color:var(--text)">Why this matters:</strong> DSAIN is the only strategic AI platform with governance architecture grounded in peer-reviewed management theory, under doctoral supervision at a globally ranked business school. This isn't a feature — it's a competitive moat that no competitor can replicate.</p>
+  </div>
 </div>
 </section>
-
+ 
+<!-- ═══ LENS SUITE ═══ -->
+<section class="section section-border" id="tools">
+<div class="container">
+  <div class="section-eyebrow">Free Public Tools</div>
+  <h2 style="font-size:clamp(26px,3vw,36px);font-weight:700;margin-bottom:12px;letter-spacing:-0.02em">The DSAIN Lens Suite</h2>
+  <p class="lens-intro">We released core detection capabilities as free browser extensions — proving that the Augmentation-Reliability Paradox manifests everywhere AI generates confident text: in chatbots, in news headlines, and in your inbox.</p>
+  <div class="lens-grid">
+    <div class="lens-card">
+      <div class="lens-icon" style="background:linear-gradient(135deg,#3b82f6,#7c3aed)">R</div>
+      <h3>Reliability Lens</h3>
+      <p class="lens-desc">Assesses AI chatbot outputs for evidence grounding, sycophancy, false precision, and the confidence-evidence gap. Works on ChatGPT, Claude, Gemini, Copilot, Perplexity.</p>
+      <div class="lens-tags">
+        <span class="lens-tag">AI Chatbots</span>
+        <span class="lens-tag">Evidence Grounding</span>
+        <span class="lens-tag">Sycophancy</span>
+      </div>
+      <a href="#" class="lens-link">Install from Chrome Web Store →</a>
+    </div>
+    <div class="lens-card">
+      <div class="lens-icon" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">C</div>
+      <h3>Clarity Lens</h3>
+      <p class="lens-desc">Highlights emotionally loaded language in news articles, YouTube titles, and social media posts. Detects intensifiers, loaded verbs, fear signals, and manipulative framing.</p>
+      <div class="lens-tags">
+        <span class="lens-tag">News & Media</span>
+        <span class="lens-tag">YouTube</span>
+        <span class="lens-tag">Social Media</span>
+      </div>
+      <a href="#" class="lens-link">Install from Chrome Web Store →</a>
+    </div>
+    <div class="lens-card">
+      <div class="lens-icon" style="background:linear-gradient(135deg,#ef4444,#f59e0b)">E</div>
+      <h3>Email Lens</h3>
+      <p class="lens-desc">Detects urgency, authority impersonation, greed triggers, and social pressure in emails. Catches the psychological manipulation that makes phishing work — regardless of sender.</p>
+      <div class="lens-tags">
+        <span class="lens-tag">Gmail</span>
+        <span class="lens-tag">Outlook</span>
+        <span class="lens-tag">Phishing</span>
+      </div>
+      <a href="#" class="lens-link">Install from Chrome Web Store →</a>
+    </div>
+  </div>
+</div>
+</section>
+ 
 <!-- ═══ TEAM ═══ -->
 <section class="section section-border">
 <div class="container">
@@ -516,7 +698,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
   </div>
 </div>
 </section>
-
+ 
 <!-- ═══ CONTACT ═══ -->
 <section class="section section-border" id="contact">
 <div class="container">
@@ -564,21 +746,25 @@ document.getElementById('dsain-form').addEventListener('submit', function(e) {
     <div class="contact-info" style="padding-top:80px">
       <h3>DSAIN Research Labs</h3>
       <div class="contact-detail">Calgary, Alberta, Canada</div>
-      <div class="contact-detail"><a href="mailto:strategy@dsain.ca">strategy@dsain.ca</a></div>
+      <div class="contact-detail"><a href="/cdn-cgi/l/email-protection#12616660736677756b527661737b7c3c7173"><span class="__cf_email__" data-cfemail="cfbcbbbdaebbaaa8b68fabbcaea6a1e1acae">[email&#160;protected]</span></a></div>
       <div class="contact-detail" style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border)">
   <strong style="color:var(--text);display:block;margin-bottom:12px">What we're looking for</strong>
   <div style="display:flex;flex-direction:column;gap:10px">
     <div style="display:flex;align-items:flex-start;gap:8px">
       <span style="color:var(--blue);font-size:14px;flex-shrink:0;margin-top:1px">◆</span>
-      <span>Enterprise design partners deploying LLMs in regulated environments</span>
+      <span>CFOs and strategy leaders willing to pilot DSAIN Strategy as their governed AI advisory layer</span>
     </div>
     <div style="display:flex;align-items:flex-start;gap:8px">
       <span style="color:var(--amber);font-size:14px;flex-shrink:0;margin-top:1px">◆</span>
-      <span>Accelerator programs focused on AI governance and reliability</span>
+      <span>Defense and national security organizations pursuing Canada's IDEaS program or NORAD modernization</span>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:8px">
+      <span style="color:var(--cyan);font-size:14px;flex-shrink:0;margin-top:1px">◆</span>
+      <span>Investment partners focused on defense tech, fintech, or AI governance infrastructure</span>
     </div>
     <div style="display:flex;align-items:flex-start;gap:8px">
       <span style="color:var(--green);font-size:14px;flex-shrink:0;margin-top:1px">◆</span>
-      <span>Investment partners who understand that AI reliability is infrastructure, not a feature</span>
+      <span>Research collaborators interested in the Augmentation-Reliability Paradox and AI governance</span>
     </div>
   </div>
 </div>
@@ -586,7 +772,7 @@ document.getElementById('dsain-form').addEventListener('submit', function(e) {
   </div>
 </div>
 </section>
-
+ 
 <!-- ═══ FOOTER ═══ -->
 <footer>
 <div class="container">
@@ -595,12 +781,12 @@ document.getElementById('dsain-form').addEventListener('submit', function(e) {
     <div class="footer-links">
       <a href="https://caipi-dev.github.io/dsainlabs.github.io/privacy.html">Privacy Policy</a>
       <a href="#">Chrome Web Store</a>
-      <a href="mailto:strategy@dsain.ca">Contact</a>
+      <a href="/cdn-cgi/l/email-protection#2e5d5a5c4f5a4b49576e4a5d4f4740004d4f">Contact</a>
     </div>
   </div>
 </div>
 </footer>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
 const cv=document.getElementById('arp-canvas'),cx=cv.getContext('2d'),tl=document.getElementById('arp-tags');
 let W,H,dp;
@@ -652,11 +838,4 @@ cx.beginPath();for(let x=0;x<=W;x+=s){x===0?cx.moveTo(x,wY(x,t)):cx.lineTo(x,wY(
 const wf=cx.createLinearGradient(0,H*WB,0,H);wf.addColorStop(0,'rgba(34,197,94,0.02)');wf.addColorStop(1,'rgba(34,197,94,0)');cx.fillStyle=wf;cx.fill();
 for(let i=0;i<14;i++){const px=W*(i+0.5)/14,ey3=eY(px,t),wy3=wY(px,t),p=1+Math.sin(t*2+i)*0.3;
 cx.beginPath();cx.arc(px,ey3,2*p,0,Math.PI*2);cx.fillStyle='rgba(245,158,11,0.35)';cx.fill();
-cx.beginPath();cx.arc(px,wy3,2*p,0,Math.PI*2);cx.fillStyle='rgba(34,197,94,0.3)';cx.fill();}}
-let t0=null;
-function loop(ts){if(!t0)t0=ts;const t=(ts-t0)/1000;drawFrame(t);tags.forEach(tg=>{tg.tick();if(!tg.ok){tg.spawn(false);tg.ok=true;}});requestAnimationFrame(loop);}
-requestAnimationFrame(loop);
-})();
-</script>
-</body>
-</html>
+cx.beginPath();cx.arc(px,wy3,2*p,0,Math.PI*2);cx.fillS
