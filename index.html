@@ -853,41 +853,58 @@ nav.scrolled {
   margin-bottom: 32px;
   max-width: 560px;
 }
-.dna-list {
-  display: flex; flex-direction: column;
+.dna-agents {
+  display: flex;
+  flex-direction: column;
   border-top: 1px solid var(--rule);
 }
-.dna-row {
+.dna-agent {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 150px 1fr;
+  gap: 32px;
   align-items: baseline;
-  gap: 24px;
-  padding: 18px 0;
+  padding: 20px 0;
   border-bottom: 1px solid var(--rule);
   transition: padding-left .35s var(--ease), background .35s var(--ease);
 }
-.dna-row:hover {
+.dna-agent:hover {
   padding-left: 12px;
   background: linear-gradient(90deg, rgba(95,200,212,.04) 0%, transparent 60%);
 }
-.dna-name {
-  font-family: var(--sans);
-  font-weight: 400;
-  font-size: 15.5px;
-  color: var(--ink);
-  letter-spacing: -.005em;
+.dna-agent-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  font-weight: 500;
+  white-space: nowrap;
 }
-.dna-name em {
+.dna-agent-theories {
   font-family: var(--serif);
   font-style: italic;
   font-weight: 400;
+  font-size: 17.5px;
+  line-height: 1.4;
+  letter-spacing: -.005em;
+  color: var(--ink);
 }
-.dna-author {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink-3);
-  letter-spacing: .1em;
-  text-transform: uppercase;
+.dna-agent-theories span:not(:first-child)::before {
+  content: ' · ';
+  color: var(--ink-4);
+  font-style: normal;
+  margin: 0 4px;
+}
+
+@media (max-width: 720px) {
+  .dna-agent {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 18px 0;
+  }
+  .dna-agent-theories {
+    font-size: 16px;
+  }
 }
 
 .dna-research {
@@ -1334,20 +1351,37 @@ footer {
 <nav id="nav">
   <div class="nav-inner">
     <a href="#top" class="logo" aria-label="DSAIN home">
-      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <linearGradient id="logoG" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="#5fc8d4"/>
             <stop offset="1" stop-color="#5b8aff"/>
           </linearGradient>
         </defs>
-        <circle cx="16" cy="16" r="14" stroke="url(#logoG)" stroke-width="1" opacity=".4"/>
-        <circle cx="16" cy="16" r="9"  stroke="url(#logoG)" stroke-width="1" opacity=".7"/>
-        <circle cx="16" cy="16" r="3"  fill="url(#logoG)"/>
-        <circle cx="16" cy="2"  r="1.4" fill="#5fc8d4"/>
-        <circle cx="30" cy="16" r="1.4" fill="#5b8aff"/>
-        <circle cx="16" cy="30" r="1.4" fill="#5b8aff"/>
-        <circle cx="2"  cy="16" r="1.4" fill="#5fc8d4"/>
+        <g stroke="url(#logoG)" stroke-width="1.2" stroke-linecap="round">
+          <line x1="16" y1="15" x2="16" y2="3"/>
+          <line x1="16" y1="15" x2="22" y2="5"/>
+          <line x1="16" y1="15" x2="27" y2="11"/>
+          <line x1="16" y1="15" x2="27" y2="20"/>
+          <line x1="16" y1="15" x2="22" y2="25"/>
+          <line x1="16" y1="15" x2="10" y2="25"/>
+          <line x1="16" y1="15" x2="5"  y2="20"/>
+          <line x1="16" y1="15" x2="5"  y2="11"/>
+          <line x1="16" y1="15" x2="10" y2="5"/>
+        </g>
+        <g fill="url(#logoG)">
+          <circle cx="16" cy="3"  r="1.4"/>
+          <circle cx="22" cy="5"  r="1.4"/>
+          <circle cx="27" cy="11" r="1.4"/>
+          <circle cx="27" cy="20" r="1.4"/>
+          <circle cx="22" cy="25" r="1.4"/>
+          <circle cx="10" cy="25" r="1.4"/>
+          <circle cx="5"  cy="20" r="1.4"/>
+          <circle cx="5"  cy="11" r="1.4"/>
+          <circle cx="10" cy="5"  r="1.4"/>
+          <circle cx="16" cy="15" r="1.6"/>
+          <path d="M 16 15 C 14 19, 14 26, 16 30 C 18 26, 18 19, 16 15 Z"/>
+        </g>
       </svg>
       <span class="logo-text">DSAIN</span>
     </a>
@@ -1763,15 +1797,30 @@ footer {
       <div class="dna-body reveal delay-1">
         <p>Each agent in the council reasons from established theoretical priors. The arguments inherit credibility from the academic record — not from the model's confidence — and are built to survive board-level scrutiny.</p>
 
-        <div class="dna-list">
-          <div class="dna-row"><span class="dna-name"><em>Dynamic Capabilities</em></span><span class="dna-author">Teece</span></div>
-          <div class="dna-row"><span class="dna-name"><em>Resource-Based View</em></span><span class="dna-author">Barney</span></div>
-          <div class="dna-row"><span class="dna-name"><em>Five Forces</em></span><span class="dna-author">Porter</span></div>
-          <div class="dna-row"><span class="dna-name"><em>Transaction Cost Economics</em></span><span class="dna-author">Williamson</span></div>
-          <div class="dna-row"><span class="dna-name"><em>Bounded Reliability</em></span><span class="dna-author">Verbeke</span></div>
+        <div class="dna-agents">
+          <div class="dna-agent">
+            <div class="dna-agent-name">CFO Agent</div>
+            <div class="dna-agent-theories"><span>Capital Structure</span><span>Agency Theory</span><span>Real Options</span></div>
+          </div>
+          <div class="dna-agent">
+            <div class="dna-agent-name">Strategy Agent</div>
+            <div class="dna-agent-theories"><span>Dynamic Capabilities</span><span>Resource-Based View</span><span>Five Forces</span></div>
+          </div>
+          <div class="dna-agent">
+            <div class="dna-agent-name">Risk Agent</div>
+            <div class="dna-agent-theories"><span>Transaction Cost Economics</span><span>Bounded Reliability</span><span>Stakeholder Theory</span></div>
+          </div>
+          <div class="dna-agent">
+            <div class="dna-agent-name">Devil's Advocate</div>
+            <div class="dna-agent-theories"><span>Bounded Rationality</span><span>Behavioral Theory of the Firm</span><span>Prospect Theory</span></div>
+          </div>
+          <div class="dna-agent">
+            <div class="dna-agent-name">Fact Checker</div>
+            <div class="dna-agent-theories"><span>Evidence-Based Management</span><span>Bayesian Reasoning</span><span>Falsificationism</span></div>
+          </div>
         </div>
 
-        <p class="dna-research">Developed in supervised doctoral business research at the Haskayne School of Business · University of Calgary.</p>
+        <p class="dna-research">Informed by active doctoral research in strategic management.</p>
       </div>
     </div>
   </div>
@@ -1949,7 +1998,7 @@ footer {
       <p>DSAIN is built for leaders whose decisions are too consequential to wait for certainty — and too time-sensitive to wait for the consultant's deck. Briefings are scheduled with offices of the CEO and chief strategy or investment officers. Discreet, contextual, on the firm's calendar.</p>
 
       <div class="actions">
-        <a href="mailto:rana@dsain.ai" class="btn btn-primary">
+        <a href="mailto:strategy@dsain.ca" class="btn btn-primary">
           Request a Strategy Briefing
           <svg class="arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -1983,10 +2032,31 @@ footer {
     <div class="foot-grid">
       <div class="foot-brand">
         <a href="#top" class="logo">
-          <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <circle cx="16" cy="16" r="14" stroke="url(#logoG)" stroke-width="1" opacity=".4"/>
-            <circle cx="16" cy="16" r="9"  stroke="url(#logoG)" stroke-width="1" opacity=".7"/>
-            <circle cx="16" cy="16" r="3"  fill="url(#logoG)"/>
+          <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g stroke="url(#logoG)" stroke-width="1.2" stroke-linecap="round">
+              <line x1="16" y1="15" x2="16" y2="3"/>
+              <line x1="16" y1="15" x2="22" y2="5"/>
+              <line x1="16" y1="15" x2="27" y2="11"/>
+              <line x1="16" y1="15" x2="27" y2="20"/>
+              <line x1="16" y1="15" x2="22" y2="25"/>
+              <line x1="16" y1="15" x2="10" y2="25"/>
+              <line x1="16" y1="15" x2="5"  y2="20"/>
+              <line x1="16" y1="15" x2="5"  y2="11"/>
+              <line x1="16" y1="15" x2="10" y2="5"/>
+            </g>
+            <g fill="url(#logoG)">
+              <circle cx="16" cy="3"  r="1.4"/>
+              <circle cx="22" cy="5"  r="1.4"/>
+              <circle cx="27" cy="11" r="1.4"/>
+              <circle cx="27" cy="20" r="1.4"/>
+              <circle cx="22" cy="25" r="1.4"/>
+              <circle cx="10" cy="25" r="1.4"/>
+              <circle cx="5"  cy="20" r="1.4"/>
+              <circle cx="5"  cy="11" r="1.4"/>
+              <circle cx="10" cy="5"  r="1.4"/>
+              <circle cx="16" cy="15" r="1.6"/>
+              <path d="M 16 15 C 14 19, 14 26, 16 30 C 18 26, 18 19, 16 15 Z"/>
+            </g>
           </svg>
           <span class="logo-text">DSAIN</span>
         </a>
