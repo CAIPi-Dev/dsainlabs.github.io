@@ -3,158 +3,192 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="DSAIN — the executive intelligence layer that helps leadership teams outthink the market. AI-augmented strategic deliberation, grounded in theory and evidence." />
-<meta name="theme-color" content="#050810" />
+<meta name="description" content="DSAIN — the executive intelligence layer that helps leadership teams see weak signals first, challenge assumptions before they get expensive, and convert uncertainty into strategic options." />
+<meta name="theme-color" content="#04060d" />
 <title>DSAIN — Executive Intelligence for Strategic Advantage</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================================
-   DSAIN — Executive Intelligence Layer
+   DSAIN — Executive Intelligence Layer · Briefing Aesthetic
    Standalone HTML / CSS / Vanilla JS
    ============================================================ */
 
 :root {
-  /* Surface */
-  --bg:           #050810;
-  --bg-1:         #080d18;
-  --bg-2:         #0c1322;
-  --bg-3:         #11192c;
-  --bg-elev:      #161f37;
-  --border:       #1d2742;
-  --border-2:     #2a3656;
-  --border-3:     #3b4870;
+  /* Surface — deeper ink-toned blacks */
+  --bg:        #04060d;
+  --bg-1:      #070a14;
+  --bg-2:      #0b1020;
+  --bg-3:      #0f1628;
+  --elev:      #131b30;
 
-  /* Text */
-  --text:         #eef1f7;
-  --text-2:       #a8b2c9;
-  --text-3:       #6c7691;
-  --text-4:       #404a64;
+  /* Hairlines / rules */
+  --rule:      #161e36;
+  --rule-2:    #232c4a;
+  --rule-3:    #344063;
 
-  /* Accents */
-  --blue:         #4f8eff;
-  --blue-deep:    #2563eb;
-  --cyan:         #22d3ee;
-  --teal:         #2dd4bf;
-  --gold:         #c8a35a;
-  --gold-dim:     #8a6f3a;
+  /* Text — warm whites, restrained greys */
+  --ink:       #f1f3f9;
+  --ink-2:     #b3bcd1;
+  --ink-3:     #7d8aa6;
+  --ink-4:     #4d597a;
+  --ink-5:     #2f3957;
+
+  /* Accents — sparing, deliberate */
+  --cyan:      #5fc8d4;
+  --cyan-2:    #38a8b6;
+  --blue:      #5b8aff;
+  --blue-2:    #2b5dde;
+  --gold:      #c8a35a;
+  --gold-2:    #8a6f3a;
 
   /* Typography */
-  --sans:    'IBM Plex Sans', system-ui, -apple-system, sans-serif;
-  --mono:    'IBM Plex Mono', ui-monospace, monospace;
-  --serif:   'Instrument Serif', 'Times New Roman', serif;
+  --serif:  'Instrument Serif', 'Times New Roman', serif;
+  --sans:   'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --mono:   'IBM Plex Mono', ui-monospace, monospace;
 
   /* Layout */
-  --maxw: 1200px;
-  --pad:  28px;
+  --maxw: 1240px;
+  --maxw-r: 1080px;        /* readable */
+  --pad: 32px;
 
   /* Motion */
-  --ease:      cubic-bezier(.2,.7,.2,1);
+  --ease:      cubic-bezier(.22,.7,.2,1);
   --ease-out:  cubic-bezier(.16,1,.3,1);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--sans);
   background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  font-weight: 400;
+  color: var(--ink);
+  font-weight: 300;
   font-size: 16px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "kern", "liga";
 }
 
-/* ── Selection ── */
-::selection { background: rgba(79,142,255,.35); color: #fff; }
+::selection { background: rgba(95,200,212,.28); color: #fff; }
 
-/* ── Subtle background grid ── */
+/* ── Atmospheric background grid ── */
 body::before {
   content: '';
-  position: fixed;
-  inset: 0;
+  position: fixed; inset: 0;
   background-image:
     linear-gradient(rgba(255,255,255,.012) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.012) 1px, transparent 1px);
-  background-size: 64px 64px;
+  background-size: 80px 80px;
   pointer-events: none;
   z-index: 0;
-  mask-image: radial-gradient(ellipse at 50% 30%, black 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 30%, transparent 80%);
+  mask-image: radial-gradient(ellipse at 50% 35%, black 25%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 35%, black 25%, transparent 75%);
 }
 
-/* ── Layout ── */
-.container { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); position: relative; z-index: 2; }
-.section   { padding: 120px 0; position: relative; z-index: 2; }
-.section + .section { border-top: 1px solid var(--border); }
+/* ── Layout primitives ── */
+.container   { max-width: var(--maxw);   margin: 0 auto; padding: 0 var(--pad); position: relative; z-index: 2; }
+.container-r { max-width: var(--maxw-r); margin: 0 auto; padding: 0 var(--pad); position: relative; z-index: 2; }
+.section { padding: 140px 0; position: relative; z-index: 2; }
 
-/* ── Eyebrows / Section Labels ── */
-.eyebrow {
-  font-family: var(--mono);
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--cyan);
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-.eyebrow::before {
+/* hairline divider between sections */
+.section + .section::before {
   content: '';
-  width: 26px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cyan));
+  position: absolute; top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 64px);
+  max-width: var(--maxw);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rule) 20%, var(--rule) 80%, transparent);
 }
 
-/* ── Headlines ── */
-h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; }
+/* ── Chapter eyebrow (Roman numeral + label) ── */
+.chapter {
+  display: flex; align-items: baseline; gap: 18px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 32px;
+}
+.chapter .num {
+  color: var(--cyan);
+  font-weight: 500;
+  letter-spacing: .15em;
+}
+.chapter .rule {
+  flex: 0 0 32px;
+  height: 1px;
+  background: var(--rule-2);
+  align-self: center;
+}
+
+/* ── Display typography ── */
+h1, h2, h3, h4 { font-weight: 400; letter-spacing: -.018em; line-height: 1.12; }
 
 .h-display {
   font-family: var(--serif);
   font-weight: 400;
   font-style: normal;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  font-size: clamp(40px, 6vw, 76px);
+  letter-spacing: -.022em;
+  line-height: 1.02;
+  color: var(--ink);
 }
-.h-display em { font-style: italic; color: var(--text); }
-.h-display .accent {
-  font-family: var(--serif);
+.h-display em {
   font-style: italic;
-  background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 60%, var(--text) 100%);
+  color: var(--ink);
+}
+.h-display .accent {
+  font-style: italic;
+  background: linear-gradient(110deg, var(--cyan) 10%, var(--blue) 60%, #d6def0 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .h-section {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: clamp(28px, 3.4vw, 44px);
-  letter-spacing: -0.025em;
-  line-height: 1.15;
-  max-width: 900px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(34px, 4.4vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -.022em;
+  color: var(--ink);
+  max-width: 920px;
 }
 .h-section em {
-  font-family: var(--serif);
   font-style: italic;
-  font-weight: 400;
-  color: var(--text);
+}
+.h-section .accent {
+  font-style: italic;
+  color: var(--cyan);
 }
 
 .lede {
-  color: var(--text-2);
-  font-size: 17px;
-  line-height: 1.65;
-  max-width: 640px;
-  margin-top: 20px;
+  color: var(--ink-2);
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 680px;
+  margin-top: 24px;
+  letter-spacing: -.005em;
+}
+
+/* tiny mono labels */
+.tag-mono {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
 }
 
 /* ============================================================
@@ -163,98 +197,101 @@ h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; }
 nav {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(5,8,16,.55);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  background: rgba(4,6,13,.55);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
   border-bottom: 1px solid transparent;
-  transition: background .3s var(--ease), border-color .3s var(--ease);
+  transition: background .35s var(--ease), border-color .35s var(--ease);
 }
 nav.scrolled {
-  background: rgba(5,8,16,.85);
-  border-bottom-color: var(--border);
+  background: rgba(4,6,13,.85);
+  border-bottom-color: var(--rule);
 }
+
 .nav-inner {
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 var(--pad);
   display: flex; align-items: center; justify-content: space-between;
-  height: 68px;
+  height: 72px;
 }
+
 .logo {
-  display: inline-flex; align-items: center; gap: 11px;
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: .02em;
+  display: inline-flex; align-items: center; gap: 12px;
+  text-decoration: none; color: var(--ink);
 }
-.logo-mark {
-  width: 28px; height: 28px;
-  position: relative;
+.logo-mark { width: 26px; height: 26px; display: block; }
+.logo-text {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 15.5px;
+  letter-spacing: .08em;
 }
-.logo-mark svg { width: 100%; height: 100%; display: block; }
 
 .nav-links {
-  display: flex; gap: 34px; align-items: center;
+  display: flex; gap: 36px; align-items: center;
 }
 .nav-links a {
-  color: var(--text-3);
+  color: var(--ink-3);
   text-decoration: none;
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 400;
   letter-spacing: .005em;
-  transition: color .2s var(--ease);
+  transition: color .25s var(--ease);
 }
-.nav-links a:hover { color: var(--text); }
+.nav-links a:hover { color: var(--ink); }
 
 .nav-cta {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: linear-gradient(180deg, var(--text) 0%, #c9d3e6 100%);
-  color: var(--bg);
-  padding: 9px 18px 9px 20px;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 10px 18px 10px 20px;
   border-radius: 999px;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: .015em;
   text-decoration: none;
-  letter-spacing: .005em;
-  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
-  box-shadow: 0 1px 0 rgba(255,255,255,.4) inset, 0 8px 28px -10px rgba(79,142,255,.5);
+  color: var(--ink);
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--rule-2);
+  transition: all .3s var(--ease);
 }
 .nav-cta:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 14px 36px -10px rgba(79,142,255,.7);
+  background: rgba(255,255,255,.07);
+  border-color: var(--rule-3);
 }
-.nav-cta svg { transition: transform .2s var(--ease); }
+.nav-cta svg { transition: transform .25s var(--ease); }
 .nav-cta:hover svg { transform: translateX(2px); }
 
 .nav-toggle {
   display: none;
-  background: transparent; border: 1px solid var(--border-2);
-  color: var(--text-2); padding: 8px 10px; border-radius: 8px; cursor: pointer;
+  background: transparent; border: 1px solid var(--rule-2);
+  color: var(--ink-2); padding: 8px 10px; border-radius: 8px; cursor: pointer;
 }
 
-@media (max-width: 880px) {
+.nav-mobile { display: none; }
+
+@media (max-width: 920px) {
   .nav-links, .nav-cta { display: none; }
   .nav-toggle { display: inline-flex; }
   .nav-mobile {
-    position: fixed; top: 68px; left: 0; right: 0;
-    background: rgba(5,8,16,.96);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    padding: 24px 28px 32px;
+    display: block;
+    position: fixed; top: 72px; left: 0; right: 0;
+    background: rgba(4,6,13,.97);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--rule);
+    padding: 24px 32px 32px;
     transform: translateY(-110%);
-    transition: transform .35s var(--ease);
+    transition: transform .4s var(--ease);
     z-index: 99;
   }
   .nav-mobile.open { transform: translateY(0); }
   .nav-mobile a {
     display: block; padding: 14px 0;
-    color: var(--text-2); text-decoration: none;
-    border-bottom: 1px solid var(--border);
+    color: var(--ink-2); text-decoration: none;
+    border-bottom: 1px solid var(--rule);
     font-size: 16px;
   }
   .nav-mobile a:last-of-type { border: none; }
-  .nav-mobile .nav-cta { display: inline-flex; margin-top: 16px; }
+  .nav-mobile .nav-cta { display: inline-flex; margin-top: 18px; }
 }
 
 /* ============================================================
@@ -262,26 +299,28 @@ nav.scrolled {
    ============================================================ */
 .hero {
   position: relative;
-  padding: 200px 0 140px;
+  padding: 200px 0 130px;
+  min-height: min(100vh, 980px);
   overflow: hidden;
   isolation: isolate;
+  display: flex; flex-direction: column; justify-content: center;
 }
 .hero-canvas {
   position: absolute; inset: 0;
   z-index: 0;
-  opacity: .9;
+  opacity: .85;
   pointer-events: none;
 }
 .hero::before {
   content: '';
   position: absolute;
-  top: -10%; left: 50%;
-  width: 1200px; height: 900px;
+  top: 5%; left: 50%;
+  width: min(1400px, 95vw); height: 900px;
   transform: translateX(-50%);
   background:
     radial-gradient(ellipse at center,
-      rgba(79,142,255,.10) 0%,
-      rgba(34,211,238,.05) 30%,
+      rgba(91,138,255,.07) 0%,
+      rgba(95,200,212,.04) 35%,
       transparent 70%);
   z-index: 1;
   pointer-events: none;
@@ -289,743 +328,1000 @@ nav.scrolled {
 .hero::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 60%, var(--bg) 100%);
+  background: linear-gradient(180deg, transparent 65%, var(--bg) 100%);
   z-index: 1;
   pointer-events: none;
 }
 
-.hero-inner { position: relative; z-index: 3; max-width: 940px; }
-.hero-eyebrow {
-  font-family: var(--mono);
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--text-3);
+/* upper-right hero metadata */
+.hero-meta {
+  position: absolute;
+  top: 96px; right: 32px;
   display: inline-flex; align-items: center; gap: 12px;
-  margin-bottom: 32px;
-  padding: 8px 14px 8px 12px;
-  border: 1px solid var(--border-2);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .2em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  z-index: 4;
+  padding: 9px 18px 9px 16px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.045) 0%, rgba(255,255,255,.012) 100%);
+  border: 1px solid rgba(255,255,255,.07);
   border-radius: 999px;
-  background: rgba(13,19,34,.6);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 1px 2px rgba(0,0,0,.2);
 }
-.hero-eyebrow .pulse {
-  width: 7px; height: 7px; border-radius: 50%;
+.hero-meta .pip {
+  width: 6px; height: 6px; border-radius: 50%;
   background: var(--cyan);
-  box-shadow: 0 0 12px var(--cyan);
-  animation: pulse 2.4s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(95,200,212,.7), 0 0 22px rgba(95,200,212,.25);
+  animation: pip 2.6s ease-in-out infinite;
 }
-@keyframes pulse {
-  0%, 100% { opacity: .55; transform: scale(1); }
-  50%      { opacity: 1;   transform: scale(1.25); }
+@keyframes pip {
+  0%,100% { opacity: .55; transform: scale(1); }
+  50%     { opacity: 1;   transform: scale(1.1); }
 }
-.hero-eyebrow span { color: var(--text-2); }
+.hero-meta .sep { color: var(--ink-5); }
+.hero-meta .meta-gold {
+  color: var(--gold);
+  letter-spacing: .22em;
+}
+
+.hero-inner { position: relative; z-index: 3; max-width: 980px; }
+
+.hero-chapter {
+  display: inline-flex; align-items: baseline; gap: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 48px;
+}
+.hero-chapter .num {
+  color: var(--cyan);
+  letter-spacing: .15em;
+}
+.hero-chapter .bar {
+  display: inline-block;
+  width: 28px; height: 1px;
+  background: linear-gradient(90deg, var(--rule-2), var(--cyan));
+  align-self: center;
+  box-shadow: 0 0 6px rgba(95,200,212,.35);
+}
 
 .hero h1 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(42px, 7vw, 88px);
-  line-height: 1.0;
-  letter-spacing: -0.025em;
-  color: var(--text);
-  margin-bottom: 28px;
+  font-size: clamp(48px, 8.6vw, 112px);
+  line-height: .96;
+  letter-spacing: -.028em;
+  color: var(--ink);
+  margin-bottom: 32px;
 }
 .hero h1 .row { display: block; }
+.hero h1 .row + .row { margin-top: .04em; }
+.hero h1 .row.punch {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--cyan);
+  background: linear-gradient(120deg, #6dd0db 0%, #5b8aff 50%, #c4d4f0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 22px rgba(95,200,212,.18));
+}
 .hero h1 em {
   font-style: italic;
   font-weight: 400;
-  background: linear-gradient(120deg, var(--cyan) 0%, var(--blue) 50%, #c4d3f5 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
 
-.hero-sub {
-  font-size: 19px;
-  line-height: 1.6;
-  color: var(--text-2);
-  max-width: 640px;
-  margin-bottom: 44px;
+.hero-tagline {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.25;
+  letter-spacing: -.012em;
+  color: var(--ink);
+  margin-bottom: 32px;
+  max-width: 720px;
+}
+.hero-tagline::before {
+  content: '';
+  flex: 0 0 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan));
+  align-self: center;
+  transform: translateY(-2px);
+  box-shadow: 0 0 8px rgba(95,200,212,.45);
+}
+
+.hero-lede {
+  font-family: var(--sans);
   font-weight: 300;
+  font-size: clamp(16.5px, 1.55vw, 19px);
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 660px;
+  margin-bottom: 56px;
+  letter-spacing: -.005em;
 }
 
 .hero-actions {
   display: flex; gap: 14px; flex-wrap: wrap;
-  margin-bottom: 44px;
+  margin-bottom: 88px;
 }
+
 .btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 14px 22px;
+  display: inline-flex; align-items: center; gap: 11px;
+  padding: 15px 24px;
   border-radius: 999px;
-  font-size: 14.5px;
-  font-weight: 500;
-  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
   letter-spacing: .005em;
-  transition: all .25s var(--ease);
+  text-decoration: none;
+  font-family: var(--sans);
   cursor: pointer;
   border: 1px solid transparent;
-  font-family: var(--sans);
+  transition: all .3s var(--ease);
 }
 .btn-primary {
-  background: linear-gradient(180deg, #fff 0%, #d8dff0 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #dde4f1 100%);
   color: var(--bg);
+  border: 1px solid rgba(255,255,255,.4);
   box-shadow:
-    0 1px 0 rgba(255,255,255,.5) inset,
-    0 0 0 1px rgba(255,255,255,.12),
-    0 18px 44px -14px rgba(79,142,255,.55);
+    inset 0 1px 0 rgba(255,255,255,.6),
+    0 1px 2px rgba(0,0,0,.15),
+    0 14px 32px -12px rgba(91,138,255,.4);
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 0 0 1px rgba(255,255,255,.2), 0 24px 56px -14px rgba(79,142,255,.75); }
-
+.btn-primary:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, #ffffff 0%, #e8edf7 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.7),
+    0 1px 2px rgba(0,0,0,.15),
+    0 22px 44px -14px rgba(91,138,255,.6),
+    0 0 60px rgba(95,200,212,.18);
+}
 .btn-ghost {
-  background: rgba(13,19,34,.55);
-  color: var(--text);
-  border: 1px solid var(--border-2);
-  backdrop-filter: blur(8px);
+  background: linear-gradient(180deg, rgba(255,255,255,.038) 0%, rgba(255,255,255,.008) 100%);
+  color: var(--ink);
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
 }
-.btn-ghost:hover { border-color: var(--border-3); background: rgba(22,31,55,.7); }
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,.16);
+  background: linear-gradient(180deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.02) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 14px 32px -14px rgba(91,138,255,.18);
+}
+.btn .arr { transition: transform .25s var(--ease); }
+.btn:hover .arr { transform: translateX(3px); }
+.btn .arr-d { transition: transform .25s var(--ease); }
+.btn:hover .arr-d { transform: translateY(2px); }
 
-.btn .arrow { transition: transform .2s var(--ease); }
-.btn:hover .arrow { transform: translateX(3px); }
-
-.hero-trust {
-  display: flex; align-items: center; gap: 14px;
-  flex-wrap: wrap;
+/* hero hairline + roster */
+.hero-rule {
+  height: 1px;
+  background: linear-gradient(90deg, var(--rule), transparent);
+  width: min(640px, 80%);
+  margin-bottom: 24px;
+}
+.hero-roster {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 18px;
   font-family: var(--mono);
-  font-size: 12px;
-  color: var(--text-3);
-  letter-spacing: .04em;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
 }
-.hero-trust .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--text-4); }
+.hero-roster .label {
+  color: var(--cyan);
+  font-weight: 500;
+  letter-spacing: .22em;
+}
+.hero-roster .entries {
+  color: var(--ink-3);
+  font-weight: 400;
+}
+
+@media (max-width: 720px) {
+  .hero-meta { top: 84px; right: 20px; font-size: 9.5px; gap: 10px; }
+  .hero-meta span:nth-child(n+5) { display: none; }
+  .hero { padding: 160px 0 100px; min-height: auto; }
+  .hero-actions { margin-bottom: 56px; }
+  .hero-roster { flex-direction: column; gap: 8px; }
+}
 
 /* ============================================================
-   PROBLEM REFRAME
+   I. THE STRATEGIC CONSTRAINT  (reframe)
    ============================================================ */
-.reframe-grid {
+.thesis {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  margin-top: 60px;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-top: 0;
 }
-.reframe-item {
-  background: var(--bg-1);
-  padding: 36px 32px;
-  position: relative;
-  transition: background .3s var(--ease);
+.thesis-statement {
+  position: sticky;
+  top: 110px;
 }
-.reframe-item:hover { background: var(--bg-2); }
-.reframe-num {
+.thesis-pillars {
+  display: flex; flex-direction: column;
+  gap: 0;
+}
+.pillar {
+  padding: 36px 0 36px;
+  border-top: 1px solid var(--rule);
+}
+.pillar:last-child { border-bottom: 1px solid var(--rule); }
+.pillar-num {
+  display: inline-block;
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 500;
-  color: var(--text-4);
-  letter-spacing: .12em;
-  margin-bottom: 18px;
-}
-.reframe-item h3 {
-  font-size: 19px;
-  font-weight: 500;
-  letter-spacing: -.01em;
-  margin-bottom: 12px;
-  line-height: 1.3;
-  color: var(--text);
-}
-.reframe-item p {
-  font-size: 14.5px;
-  color: var(--text-2);
-  line-height: 1.65;
-  font-weight: 300;
-}
-
-/* ============================================================
-   ADVANTAGE
-   ============================================================ */
-.advantage-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 64px;
-}
-.adv-card {
-  position: relative;
-  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 36px 32px 32px;
-  overflow: hidden;
-  transition: transform .35s var(--ease-out), border-color .3s var(--ease);
-}
-.adv-card::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 50% -20%, rgba(79,142,255,.12), transparent 50%);
-  opacity: 0;
-  transition: opacity .4s var(--ease);
-  pointer-events: none;
-}
-.adv-card:hover { transform: translateY(-4px); border-color: var(--border-2); }
-.adv-card:hover::before { opacity: 1; }
-
-.adv-icon {
-  width: 44px; height: 44px;
-  display: grid; place-items: center;
-  border-radius: 11px;
-  background: rgba(79,142,255,.08);
-  border: 1px solid rgba(79,142,255,.18);
-  margin-bottom: 24px;
+  letter-spacing: .18em;
   color: var(--cyan);
+  margin-bottom: 14px;
 }
-.adv-icon svg { width: 22px; height: 22px; }
-.adv-card h3 {
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -.015em;
-  margin-bottom: 10px;
+.pillar-num .label { color: var(--ink-4); margin-left: 8px; font-weight: 400; }
+.pillar h3 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.2;
+  letter-spacing: -.012em;
+  color: var(--ink);
+  margin-bottom: 14px;
+  max-width: 480px;
 }
-.adv-card p {
-  color: var(--text-2);
-  font-size: 14.5px;
+.pillar p {
+  color: var(--ink-2);
+  font-size: 15.5px;
   line-height: 1.65;
   font-weight: 300;
+  max-width: 460px;
 }
 
 /* ============================================================
-   INTELLIGENCE LAYER (SVG diagram)
+   II. THE EXECUTIVE ADVANTAGE  (editorial blocks)
    ============================================================ */
-.intel-wrap { margin-top: 72px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.intel-copy h3 {
-  font-family: var(--sans);
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -.015em;
-  margin: 24px 0 10px;
+.adv-stack {
+  margin-top: 80px;
+  display: flex; flex-direction: column; gap: 0;
 }
+.adv-block {
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  gap: 80px;
+  padding: 56px 0;
+  border-top: 1px solid var(--rule);
+  align-items: start;
+}
+.adv-stack > .adv-block:last-child { border-bottom: 1px solid var(--rule); }
+.adv-num-block {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .2em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.adv-num-block .roman {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 76px;
+  line-height: .9;
+  color: var(--cyan);
+  letter-spacing: -.04em;
+}
+.adv-block h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -.018em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.adv-block h3 em { font-style: italic; }
+.adv-block p {
+  color: var(--ink-2);
+  font-size: 16.5px;
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 580px;
+}
+.adv-block .meta {
+  display: flex; gap: 32px; margin-top: 28px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.adv-block .meta span::before {
+  content: '— '; color: var(--cyan);
+}
+
+/* ============================================================
+   III. THE INTELLIGENCE LAYER
+   ============================================================ */
+.intel-wrap {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 80px;
+  align-items: center;
+}
+.intel-copy { max-width: 480px; }
+.intel-copy h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin: 36px 0 20px;
+}
+.intel-copy h4:first-child { margin-top: 0; }
 .intel-copy p {
-  color: var(--text-2);
-  font-size: 15px;
+  color: var(--ink-2);
+  font-size: 16px;
   line-height: 1.65;
   font-weight: 300;
 }
 .intel-list {
   list-style: none;
-  margin-top: 28px;
 }
 .intel-list li {
   padding: 14px 0;
-  border-top: 1px solid var(--border);
-  display: flex; align-items: center; gap: 16px;
-  font-size: 14.5px;
-  color: var(--text-2);
+  border-top: 1px solid var(--rule);
+  display: flex; align-items: baseline; gap: 18px;
+  font-size: 15px;
+  color: var(--ink-2);
   font-weight: 300;
+  line-height: 1.5;
 }
-.intel-list li:last-child { border-bottom: 1px solid var(--border); }
+.intel-list li:last-child { border-bottom: 1px solid var(--rule); }
 .intel-list .key {
   font-family: var(--mono);
   color: var(--cyan);
-  font-size: 11.5px;
-  letter-spacing: .1em;
+  font-size: 11px;
+  letter-spacing: .14em;
   text-transform: uppercase;
-  min-width: 36px;
+  min-width: 32px;
+  flex-shrink: 0;
 }
 
 .intel-svg-wrap {
   position: relative;
   aspect-ratio: 1/1;
   width: 100%;
-  max-width: 540px;
-  margin-left: auto;
+  max-width: 560px;
+  margin: 0 auto;
 }
 .intel-svg-wrap svg { width: 100%; height: 100%; display: block; }
 
-/* SVG animation classes */
 .ring-anim {
   transform-origin: center;
   transform-box: fill-box;
-  animation: spinSlow 60s linear infinite;
+  animation: spinSlow 90s linear infinite;
 }
-.ring-anim-rev { animation: spinSlow 80s linear infinite reverse; }
+.ring-anim-rev { animation: spinSlow 120s linear infinite reverse; }
 @keyframes spinSlow { to { transform: rotate(360deg); } }
 
 .intel-pulse {
   transform-origin: center;
   transform-box: fill-box;
-  animation: corePulse 3s ease-in-out infinite;
+  animation: corePulse 4s ease-in-out infinite;
 }
 @keyframes corePulse {
-  0%, 100% { opacity: .9; transform: scale(1); }
-  50%      { opacity: 1;  transform: scale(1.04); }
+  0%,100% { opacity: .85; transform: scale(1); }
+  50%     { opacity: 1;   transform: scale(1.03); }
 }
 .intel-emanate {
   transform-origin: center;
   transform-box: fill-box;
-  animation: emanate 4s ease-out infinite;
+  animation: emanate 6s ease-out infinite;
   opacity: 0;
 }
 .intel-emanate.d1 { animation-delay: 0s; }
-.intel-emanate.d2 { animation-delay: 1.3s; }
-.intel-emanate.d3 { animation-delay: 2.6s; }
+.intel-emanate.d2 { animation-delay: 2s; }
+.intel-emanate.d3 { animation-delay: 4s; }
 @keyframes emanate {
-  0%   { transform: scale(.5); opacity: .6; }
-  100% { transform: scale(2.2); opacity: 0; }
+  0%   { transform: scale(.6); opacity: .5; }
+  100% { transform: scale(2.4); opacity: 0; }
 }
 
 /* ============================================================
-   HOW IT WORKS
+   IV. METHOD  (How It Works)
    ============================================================ */
-.steps {
+.method-grid {
+  margin-top: 72px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  margin-top: 64px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--border);
+  border-top: 1px solid var(--rule);
 }
-.step {
-  background: var(--bg-1);
-  padding: 36px 30px 32px;
+.method-step {
+  padding: 36px 28px 36px 0;
+  border-right: 1px solid var(--rule);
   position: relative;
-  transition: background .3s var(--ease);
+  transition: background .4s var(--ease);
 }
-.step:hover { background: var(--bg-2); }
-
-.step-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; }
-.step-num {
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 500;
+.method-step:hover {
+  background: linear-gradient(180deg, rgba(95,200,212,.022) 0%, rgba(95,200,212,0) 60%);
+}
+.method-step:last-child { border-right: none; padding-right: 0; }
+.method-step::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--rule);
+}
+.method-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1;
   color: var(--cyan);
-  letter-spacing: .04em;
+  letter-spacing: -.03em;
+  margin-bottom: 20px;
 }
-.step-line { flex: 1; height: 1px; background: var(--border-2); }
-.step-tag {
+.method-tag {
   font-family: var(--mono);
   font-size: 10.5px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--text-4);
-}
-.step h3 {
-  font-size: 19px;
   font-weight: 500;
-  letter-spacing: -.01em;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 14px;
+  display: block;
+}
+.method-step h3 {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -.005em;
+  color: var(--ink);
   margin-bottom: 12px;
   line-height: 1.3;
 }
-.step p {
+.method-step p {
   font-size: 14px;
-  color: var(--text-2);
+  color: var(--ink-2);
   line-height: 1.6;
   font-weight: 300;
 }
 
 /* ============================================================
-   ACADEMIC DNA
+   V. STRATEGY DNA
    ============================================================ */
-.dna-card {
-  margin-top: 56px;
-  background:
-    radial-gradient(ellipse at 100% 0%, rgba(34,211,238,.06), transparent 50%),
-    radial-gradient(ellipse at 0% 100%, rgba(79,142,255,.06), transparent 50%),
-    var(--bg-1);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 56px 56px 60px;
-  position: relative;
-  overflow: hidden;
+.dna {
+  margin-top: 72px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
 }
-.dna-card::before {
+.dna-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(26px, 2.6vw, 34px);
+  line-height: 1.18;
+  letter-spacing: -.012em;
+  color: var(--ink);
+  position: relative;
+  padding-left: 28px;
+  border-left: 1px solid var(--cyan);
+}
+.dna-attr {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-top: 24px;
+  padding-left: 28px;
+}
+.dna-attr .au { color: var(--cyan); }
+
+.dna-body {
+  display: flex; flex-direction: column; gap: 0;
+}
+.dna-body > p {
+  color: var(--ink-2);
+  font-size: 15.5px;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 32px;
+  max-width: 560px;
+}
+.dna-list {
+  display: flex; flex-direction: column;
+  border-top: 1px solid var(--rule);
+}
+.dna-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+  transition: padding-left .35s var(--ease), background .35s var(--ease);
+}
+.dna-row:hover {
+  padding-left: 12px;
+  background: linear-gradient(90deg, rgba(95,200,212,.04) 0%, transparent 60%);
+}
+.dna-name {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 15.5px;
+  color: var(--ink);
+  letter-spacing: -.005em;
+}
+.dna-name em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+}
+.dna-author {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.dna-research {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 400;
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+/* ============================================================
+   VI. THE PORTFOLIO  (Products — editorial)
+   ============================================================ */
+.portfolio {
+  margin-top: 72px;
+  display: flex; flex-direction: column;
+  border-top: 1px solid var(--rule);
+}
+.portfolio-row {
+  display: grid;
+  grid-template-columns: 0.4fr 1.6fr 0.7fr;
+  gap: 56px;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+  position: relative;
+  transition: background .4s var(--ease);
+}
+.portfolio-row::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(95,200,212,.25) 40%,
+    rgba(91,138,255,.25) 60%,
+    transparent);
+  opacity: 0;
+  transition: opacity .4s var(--ease);
+}
+.portfolio-row:hover {
+  background: linear-gradient(180deg, rgba(255,255,255,.018) 0%, rgba(255,255,255,0) 70%);
+}
+.portfolio-row:hover::before { opacity: .6; }
+.portfolio-row.gold:hover::before {
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(200,163,90,.4) 50%,
+    transparent);
+}
+.portfolio-tier {
+  display: flex; flex-direction: column; gap: 8px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.portfolio-tier .roman {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: .9;
+  color: var(--cyan);
+  letter-spacing: -.04em;
+  margin-bottom: 6px;
+}
+.portfolio-row.gold .portfolio-tier .roman { color: var(--gold); }
+.portfolio-row.teal .portfolio-tier .roman { color: var(--cyan-2); }
+
+.portfolio-body h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 3.2vw, 42px);
+  line-height: 1.05;
+  letter-spacing: -.022em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.portfolio-body h3 em { font-style: italic; }
+.portfolio-body .product-line {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 20px;
+}
+.portfolio-body p {
+  color: var(--ink-2);
+  font-size: 16px;
+  line-height: 1.65;
+  font-weight: 300;
+  max-width: 640px;
+  margin-bottom: 24px;
+}
+.portfolio-body .features {
+  list-style: none;
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 0;
+}
+.portfolio-body .features li {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .04em;
+  padding: 7px 12px;
+  border: 1px solid var(--rule-2);
+  border-radius: 999px;
+  color: var(--ink-3);
+}
+
+.portfolio-meta {
+  display: flex; flex-direction: column; gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.portfolio-meta .availability { color: var(--cyan); letter-spacing: .18em; }
+.portfolio-row.gold .portfolio-meta .availability { color: var(--gold); }
+.portfolio-row.teal .portfolio-meta .availability { color: var(--cyan-2); }
+.portfolio-meta .audience { color: var(--ink-3); }
+.portfolio-meta .cta {
+  margin-top: 12px;
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 400;
+  letter-spacing: .005em;
+  text-transform: none;
+  transition: gap .25s var(--ease);
+}
+.portfolio-meta .cta:hover { gap: 12px; }
+
+/* ============================================================
+   VII. RELIABILITY ARCHITECTURE  (Trust)
+   ============================================================ */
+.reliability-thesis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.reliability-thesis .thesis-text {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -.018em;
+  color: var(--ink);
+  max-width: 540px;
+}
+.reliability-thesis .thesis-text em { font-style: italic; }
+
+.reliability-thesis .thesis-side p {
+  color: var(--ink-2);
+  font-size: 16px;
+  line-height: 1.65;
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+.reliability-thesis .thesis-side p:last-child { margin-bottom: 0; }
+
+.reliability-pillars {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--rule);
+}
+.rpillar {
+  padding: 36px 32px 36px 0;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  transition: background .4s var(--ease);
+}
+.rpillar:hover {
+  background: linear-gradient(180deg, rgba(95,200,212,.025) 0%, rgba(95,200,212,0) 60%);
+}
+.rpillar:nth-child(3n) { border-right: none; }
+.rpillar:nth-last-child(-n+3) { border-bottom: none; }
+.rpillar .num {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  color: var(--cyan);
+  display: block;
+  margin-bottom: 14px;
+}
+.rpillar h4 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: -.005em;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.rpillar h4 em { font-family: var(--serif); font-style: italic; font-weight: 400; }
+.rpillar p {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ============================================================
+   VIII. THE BRIEFING  (Final CTA)
+   ============================================================ */
+.briefing {
+  position: relative;
+  margin: 80px 0;
+  padding: 120px var(--pad);
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(95,200,212,.10), transparent 55%),
+    radial-gradient(ellipse at 75% 80%, rgba(91,138,255,.08), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.022) 0%, rgba(255,255,255,.006) 100%),
+    var(--bg-1);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    inset 0 -1px 0 rgba(255,255,255,.015),
+    0 30px 80px -20px rgba(0,0,0,.5);
+}
+.briefing::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 25%; right: 25%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(95,200,212,.4) 30%,
+    rgba(91,138,255,.4) 70%,
+    transparent 100%);
+  pointer-events: none;
+}
+.briefing::before {
   content: '';
   position: absolute; inset: 0;
   background-image:
     linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
-  pointer-events: none;
-}
-.dna-card .inner { position: relative; z-index: 2; }
-.dna-card h3 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-style: italic;
-  font-size: clamp(26px, 3vw, 38px);
-  line-height: 1.2;
-  letter-spacing: -.015em;
-  margin-bottom: 16px;
-  max-width: 680px;
-}
-.dna-card p {
-  color: var(--text-2);
-  font-size: 16px;
-  line-height: 1.6;
-  max-width: 660px;
-  margin-bottom: 36px;
-  font-weight: 300;
-}
-.dna-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-.dna-pill {
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: .02em;
-  padding: 10px 14px;
-  border: 1px solid var(--border-2);
-  border-radius: 999px;
-  color: var(--text-2);
-  background: rgba(13,19,34,.5);
-  display: inline-flex; align-items: center; gap: 8px;
-  transition: all .25s var(--ease);
-}
-.dna-pill .author {
-  color: var(--text-4);
-  font-size: 11px;
-}
-.dna-pill:hover {
-  border-color: rgba(79,142,255,.4);
-  color: var(--text);
-  background: rgba(22,31,55,.7);
-  transform: translateY(-1px);
-}
-
-/* ============================================================
-   PRODUCTS
-   ============================================================ */
-.products {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 64px;
-}
-.product {
-  position: relative;
-  background: var(--bg-1);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 36px 32px 32px;
-  display: flex;
-  flex-direction: column;
-  transition: transform .35s var(--ease-out), border-color .3s var(--ease);
-  overflow: hidden;
-  isolation: isolate;
-}
-.product::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(79,142,255,.10), transparent 60%);
-  opacity: 0; transition: opacity .35s var(--ease);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 75%);
   pointer-events: none; z-index: -1;
 }
-.product:hover { transform: translateY(-4px); border-color: var(--border-2); }
-.product:hover::before { opacity: 1; }
-
-.product-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
-.product-tag {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  padding: 5px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--border-2);
-  color: var(--text-3);
-}
-.product-tag.flagship { color: var(--cyan); border-color: rgba(34,211,238,.35); background: rgba(34,211,238,.06); }
-.product-tag.premium  { color: var(--gold); border-color: rgba(200,163,90,.35); background: rgba(200,163,90,.06); }
-.product-tag.free     { color: var(--teal); border-color: rgba(45,212,191,.35); background: rgba(45,212,191,.06); }
-
-.product-mark {
-  width: 38px; height: 38px;
-  display: grid; place-items: center;
-  border-radius: 10px;
-  background: rgba(79,142,255,.06);
-  border: 1px solid var(--border-2);
-  color: var(--text-2);
-}
-.product-mark svg { width: 18px; height: 18px; }
-
-.product h3 {
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: -.018em;
-  margin-bottom: 6px;
-  display: flex; align-items: baseline; gap: 8px;
-}
-.product h3 .sub {
-  font-family: var(--sans);
-  font-size: 14px;
-  color: var(--text-3);
-  font-weight: 400;
-}
-.product .desc {
-  color: var(--text-2);
-  font-size: 14.5px;
-  line-height: 1.65;
-  margin-bottom: 24px;
-  font-weight: 300;
-}
-.product ul {
-  list-style: none;
-  margin: 0 0 28px;
-  padding: 0;
-  display: flex; flex-direction: column; gap: 10px;
-}
-.product ul li {
-  font-size: 13.5px;
-  color: var(--text-2);
-  display: flex; align-items: flex-start; gap: 10px;
-  font-weight: 300;
-}
-.product ul li::before {
-  content: '';
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--cyan);
-  margin-top: 8px;
-  flex-shrink: 0;
-}
-.product.premium ul li::before { background: var(--gold); }
-.product.lens ul li::before { background: var(--teal); }
-
-.product-foot {
-  margin-top: auto;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: space-between;
-}
-.product-foot a {
-  color: var(--text);
-  font-size: 13.5px;
-  font-weight: 500;
-  text-decoration: none;
-  display: inline-flex; align-items: center; gap: 8px;
-  transition: gap .2s var(--ease);
-}
-.product-foot a:hover { gap: 12px; }
-.product-foot .price {
-  font-family: var(--mono);
-  font-size: 11.5px;
-  color: var(--text-4);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-/* ============================================================
-   TRUST ARCHITECTURE
-   ============================================================ */
-.trust-intro {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: end;
-}
-.trust-intro h2 {
-  font-family: var(--sans);
-  font-size: clamp(28px, 3.4vw, 44px);
-  font-weight: 500;
-  letter-spacing: -.025em;
-  line-height: 1.15;
-  max-width: 560px;
-}
-.trust-intro h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; }
-.trust-intro p {
-  color: var(--text-2);
-  font-size: 16px;
-  line-height: 1.65;
-  max-width: 460px;
-  font-weight: 300;
-}
-
-.trust-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 60px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--border);
-  gap: 1px;
-}
-.trust-item {
-  background: var(--bg-1);
-  padding: 32px 28px 30px;
-  transition: background .3s var(--ease);
-  position: relative;
-}
-.trust-item:hover { background: var(--bg-2); }
-.trust-icon {
-  width: 36px; height: 36px;
-  display: grid; place-items: center;
-  border-radius: 9px;
-  background: rgba(79,142,255,.06);
-  border: 1px solid rgba(79,142,255,.18);
-  margin-bottom: 20px;
-  color: var(--cyan);
-}
-.trust-icon svg { width: 18px; height: 18px; }
-.trust-item h4 {
-  font-size: 16.5px;
-  font-weight: 500;
-  letter-spacing: -.005em;
-  margin-bottom: 8px;
-}
-.trust-item p {
-  font-size: 13.5px;
-  color: var(--text-2);
-  line-height: 1.6;
-  font-weight: 300;
-}
-
-/* ============================================================
-   FINAL CTA
-   ============================================================ */
-.final-cta {
-  margin: 80px 0;
-  padding: 80px var(--pad);
-  background:
-    radial-gradient(ellipse at 30% 20%, rgba(79,142,255,.14), transparent 50%),
-    radial-gradient(ellipse at 70% 80%, rgba(34,211,238,.10), transparent 60%),
-    linear-gradient(180deg, var(--bg-2), var(--bg-1));
-  border: 1px solid var(--border-2);
-  border-radius: 28px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-.final-cta::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
-  pointer-events: none;
-  z-index: -1;
-}
-.final-cta .eyebrow { justify-content: center; }
-.final-cta .eyebrow::before { display: none; }
-.final-cta h2 {
+.briefing .chapter { justify-content: center; margin-bottom: 32px; }
+.briefing .chapter .rule { display: none; }
+.briefing h2 {
   font-family: var(--serif);
-  font-style: italic;
   font-weight: 400;
-  font-size: clamp(34px, 5vw, 56px);
-  line-height: 1.1;
-  letter-spacing: -.02em;
-  max-width: 780px;
-  margin: 0 auto 24px;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -.022em;
+  max-width: 880px;
+  margin: 0 auto 28px;
+  color: var(--ink);
 }
-.final-cta p {
-  color: var(--text-2);
+.briefing h2 em { font-style: italic; }
+.briefing .accent {
+  font-style: italic;
+  background: linear-gradient(110deg, var(--cyan), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.briefing p {
+  color: var(--ink-2);
   font-size: 17px;
   line-height: 1.6;
-  max-width: 580px;
-  margin: 0 auto 36px;
   font-weight: 300;
+  max-width: 580px;
+  margin: 0 auto 44px;
 }
-.final-cta .actions { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.briefing .actions {
+  display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+  margin-bottom: 44px;
+}
+.briefing .protocol {
+  display: inline-flex; align-items: center; gap: 18px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.briefing .protocol .pip {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+.briefing .protocol .key { color: var(--cyan); letter-spacing: .22em; }
+.briefing .protocol .invitation {
+  color: var(--gold);
+  letter-spacing: .18em;
+}
 
 /* ============================================================
    FOOTER
    ============================================================ */
 footer {
-  border-top: 1px solid var(--border);
-  padding: 64px 0 40px;
+  border-top: 1px solid var(--rule);
+  padding: 80px 0 40px;
 }
-.foot-top {
+.foot-credo {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.3;
+  color: var(--ink);
+  max-width: 600px;
+  margin-bottom: 56px;
+}
+.foot-credo em { color: var(--cyan); font-style: italic; }
+.foot-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 40px;
+  gap: 48px;
+  padding-top: 48px;
+  border-top: 1px solid var(--rule);
 }
 .foot-brand p {
-  color: var(--text-3);
-  font-size: 13.5px;
+  color: var(--ink-3);
+  font-size: 13px;
   line-height: 1.6;
-  margin-top: 14px;
+  margin-top: 16px;
   max-width: 280px;
   font-weight: 300;
 }
 .foot-col h5 {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 500;
-  letter-spacing: .12em;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--text-3);
-  margin-bottom: 16px;
+  color: var(--ink-3);
+  margin-bottom: 18px;
 }
 .foot-col a {
   display: block;
-  color: var(--text-2);
+  color: var(--ink-2);
   text-decoration: none;
   padding: 6px 0;
   font-size: 13.5px;
-  transition: color .2s var(--ease);
+  font-weight: 300;
+  transition: color .25s var(--ease);
 }
-.foot-col a:hover { color: var(--text); }
+.foot-col a:hover { color: var(--ink); }
 .foot-bottom {
-  margin-top: 56px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
   font-family: var(--mono);
-  font-size: 11.5px;
-  color: var(--text-4);
-  letter-spacing: .04em;
+  font-size: 10.5px;
+  color: var(--ink-4);
+  letter-spacing: .14em;
+  text-transform: uppercase;
 }
 
 /* ============================================================
-   REVEAL ANIMATIONS
+   REVEALS
    ============================================================ */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
+  transform: translateY(20px);
+  transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
 }
 .reveal.in { opacity: 1; transform: translateY(0); }
-.reveal.delay-1 { transition-delay: .08s; }
-.reveal.delay-2 { transition-delay: .16s; }
-.reveal.delay-3 { transition-delay: .24s; }
-.reveal.delay-4 { transition-delay: .32s; }
+.reveal.delay-1 { transition-delay: .1s; }
+.reveal.delay-2 { transition-delay: .2s; }
+.reveal.delay-3 { transition-delay: .3s; }
+.reveal.delay-4 { transition-delay: .4s; }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media (max-width: 1020px) {
-  .reframe-grid, .advantage-grid, .products, .trust-grid { grid-template-columns: 1fr 1fr; }
-  .steps { grid-template-columns: 1fr 1fr; }
-  .intel-wrap { grid-template-columns: 1fr; gap: 48px; }
-  .intel-svg-wrap { margin: 0 auto; }
-  .trust-intro { grid-template-columns: 1fr; gap: 24px; }
-  .foot-top { grid-template-columns: 1fr 1fr; }
+@media (max-width: 1100px) {
+  .thesis, .intel-wrap, .dna, .reliability-thesis { grid-template-columns: 1fr; gap: 56px; }
+  .thesis-statement { position: static; }
+  .reliability-pillars { grid-template-columns: 1fr 1fr; }
+  .rpillar:nth-child(3n) { border-right: 1px solid var(--rule); }
+  .rpillar:nth-child(2n) { border-right: none; }
+  .rpillar:nth-last-child(-n+3) { border-bottom: 1px solid var(--rule); }
+  .rpillar:nth-last-child(-n+2) { border-bottom: none; }
+  .method-grid { grid-template-columns: 1fr 1fr; }
+  .method-step:nth-child(2n) { border-right: none; }
+  .method-step { border-bottom: 1px solid var(--rule); padding-right: 28px; }
+  .adv-block { grid-template-columns: 1fr; gap: 32px; }
+  .portfolio-row { grid-template-columns: 0.5fr 1.5fr; gap: 32px; }
+  .portfolio-meta { grid-column: 2; padding-top: 16px; border-top: 1px dashed var(--rule); }
 }
-@media (max-width: 680px) {
-  .section { padding: 90px 0; }
-  .hero { padding: 150px 0 90px; }
-  .reframe-grid, .advantage-grid, .products, .trust-grid, .steps { grid-template-columns: 1fr; }
-  .dna-card { padding: 36px 26px 40px; }
-  .final-cta { padding: 56px 24px; margin: 60px 0; }
-  .foot-top { grid-template-columns: 1fr 1fr; }
-  .hero-sub { font-size: 17px; }
-  .lede { font-size: 16px; }
+@media (max-width: 720px) {
+  .section { padding: 100px 0; }
+  .reliability-pillars, .method-grid { grid-template-columns: 1fr; }
+  .rpillar { border-right: none !important; border-bottom: 1px solid var(--rule) !important; }
+  .rpillar:last-child { border-bottom: none !important; }
+  .method-step { border-right: none; }
+  .portfolio-row { grid-template-columns: 1fr; gap: 24px; }
+  .portfolio-meta { grid-column: 1; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+  .briefing { padding: 80px 24px; margin: 60px 0; }
+  .briefing .protocol { gap: 12px; flex-wrap: wrap; justify-content: center; text-align: center; }
 }
 
 /* ============================================================
    PRINT
    ============================================================ */
 @media print {
-  .hero-canvas, nav, .nav-mobile { display: none; }
+  .hero-canvas, nav, .nav-mobile, .briefing { display: none; }
   body { background: white; color: black; }
 }
 </style>
@@ -1038,53 +1334,51 @@ footer {
 <nav id="nav">
   <div class="nav-inner">
     <a href="#top" class="logo" aria-label="DSAIN home">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 32 32" fill="none">
-          <defs>
-            <linearGradient id="logoG" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#22d3ee"/>
-              <stop offset="1" stop-color="#4f8eff"/>
-            </linearGradient>
-          </defs>
-          <circle cx="16" cy="16" r="14" stroke="url(#logoG)" stroke-width="1.2" opacity=".5"/>
-          <circle cx="16" cy="16" r="9" stroke="url(#logoG)" stroke-width="1.2" opacity=".75"/>
-          <circle cx="16" cy="16" r="3.2" fill="url(#logoG)"/>
-          <circle cx="16" cy="2"  r="1.6" fill="#22d3ee"/>
-          <circle cx="30" cy="16" r="1.6" fill="#4f8eff"/>
-          <circle cx="16" cy="30" r="1.6" fill="#4f8eff"/>
-          <circle cx="2"  cy="16" r="1.6" fill="#22d3ee"/>
-        </svg>
-      </span>
-      <span>DSAIN</span>
+      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="logoG" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#5fc8d4"/>
+            <stop offset="1" stop-color="#5b8aff"/>
+          </linearGradient>
+        </defs>
+        <circle cx="16" cy="16" r="14" stroke="url(#logoG)" stroke-width="1" opacity=".4"/>
+        <circle cx="16" cy="16" r="9"  stroke="url(#logoG)" stroke-width="1" opacity=".7"/>
+        <circle cx="16" cy="16" r="3"  fill="url(#logoG)"/>
+        <circle cx="16" cy="2"  r="1.4" fill="#5fc8d4"/>
+        <circle cx="30" cy="16" r="1.4" fill="#5b8aff"/>
+        <circle cx="16" cy="30" r="1.4" fill="#5b8aff"/>
+        <circle cx="2"  cy="16" r="1.4" fill="#5fc8d4"/>
+      </svg>
+      <span class="logo-text">DSAIN</span>
     </a>
 
     <div class="nav-links">
       <a href="#advantage">Advantage</a>
       <a href="#layer">Intelligence Layer</a>
-      <a href="#how">How It Works</a>
-      <a href="#products">Products</a>
-      <a href="#trust">Trust Architecture</a>
-      <a href="#contact">Contact</a>
+      <a href="#method">Method</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#reliability">Reliability</a>
+      <a href="#briefing">Briefing</a>
     </div>
 
-    <a href="#contact" class="nav-cta">
-      Request a Strategy Briefing
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5L8 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <a href="#briefing" class="nav-cta">
+      Request a Briefing
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
 
     <button class="nav-toggle" id="navToggle" aria-label="Open menu">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
     </button>
   </div>
 
   <div class="nav-mobile" id="navMobile">
     <a href="#advantage">Advantage</a>
     <a href="#layer">Intelligence Layer</a>
-    <a href="#how">How It Works</a>
-    <a href="#products">Products</a>
-    <a href="#trust">Trust Architecture</a>
-    <a href="#contact">Contact</a>
-    <a href="#contact" class="nav-cta">Request a Strategy Briefing</a>
+    <a href="#method">Method</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#reliability">Reliability</a>
+    <a href="#briefing">Briefing</a>
+    <a href="#briefing" class="nav-cta">Request a Briefing</a>
   </div>
 </nav>
 
@@ -1096,229 +1390,257 @@ footer {
 <section class="hero">
   <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
 
+  <div class="hero-meta" aria-hidden="true">
+    <span class="pip"></span>
+    <span class="meta-gold">By Invitation</span>
+    <span class="sep">·</span>
+    <span>Office of the CEO</span>
+  </div>
+
   <div class="container">
     <div class="hero-inner">
-      <div class="hero-eyebrow reveal">
-        <span class="pulse"></span>
-        Executive Intelligence Layer · <span>v3.1</span>
+      <div class="hero-chapter reveal">
+        <span class="num">I.</span>
+        <span class="bar"></span>
+        <span>Executive Intelligence Layer</span>
       </div>
 
       <h1 class="reveal delay-1">
         <span class="row">Outthink the market.</span>
-        <span class="row"><em>Before</em> the market moves.</span>
+        <span class="row punch">Before the market moves.</span>
       </h1>
 
-      <p class="hero-sub reveal delay-2">
-        DSAIN gives leadership teams a permanent AI&#8209;augmented strategy layer that surfaces opportunities, pressure&#8209;tests strategic moves, and converts uncertainty into competitive advantage — grounded in strategy theory, adversarial deliberation, and evidence.
+      <p class="hero-tagline reveal delay-2">
+        A strategic advantage system for top management.
+      </p>
+
+      <p class="hero-lede reveal delay-2">
+        DSAIN helps leadership teams gain strategic advantage through AI&#8209;augmented, theory&#8209;grounded, evidence&#8209;backed executive deliberation — engineered for the consequential moves where being wrong is irreversible.
       </p>
 
       <div class="hero-actions reveal delay-3">
-        <a href="#contact" class="btn btn-primary">
+        <a href="#briefing" class="btn btn-primary">
           Request a Strategy Briefing
-          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5L8 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <a href="#layer" class="btn btn-ghost">
-          Explore the Intelligence Layer
-          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12m0 0L2 8m5 5l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Explore the Layer
+          <svg class="arr-d" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10m0 0L1 6m5 5l5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
 
-      <div class="hero-trust reveal delay-4">
-        <span>Built on strategy theory</span>
-        <span class="dot"></span>
-        <span>Adversarial AI deliberation</span>
-        <span class="dot"></span>
-        <span>Evidence&#8209;grounded executive reasoning</span>
+      <div class="hero-rule reveal delay-4"></div>
+      <div class="hero-roster reveal delay-4">
+        <span class="label">Built for</span>
+        <span class="entries">CEOs · Boards · CSOs · CFOs · Institutional Investors · Office of the CEO</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     PROBLEM REFRAME
+     I. THE STRATEGIC CONSTRAINT
      ============================================================ -->
-<section class="section" id="reframe">
-  <div class="container">
-    <div class="reveal">
-      <div class="eyebrow">The Strategic Constraint</div>
-      <h2 class="h-section">The constraint isn't <em>information</em>. It's structured strategic cognition.</h2>
-      <p class="lede">Executives are not short on data. They are short on the time, structure, and adversarial rigor required to convert signals into defensible moves — at the speed competitors are now operating.</p>
-    </div>
+<section class="section" id="constraint">
+  <div class="container-r">
+    <div class="thesis">
+      <div class="thesis-statement reveal">
+        <div class="chapter">
+          <span class="num">II.</span>
+          <span class="rule"></span>
+          <span>The Strategic Constraint</span>
+        </div>
+        <h2 class="h-section">Information is no longer the advantage. <em>Reasoning</em> is.</h2>
+        <p class="lede">Markets have democratized data. The remaining edge belongs to leadership teams that interpret weaker signals first, challenge sharper assumptions, and act before the picture is obvious to everyone.</p>
+      </div>
 
-    <div class="reframe-grid">
-      <div class="reframe-item reveal">
-        <div class="reframe-num">01 / SPEED</div>
-        <h3>Markets now move faster than strategy cycles.</h3>
-        <p>Quarterly off&#8209;sites cannot process weekly regime shifts. By the time the deck circulates, the asymmetry is priced in.</p>
-      </div>
-      <div class="reframe-item reveal delay-1">
-        <div class="reframe-num">02 / SATURATION</div>
-        <h3>Signal saturation, not signal scarcity.</h3>
-        <p>Leadership teams drown in dashboards while consequential weak signals — second&#8209;order risks, supply&#8209;chain inflections, regulatory drift — slip through unread.</p>
-      </div>
-      <div class="reframe-item reveal delay-2">
-        <div class="reframe-num">03 / CONSENSUS</div>
-        <h3>Consensus is a lagging indicator.</h3>
-        <p>Advantage now belongs to teams that can interpret weak signals, challenge their own priors, and act before the market agrees.</p>
+      <div class="thesis-pillars">
+        <div class="pillar reveal">
+          <span class="pillar-num">01 <span class="label">Speed</span></span>
+          <h3>Markets outrun the strategy cycle.</h3>
+          <p>Quarterly off-sites cannot process weekly regime change. By the time the deck circulates, the asymmetry is priced in.</p>
+        </div>
+        <div class="pillar reveal delay-1">
+          <span class="pillar-num">02 <span class="label">Saturation</span></span>
+          <h3>Saturation, not scarcity.</h3>
+          <p>Leadership teams drown in dashboards while consequential weak signals — supply-chain inflections, regulatory drift, second-order risks — slip through unread.</p>
+        </div>
+        <div class="pillar reveal delay-2">
+          <span class="pillar-num">03 <span class="label">Consensus</span></span>
+          <h3>Consensus is a lagging indicator.</h3>
+          <p>By the time the picture is clear to everyone, the asymmetric move is gone. Advantage belongs to teams that see, challenge, and act first.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     ADVANTAGE
+     II. THE EXECUTIVE ADVANTAGE
      ============================================================ -->
 <section class="section" id="advantage">
   <div class="container">
     <div class="reveal">
-      <div class="eyebrow">The Executive Advantage</div>
-      <h2 class="h-section">Three capabilities that compound into <em>decision superiority</em>.</h2>
-      <p class="lede">DSAIN does not replace your leadership team. It gives them an always&#8209;on cognition layer that sees earlier, decides sharper, and moves with structured confidence.</p>
+      <div class="chapter">
+        <span class="num">III.</span>
+        <span class="rule"></span>
+        <span>The Executive Advantage</span>
+      </div>
+      <h2 class="h-section">Three capabilities. Compounded over time into <em>decision advantage</em>.</h2>
+      <p class="lede">DSAIN does not replace the leadership team. It gives them three capabilities — see earlier, decide sharper, move with conviction — that compound, cycle after cycle, into asymmetric advantage.</p>
     </div>
 
-    <div class="advantage-grid">
-      <article class="adv-card reveal">
-        <div class="adv-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M16 16l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="11" cy="11" r="2" fill="currentColor"/>
-          </svg>
+    <div class="adv-stack">
+      <article class="adv-block reveal">
+        <div class="adv-num-block">
+          <span class="roman">I.</span>
+          <span>See Earlier</span>
         </div>
-        <h3>See Earlier</h3>
-        <p>Detect strategic risks, market shifts, and opportunity signals before they enter the consensus narrative. Continuous ingestion across filings, financial data, macro, and competitive signals.</p>
+        <div>
+          <h3>See <em>weak signals</em> before competitors do.</h3>
+          <p>DSAIN reads the market continuously and surfaces what matters before it enters the consensus narrative. Your team gets the asymmetric move while others are still assembling the deck.</p>
+          <div class="meta">
+            <span>Continuous market read</span>
+            <span>Weak-signal detection</span>
+            <span>First-mover positioning</span>
+          </div>
+        </div>
       </article>
 
-      <article class="adv-card reveal delay-1">
-        <div class="adv-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-          </svg>
+      <article class="adv-block reveal">
+        <div class="adv-num-block">
+          <span class="roman">II.</span>
+          <span>Decide Sharper</span>
         </div>
-        <h3>Decide Sharper</h3>
-        <p>Pressure&#8209;test options through specialized AI agents grounded in strategy, finance, risk, and governance theory. Multi&#8209;agent deliberation surfaces what a single perspective will miss.</p>
+        <div>
+          <h3>Challenge assumptions <em>before</em> they become expensive.</h3>
+          <p>Every consequential move gets pressure-tested by a council that argues from different vantage points — and a Devil's Advocate whose job is to find the flaw your team is reluctant to name. The errors that would surface in the post-mortem surface in the deliberation.</p>
+          <div class="meta">
+            <span>Adversarial deliberation</span>
+            <span>Hidden-assumption surfacing</span>
+            <span>Pre-mortem rigor</span>
+          </div>
+        </div>
       </article>
 
-      <article class="adv-card reveal delay-2">
-        <div class="adv-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M4 18h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".4"/>
-          </svg>
+      <article class="adv-block reveal">
+        <div class="adv-num-block">
+          <span class="roman">III.</span>
+          <span>Move With Conviction</span>
         </div>
-        <h3>Move With Confidence</h3>
-        <p>Convert executive uncertainty into structured, evidence&#8209;backed strategic action. Every recommendation arrives with its reasoning chain, confidence levels, and the assumptions that would invalidate it.</p>
+        <div>
+          <h3>Convert uncertainty into <em>strategic options</em>.</h3>
+          <p>DSAIN turns ambiguity into a portfolio of moves — each with its conditions, its break points, and its conviction level. Your team makes consequential calls with a position rather than a guess. Every cycle adds to the firm's accumulated decision advantage.</p>
+          <div class="meta">
+            <span>Optionality under uncertainty</span>
+            <span>Conviction over consensus</span>
+            <span>Compounding advantage</span>
+          </div>
+        </div>
       </article>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     INTELLIGENCE LAYER
+     III. THE INTELLIGENCE LAYER
      ============================================================ -->
 <section class="section" id="layer">
   <div class="container">
     <div class="reveal">
-      <div class="eyebrow">The Intelligence Layer</div>
-      <h2 class="h-section">A permanent strategic cognition layer between your <em>boardroom</em> and the market.</h2>
+      <div class="chapter">
+        <span class="num">IV.</span>
+        <span class="rule"></span>
+        <span>The Intelligence Layer</span>
+      </div>
+      <h2 class="h-section">A permanent cognition layer between the <em>boardroom</em> and the market.</h2>
     </div>
 
     <div class="intel-wrap">
       <div class="intel-copy reveal">
-        <p class="lede" style="margin-top:0">DSAIN sits as a continuous cognition layer around the top management team. It senses across signal sources, deliberates through theory&#8209;grounded executive agents, and surfaces strategic options with the reasoning behind them.</p>
+        <p class="lede" style="margin-top:0">DSAIN sits as a continuous cognition layer around the leadership team — sensing the market, deliberating through theory-grounded agents, and surfacing the moves that compound into advantage. Not a tool the team picks up before a decision. A layer that runs around the firm.</p>
 
-        <h3>What feeds the layer</h3>
+        <h4>What feeds the layer</h4>
         <ul class="intel-list">
-          <li><span class="key">01</span><span>Market signals, financial data, filings, macro indicators</span></li>
-          <li><span class="key">02</span><span>Regulatory change, geopolitical shifts, competitor moves</span></li>
-          <li><span class="key">03</span><span>Your firm's strategic context, capabilities, and capital structure</span></li>
+          <li><span class="key">01</span><span>Market signals, filings, macro and financial data</span></li>
+          <li><span class="key">02</span><span>Competitor moves, regulatory drift, geopolitical shifts</span></li>
+          <li><span class="key">03</span><span>Your firm's strategy, capabilities, and capital position</span></li>
         </ul>
 
-        <h3>What it produces</h3>
+        <h4>What it surfaces</h4>
         <ul class="intel-list">
-          <li><span class="key">04</span><span>Strategic options &amp; risk scenarios, with confidence levels</span></li>
-          <li><span class="key">05</span><span>Evidence&#8209;grounded reasoning chain, not black&#8209;box answers</span></li>
-          <li><span class="key">06</span><span>Adversarial challenges that surface blind spots before competitors do</span></li>
+          <li><span class="key">04</span><span>Strategic options with conviction levels and break conditions</span></li>
+          <li><span class="key">05</span><span>The reasoning behind each — inspectable, contestable</span></li>
+          <li><span class="key">06</span><span>Blind spots — surfaced before competitors find them for you</span></li>
         </ul>
       </div>
 
-      <div class="intel-svg-wrap reveal delay-1" aria-label="Intelligence layer architecture diagram">
+      <div class="intel-svg-wrap reveal delay-1" aria-label="Intelligence layer architecture">
         <svg viewBox="0 0 540 540" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient id="coreG" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#4f8eff" stop-opacity="0.95"/>
-              <stop offset="60%" stop-color="#22d3ee" stop-opacity="0.55"/>
-              <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+              <stop offset="0%"   stop-color="#5b8aff" stop-opacity="0.9"/>
+              <stop offset="60%"  stop-color="#5fc8d4" stop-opacity="0.45"/>
+              <stop offset="100%" stop-color="#5fc8d4" stop-opacity="0"/>
             </radialGradient>
-            <radialGradient id="ring1" cx="50%" cy="50%" r="50%">
-              <stop offset="80%" stop-color="transparent"/>
-              <stop offset="100%" stop-color="rgba(79,142,255,.3)"/>
-            </radialGradient>
-            <linearGradient id="edgeG" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#22d3ee" stop-opacity=".05"/>
-              <stop offset=".5" stop-color="#22d3ee" stop-opacity=".5"/>
-              <stop offset="1" stop-color="#22d3ee" stop-opacity=".05"/>
-            </linearGradient>
           </defs>
 
           <!-- emanating pulse rings -->
-          <circle class="intel-emanate d1" cx="270" cy="270" r="60"  fill="none" stroke="rgba(34,211,238,.5)" stroke-width="1"/>
-          <circle class="intel-emanate d2" cx="270" cy="270" r="60"  fill="none" stroke="rgba(79,142,255,.4)" stroke-width="1"/>
-          <circle class="intel-emanate d3" cx="270" cy="270" r="60"  fill="none" stroke="rgba(45,212,191,.35)" stroke-width="1"/>
+          <circle class="intel-emanate d1" cx="270" cy="270" r="58"  fill="none" stroke="rgba(95,200,212,.45)" stroke-width=".8"/>
+          <circle class="intel-emanate d2" cx="270" cy="270" r="58"  fill="none" stroke="rgba(91,138,255,.4)"  stroke-width=".8"/>
+          <circle class="intel-emanate d3" cx="270" cy="270" r="58"  fill="none" stroke="rgba(95,200,212,.3)"  stroke-width=".8"/>
 
           <!-- outer ring (signals) -->
           <g class="ring-anim">
-            <circle cx="270" cy="270" r="240" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
-            <circle cx="270" cy="270" r="240" fill="none" stroke="rgba(34,211,238,.2)" stroke-width="1" stroke-dasharray="2 6"/>
+            <circle cx="270" cy="270" r="240" fill="none" stroke="rgba(255,255,255,.04)" stroke-width=".7"/>
+            <circle cx="270" cy="270" r="240" fill="none" stroke="rgba(95,200,212,.18)" stroke-width=".8" stroke-dasharray="1.5 8"/>
           </g>
 
           <!-- middle ring (agents) -->
           <g class="ring-anim-rev">
-            <circle cx="270" cy="270" r="160" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-            <circle cx="270" cy="270" r="160" fill="none" stroke="rgba(79,142,255,.25)" stroke-width="1" stroke-dasharray="3 5"/>
+            <circle cx="270" cy="270" r="160" fill="none" stroke="rgba(255,255,255,.05)" stroke-width=".7"/>
+            <circle cx="270" cy="270" r="160" fill="none" stroke="rgba(91,138,255,.2)" stroke-width=".8" stroke-dasharray="2 6"/>
           </g>
 
           <!-- inner ring -->
-          <circle cx="270" cy="270" r="90" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+          <circle cx="270" cy="270" r="92" fill="none" stroke="rgba(255,255,255,.07)" stroke-width=".7"/>
 
           <!-- agent nodes (middle ring) -->
-          <g font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#a8b2c9" text-anchor="middle">
+          <g font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#b3bcd1" text-anchor="middle" letter-spacing="1.5">
             <!-- top: CFO -->
             <g>
-              <circle cx="270" cy="110" r="22" fill="#0c1322" stroke="rgba(79,142,255,.5)" stroke-width="1.3"/>
-              <circle cx="270" cy="110" r="3.5" fill="#4f8eff"/>
-              <text x="270" y="80">CFO AGENT</text>
+              <circle cx="270" cy="110" r="20" fill="#070a14" stroke="rgba(91,138,255,.55)" stroke-width="1"/>
+              <circle cx="270" cy="110" r="2.8" fill="#5b8aff"/>
+              <text x="270" y="80">CFO</text>
             </g>
             <!-- top-right: Strategy -->
             <g>
-              <circle cx="422" cy="200" r="22" fill="#0c1322" stroke="rgba(34,211,238,.5)" stroke-width="1.3"/>
-              <circle cx="422" cy="200" r="3.5" fill="#22d3ee"/>
+              <circle cx="422" cy="200" r="20" fill="#070a14" stroke="rgba(95,200,212,.55)" stroke-width="1"/>
+              <circle cx="422" cy="200" r="2.8" fill="#5fc8d4"/>
               <text x="422" y="170">STRATEGY</text>
             </g>
             <!-- bottom-right: Risk -->
             <g>
-              <circle cx="422" cy="340" r="22" fill="#0c1322" stroke="rgba(45,212,191,.5)" stroke-width="1.3"/>
-              <circle cx="422" cy="340" r="3.5" fill="#2dd4bf"/>
+              <circle cx="422" cy="340" r="20" fill="#070a14" stroke="rgba(95,200,212,.55)" stroke-width="1"/>
+              <circle cx="422" cy="340" r="2.8" fill="#5fc8d4"/>
               <text x="422" y="378">RISK</text>
             </g>
-            <!-- bottom-left: Devil's Advocate -->
+            <!-- bottom-left: Devil's Advocate (gold) -->
             <g>
-              <circle cx="118" cy="340" r="22" fill="#0c1322" stroke="rgba(200,163,90,.55)" stroke-width="1.3"/>
-              <circle cx="118" cy="340" r="3.5" fill="#c8a35a"/>
+              <circle cx="118" cy="340" r="20" fill="#070a14" stroke="rgba(200,163,90,.6)" stroke-width="1"/>
+              <circle cx="118" cy="340" r="2.8" fill="#c8a35a"/>
               <text x="118" y="378">DEVIL'S ADV.</text>
             </g>
             <!-- top-left: Fact Checker -->
             <g>
-              <circle cx="118" cy="200" r="22" fill="#0c1322" stroke="rgba(79,142,255,.5)" stroke-width="1.3"/>
-              <circle cx="118" cy="200" r="3.5" fill="#4f8eff"/>
+              <circle cx="118" cy="200" r="20" fill="#070a14" stroke="rgba(91,138,255,.55)" stroke-width="1"/>
+              <circle cx="118" cy="200" r="2.8" fill="#5b8aff"/>
               <text x="118" y="170">FACT CHECK</text>
             </g>
           </g>
 
-          <!-- signal nodes (outer ring labels) -->
-          <g font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#6c7691" text-anchor="middle" letter-spacing="1">
+          <!-- signal labels (outer ring) -->
+          <g font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#7d8aa6" text-anchor="middle" letter-spacing="1.8">
             <text x="270" y="22">MARKET SIGNALS</text>
             <text x="510" y="120" text-anchor="end">FILINGS</text>
             <text x="528" y="270" text-anchor="end">FINANCIAL DATA</text>
@@ -1329,20 +1651,20 @@ footer {
             <text x="30"  y="120" text-anchor="start">FIRM CONTEXT</text>
           </g>
 
-          <!-- signal node dots on outer ring -->
-          <g fill="#22d3ee">
-            <circle cx="270" cy="30" r="3"/>
-            <circle cx="440" cy="100" r="3"/>
-            <circle cx="510" cy="270" r="3"/>
-            <circle cx="440" cy="440" r="3"/>
-            <circle cx="270" cy="510" r="3"/>
-            <circle cx="100" cy="440" r="3"/>
-            <circle cx="30"  cy="270" r="3"/>
-            <circle cx="100" cy="100" r="3"/>
+          <!-- signal node dots -->
+          <g fill="#5fc8d4">
+            <circle cx="270" cy="30" r="2.5"/>
+            <circle cx="440" cy="100" r="2.5"/>
+            <circle cx="510" cy="270" r="2.5"/>
+            <circle cx="440" cy="440" r="2.5"/>
+            <circle cx="270" cy="510" r="2.5"/>
+            <circle cx="100" cy="440" r="2.5"/>
+            <circle cx="30"  cy="270" r="2.5"/>
+            <circle cx="100" cy="100" r="2.5"/>
           </g>
 
-          <!-- connecting lines: signals -> agents (subtle) -->
-          <g stroke="rgba(34,211,238,.18)" stroke-width="1" fill="none">
+          <!-- signals -> agents (subtle) -->
+          <g stroke="rgba(95,200,212,.14)" stroke-width=".8" fill="none">
             <line x1="270" y1="30"  x2="270" y2="110"/>
             <line x1="440" y1="100" x2="422" y2="200"/>
             <line x1="510" y1="270" x2="422" y2="270" opacity=".4"/>
@@ -1353,20 +1675,20 @@ footer {
             <line x1="100" y1="100" x2="118" y2="200"/>
           </g>
 
-          <!-- agent -> core lines -->
-          <g stroke="rgba(79,142,255,.35)" stroke-width="1.1" fill="none">
-            <line x1="270" y1="132" x2="270" y2="208"/>
-            <line x1="400" y1="200" x2="335" y2="240"/>
-            <line x1="400" y1="340" x2="335" y2="300"/>
-            <line x1="140" y1="340" x2="205" y2="300"/>
-            <line x1="140" y1="200" x2="205" y2="240"/>
+          <!-- agents -> core -->
+          <g stroke="rgba(91,138,255,.3)" stroke-width="1" fill="none">
+            <line x1="270" y1="130" x2="270" y2="208"/>
+            <line x1="402" y1="200" x2="335" y2="240"/>
+            <line x1="402" y1="340" x2="335" y2="300"/>
+            <line x1="138" y1="340" x2="205" y2="300"/>
+            <line x1="138" y1="200" x2="205" y2="240"/>
           </g>
 
           <!-- core -->
-          <circle cx="270" cy="270" r="62" fill="url(#coreG)" class="intel-pulse"/>
-          <circle cx="270" cy="270" r="34" fill="rgba(8,13,24,.85)" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
-          <text x="270" y="266" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="13" font-weight="600" fill="#eef1f7" letter-spacing="0.5">DSAIN</text>
-          <text x="270" y="282" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#a8b2c9" letter-spacing="1.2">CORE</text>
+          <circle cx="270" cy="270" r="64" fill="url(#coreG)" class="intel-pulse"/>
+          <circle cx="270" cy="270" r="36" fill="rgba(7,10,20,.92)" stroke="rgba(255,255,255,.18)" stroke-width=".8"/>
+          <text x="270" y="266" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="13" font-weight="500" fill="#f1f3f9" letter-spacing="0.8">DSAIN</text>
+          <text x="270" y="282" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#b3bcd1" letter-spacing="2">CORE</text>
         </svg>
       </div>
     </div>
@@ -1374,179 +1696,180 @@ footer {
 </section>
 
 <!-- ============================================================
-     HOW IT WORKS
+     IV. METHOD
      ============================================================ -->
-<section class="section" id="how">
+<section class="section" id="method">
   <div class="container">
     <div class="reveal">
-      <div class="eyebrow">How It Works</div>
-      <h2 class="h-section">Four operations, running continuously around your <em>leadership team</em>.</h2>
+      <div class="chapter">
+        <span class="num">V.</span>
+        <span class="rule"></span>
+        <span>Method</span>
+      </div>
+      <h2 class="h-section">Four operations, running <em>continuously</em> around the leadership team.</h2>
     </div>
 
-    <div class="steps">
-      <div class="step reveal">
-        <div class="step-head">
-          <span class="step-num">01</span>
-          <span class="step-line"></span>
-          <span class="step-tag">INGEST</span>
-        </div>
-        <h3>Ingest Signals</h3>
-        <p>Filings, financial data, market news, risk factors, macro indicators, and your firm's strategic context — assembled into a working evidence base.</p>
+    <div class="method-grid">
+      <div class="method-step reveal">
+        <div class="method-num">I.</div>
+        <span class="method-tag">Sense</span>
+        <h3>Sense the market</h3>
+        <p>Filings, markets, macro, competitors, your firm's context — read continuously, not quarterly. The signals reach the layer before they reach the press.</p>
       </div>
-
-      <div class="step reveal delay-1">
-        <div class="step-head">
-          <span class="step-num">02</span>
-          <span class="step-line"></span>
-          <span class="step-tag">DELIBERATE</span>
-        </div>
-        <h3>Deliberate Through Agents</h3>
-        <p>Specialized executive agents reason from CFO, Strategy, Risk, and Governance perspectives — each grounded in established theory, each arguing its priors.</p>
+      <div class="method-step reveal delay-1">
+        <div class="method-num">II.</div>
+        <span class="method-tag">Deliberate</span>
+        <h3>Deliberate the move</h3>
+        <p>A council of executive agents argues each consequential move from its own vantage — finance, strategy, risk, governance — before any recommendation is formed.</p>
       </div>
-
-      <div class="step reveal delay-2">
-        <div class="step-head">
-          <span class="step-num">03</span>
-          <span class="step-line"></span>
-          <span class="step-tag">CHALLENGE</span>
-        </div>
-        <h3>Challenge Assumptions</h3>
-        <p>A Devil's Advocate stress&#8209;tests the position. A Fact Checker enforces evidence grounding. Weak claims surface — they don't survive.</p>
+      <div class="method-step reveal delay-2">
+        <div class="method-num">III.</div>
+        <span class="method-tag">Challenge</span>
+        <h3>Challenge every premise</h3>
+        <p>A Devil's Advocate looks for the flaw. A Fact Checker enforces evidence. Weak claims surface — they don't survive — before they reach the leadership team.</p>
       </div>
-
-      <div class="step reveal delay-3">
-        <div class="step-head">
-          <span class="step-num">04</span>
-          <span class="step-line"></span>
-          <span class="step-tag">SURFACE</span>
-        </div>
-        <h3>Surface Strategic Moves</h3>
-        <p>Options, risks, confidence levels, and the reasoning chain — explainable, traceable, and ready for executive judgment.</p>
+      <div class="method-step reveal delay-3">
+        <div class="method-num">IV.</div>
+        <span class="method-tag">Surface</span>
+        <h3>Surface the options</h3>
+        <p>A short list of strategic moves — each with its conviction level and break conditions — handed to the leadership team in time to act on it.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     ACADEMIC STRATEGY DNA
+     V. STRATEGY DNA
      ============================================================ -->
 <section class="section" id="dna">
   <div class="container">
     <div class="reveal">
-      <div class="eyebrow">Strategy DNA</div>
-      <h2 class="h-section">Theory&#8209;grounded. Boardroom&#8209;credible.</h2>
+      <div class="chapter">
+        <span class="num">VI.</span>
+        <span class="rule"></span>
+        <span>Strategy DNA</span>
+      </div>
+      <h2 class="h-section">Theory-grounded. <em>Boardroom-credible.</em></h2>
     </div>
 
-    <div class="dna-card reveal">
-      <div class="inner">
-        <h3>DSAIN is not trained on generic business clichés. Its reasoning architecture is grounded in the strategic theories your leadership team already trusts.</h3>
-        <p>Each executive agent reasons from established theoretical priors — making its arguments inspectable, contestable, and defensible to a sophisticated board.</p>
-
-        <div class="dna-pills">
-          <span class="dna-pill">Dynamic Capabilities <span class="author">Teece</span></span>
-          <span class="dna-pill">Resource&#8209;Based View <span class="author">Barney</span></span>
-          <span class="dna-pill">Porter's Five Forces</span>
-          <span class="dna-pill">Transaction Cost Economics <span class="author">Williamson</span></span>
-          <span class="dna-pill">Behavioral Theory of the Firm <span class="author">Cyert &amp; March</span></span>
-          <span class="dna-pill">Bounded Rationality <span class="author">Simon</span></span>
-          <span class="dna-pill">Bounded Reliability <span class="author">Verbeke</span></span>
-          <span class="dna-pill">Governance Theory</span>
+    <div class="dna">
+      <div class="reveal">
+        <div class="dna-quote">
+          DSAIN's reasoning is grounded in the strategic theories your leadership team already trusts — not generic business clichés, not pattern-matched analogues, not a library of LinkedIn frameworks.
         </div>
+        <div class="dna-attr">— from the DSAIN methodology · <span class="au">Strategy DNA</span></div>
+      </div>
+
+      <div class="dna-body reveal delay-1">
+        <p>Each agent in the council reasons from established theoretical priors. The arguments inherit credibility from the academic record — not from the model's confidence — and are built to survive board-level scrutiny.</p>
+
+        <div class="dna-list">
+          <div class="dna-row"><span class="dna-name"><em>Dynamic Capabilities</em></span><span class="dna-author">Teece</span></div>
+          <div class="dna-row"><span class="dna-name"><em>Resource-Based View</em></span><span class="dna-author">Barney</span></div>
+          <div class="dna-row"><span class="dna-name"><em>Five Forces</em></span><span class="dna-author">Porter</span></div>
+          <div class="dna-row"><span class="dna-name"><em>Transaction Cost Economics</em></span><span class="dna-author">Williamson</span></div>
+          <div class="dna-row"><span class="dna-name"><em>Bounded Reliability</em></span><span class="dna-author">Verbeke</span></div>
+        </div>
+
+        <p class="dna-research">Developed in supervised doctoral business research at the Haskayne School of Business · University of Calgary.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     PRODUCTS
+     VI. THE PORTFOLIO
      ============================================================ -->
-<section class="section" id="products">
+<section class="section" id="portfolio">
   <div class="container">
     <div class="reveal">
-      <div class="eyebrow">The DSAIN Portfolio</div>
-      <h2 class="h-section">Three products. One <em>intelligence architecture</em>.</h2>
-      <p class="lede">A tiered portfolio that meets professionals at the point of consumption and meets leadership teams at the point of consequence.</p>
+      <div class="chapter">
+        <span class="num">VII.</span>
+        <span class="rule"></span>
+        <span>The Portfolio</span>
+      </div>
+      <h2 class="h-section">Three products. <em>One</em> intelligence architecture.</h2>
+      <p class="lede">One reasoning architecture, deployed at the levels where decisions are actually made — at the working professional's desk, in the office of the CEO, and at the institutional capital level.</p>
     </div>
 
-    <div class="products">
+    <div class="portfolio">
       <!-- DSAIN Strategy -->
-      <article class="product reveal">
-        <div class="product-head">
-          <span class="product-tag flagship">Enterprise Flagship</span>
-          <div class="product-mark">
-            <svg viewBox="0 0 18 18" fill="none">
-              <path d="M3 3h12v12H3z" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M3 9h12M9 3v12" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
-            </svg>
-          </div>
+      <article class="portfolio-row reveal">
+        <div class="portfolio-tier">
+          <span class="roman">I.</span>
+          <span>Enterprise Flagship</span>
         </div>
-        <h3>DSAIN <span class="sub">Strategy</span></h3>
-        <p class="desc">For board&#8209;level and executive strategic decisions. Helps leadership teams evaluate strategic moves, acquisitions, market entries, capital allocation, and competitive threats — with an agent council, evidence trail, and adversarial deliberation behind every recommendation.</p>
-        <ul>
-          <li>Multi&#8209;agent strategic deliberation council</li>
-          <li>Theory&#8209;grounded reasoning across CFO, Strategy, Risk, Governance</li>
-          <li>Evidence&#8209;grounded recommendations with confidence levels</li>
-          <li>Inspectable reasoning chain for board defensibility</li>
-        </ul>
-        <div class="product-foot">
-          <span class="price">Enterprise &amp; Institutional</span>
-          <a href="#contact">Brief our team
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="portfolio-body">
+          <h3>DSAIN <em>Strategy</em></h3>
+          <div class="product-line">For the consequential strategic move.</div>
+          <p>Cross-border M&amp;A under regulatory pressure. Capital allocation in regime-uncertain environments. Competitive responses to structural change. Multi-year capability investments. Board-level sign-off on asymmetric risk. The decisions where being wrong is irreversible. DSAIN Strategy gives the leadership team an agent council, an evidence trail, and adversarial deliberation behind every recommendation — engineered to produce a move that survives the board, the market, and the post-mortem.</p>
+          <ul class="features">
+            <li>Multi-agent deliberation council</li>
+            <li>Theory-grounded reasoning</li>
+            <li>Conviction levels &amp; break conditions</li>
+            <li>Inspectable reasoning chain</li>
+          </ul>
+        </div>
+        <div class="portfolio-meta">
+          <span class="availability">Enterprise &amp; Institutional</span>
+          <span class="audience">Office of the CEO · Boards</span>
+          <a href="#briefing" class="cta">
+            Brief our team
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
       </article>
 
       <!-- DSAIN Capital -->
-      <article class="product premium reveal delay-1">
-        <div class="product-head">
-          <span class="product-tag premium">Premium Tier</span>
-          <div class="product-mark" style="color:var(--gold); border-color: rgba(200,163,90,.3); background: rgba(200,163,90,.06)">
-            <svg viewBox="0 0 18 18" fill="none">
-              <path d="M2 13l4-4 3 3 7-7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M11 5h5v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
+      <article class="portfolio-row gold reveal">
+        <div class="portfolio-tier">
+          <span class="roman">II.</span>
+          <span>Premium Tier</span>
         </div>
-        <h3>DSAIN <span class="sub">Capital</span></h3>
-        <p class="desc">An always&#8209;on strategic nerve center. Continuously monitors financial, macro, geopolitical, and competitive signals — and triggers deliberation when conditions move against your firm's positioning. For investors and leadership teams operating under live uncertainty.</p>
-        <ul>
-          <li>Continuous signal monitoring across markets &amp; macro</li>
-          <li>Deliberation triggered by material regime change</li>
-          <li>Strategy&#8209;tier capabilities, with live signal context</li>
-          <li>Designed for institutional investors &amp; office&#8209;of&#8209;the&#8209;CEO</li>
-        </ul>
-        <div class="product-foot">
-          <span class="price">By Invitation</span>
-          <a href="#contact">Capital briefing
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="portfolio-body">
+          <h3>DSAIN <em>Capital</em></h3>
+          <div class="product-line">For positions that cannot wait for the next quarterly review.</div>
+          <p>Capital monitors markets, macro, and competitive positioning continuously. When the regime shifts against your thesis, deliberation triggers — and the leadership team gets a move-or-hold call with the reasoning behind it. Built for institutional investors and offices of the CEO operating under live uncertainty, where the cost of waiting is asymmetric.</p>
+          <ul class="features">
+            <li>Continuous signal monitoring</li>
+            <li>Regime-shift deliberation triggers</li>
+            <li>Strategy-tier reasoning, live</li>
+            <li>Investor &amp; office-of-the-CEO grade</li>
+          </ul>
+        </div>
+        <div class="portfolio-meta">
+          <span class="availability">By Invitation</span>
+          <span class="audience">Institutional Investors</span>
+          <a href="#briefing" class="cta">
+            Capital briefing
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
       </article>
 
       <!-- DSAIN Lens Suite -->
-      <article class="product lens reveal delay-2">
-        <div class="product-head">
-          <span class="product-tag free">Free · Public</span>
-          <div class="product-mark" style="color:var(--teal); border-color: rgba(45,212,191,.3); background: rgba(45,212,191,.06)">
-            <svg viewBox="0 0 18 18" fill="none">
-              <circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M12 12l4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-              <circle cx="8" cy="8" r="1.5" fill="currentColor"/>
-            </svg>
-          </div>
+      <article class="portfolio-row teal reveal">
+        <div class="portfolio-tier">
+          <span class="roman">III.</span>
+          <span>Public · Free</span>
         </div>
-        <h3>DSAIN <span class="sub">Lens Suite</span></h3>
-        <p class="desc">Lightweight reliability and intelligence tools that help professionals evaluate AI output, content authenticity, source quality, and information integrity at the point of consumption. The entry tier into the DSAIN reasoning architecture.</p>
-        <ul>
-          <li>Browser&#8209;native reliability lenses</li>
-          <li>AI output evaluation &amp; source provenance</li>
-          <li>Information integrity scoring</li>
-          <li>Free, with optional pro tooling</li>
-        </ul>
-        <div class="product-foot">
-          <span class="price">Free Chrome Extensions</span>
-          <a href="#contact">Get the suite
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="portfolio-body">
+          <h3>DSAIN <em>Lens Suite</em></h3>
+          <div class="product-line">Reliability instruments for the working professional.</div>
+          <p>Browser-native lenses that let you see what you're consuming — AI output quality, source provenance, information integrity — at the moment it crosses your desk. The public face of DSAIN's reasoning architecture, and a free pre-introduction to how the firm reasons.</p>
+          <ul class="features">
+            <li>Browser-native reliability lenses</li>
+            <li>AI output evaluation</li>
+            <li>Source provenance</li>
+            <li>Information integrity scoring</li>
+          </ul>
+        </div>
+        <div class="portfolio-meta">
+          <span class="availability">Free</span>
+          <span class="audience">Professionals · Press · Researchers</span>
+          <a href="#briefing" class="cta">
+            Get the suite
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
       </article>
@@ -1555,108 +1878,94 @@ footer {
 </section>
 
 <!-- ============================================================
-     TRUST ARCHITECTURE
+     VII. RELIABILITY ARCHITECTURE
      ============================================================ -->
-<section class="section" id="trust">
+<section class="section" id="reliability">
   <div class="container">
-    <div class="trust-intro reveal">
-      <h2>Trust is not a feature. It's the <em>infrastructure</em> that makes executive AI usable at the scale of consequence.</h2>
-      <p>DSAIN's reliability architecture is not bolted on. It is the substrate every recommendation passes through — making the system defensible to a board, an auditor, and an executive who cannot afford to be wrong in public.</p>
+    <div class="reveal">
+      <div class="chapter">
+        <span class="num">VIII.</span>
+        <span class="rule"></span>
+        <span>Reliability Architecture</span>
+      </div>
     </div>
 
-    <div class="trust-grid">
-      <div class="trust-item reveal">
-        <div class="trust-icon" aria-hidden="true">
-          <svg viewBox="0 0 18 18" fill="none"><path d="M9 1l7 3v4c0 4-3 7.5-7 9-4-1.5-7-5-7-9V4l7-3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Evidence Grounding Ratio</h4>
-        <p>Every claim is traceable to its source. A quantified grounding score travels with the response.</p>
+    <div class="reliability-thesis">
+      <div class="thesis-text reveal">
+        Reliability is not a feature. It is the <em>infrastructure</em> that makes executive AI usable at the scale of consequence.
       </div>
-
-      <div class="trust-item reveal delay-1">
-        <div class="trust-icon" aria-hidden="true">
-          <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.4"/><path d="M9 5v4l2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-        </div>
-        <h4>Explainable Reasoning Chain</h4>
-        <p>Recommendations arrive with the agents' full deliberation — not as a black&#8209;box answer.</p>
+      <div class="thesis-side reveal delay-1">
+        <p>The Augmentation–Reliability Paradox holds: the more an AI system expands executive cognition, the more its claims, evidence, and reasoning must be governed. Augmentation without reliability is not a strategic edge — it is unbounded liability.</p>
+        <p>DSAIN's reliability architecture is not bolted on. It is the substrate every recommendation passes through — engineered so the system survives the scrutiny of a board, an auditor, and an executive who cannot afford to be wrong in public.</p>
       </div>
+    </div>
 
-      <div class="trust-item reveal delay-2">
-        <div class="trust-icon" aria-hidden="true">
-          <svg viewBox="0 0 18 18" fill="none"><circle cx="5" cy="6" r="2" stroke="currentColor" stroke-width="1.4"/><circle cx="13" cy="6" r="2" stroke="currentColor" stroke-width="1.4"/><circle cx="9" cy="13" r="2" stroke="currentColor" stroke-width="1.4"/><path d="M6.5 7.3L8 11.5M11.5 7.3L10 11.5M7 6h4" stroke="currentColor" stroke-width="1.2"/></svg>
-        </div>
-        <h4>Multi&#8209;Agent Debate</h4>
-        <p>Disagreement is a feature. Agents argue from different theoretical priors before converging.</p>
+    <div class="reliability-pillars">
+      <div class="rpillar reveal">
+        <span class="num">01</span>
+        <h4>Evidence <em>grounding</em></h4>
+        <p>Every claim is traceable to its source. A quantified grounding score travels with the response — not as decoration, but as a check.</p>
       </div>
-
-      <div class="trust-item reveal delay-3">
-        <div class="trust-icon" aria-hidden="true">
-          <svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 14h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".5"/></svg>
-        </div>
-        <h4>Adversarial Fact&#8209;Checker</h4>
-        <p>A dedicated agent challenges weak evidence and unsupported assertions before output reaches you.</p>
+      <div class="rpillar reveal">
+        <span class="num">02</span>
+        <h4>Explainable <em>reasoning chain</em></h4>
+        <p>Recommendations arrive with the agents' full deliberation. The chain is inspectable end-to-end, by design.</p>
       </div>
-
-      <div class="trust-item reveal">
-        <div class="trust-icon" aria-hidden="true">
-          <svg viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M3 7h12M7 3v12" stroke="currentColor" stroke-width="1.2" opacity=".6"/></svg>
-        </div>
-        <h4>Governance Controls</h4>
-        <p>Policies for what DSAIN can claim, autonomously decide, or defer to human override.</p>
+      <div class="rpillar reveal">
+        <span class="num">03</span>
+        <h4>Multi-agent <em>debate</em></h4>
+        <p>Disagreement is a feature. Agents argue from distinct theoretical priors before converging — or refusing to.</p>
       </div>
-
-      <div class="trust-item reveal delay-1">
-        <div class="trust-icon" aria-hidden="true">
-          <svg viewBox="0 0 18 18" fill="none"><path d="M9 2v8m0 0l-3-3m3 3l3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 14h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-        </div>
-        <h4>Auditability of Claims</h4>
-        <p>Every recommendation is reproducible: same inputs, same evidence, same chain of reasoning.</p>
+      <div class="rpillar reveal">
+        <span class="num">04</span>
+        <h4>Adversarial <em>fact-checker</em></h4>
+        <p>A dedicated agent stress-tests evidence and unsupported assertions before output reaches the leadership team.</p>
       </div>
-
-      <div class="trust-item reveal delay-2">
-        <div class="trust-icon" aria-hidden="true">
-          <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M3 16c0-3 3-5 6-5s6 2 6 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-        </div>
-        <h4>Human Override</h4>
+      <div class="rpillar reveal">
+        <span class="num">05</span>
+        <h4>Auditable <em>claims</em></h4>
+        <p>Every recommendation is reproducible: same inputs, same evidence, same chain of reasoning — across time and audit.</p>
+      </div>
+      <div class="rpillar reveal">
+        <span class="num">06</span>
+        <h4>Human <em>override</em></h4>
         <p>Executive judgment is the final layer. DSAIN augments the leadership team — it does not act unilaterally.</p>
-      </div>
-
-      <div class="trust-item reveal delay-3">
-        <div class="trust-icon" aria-hidden="true">
-          <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.4"/><path d="M6 9h6M9 6v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-        </div>
-        <h4>The Augmentation&#8209;Reliability Paradox</h4>
-        <p>The more AI expands executive cognition, the more the architecture must be governed. DSAIN is built on this principle.</p>
-      </div>
-
-      <div class="trust-item reveal">
-        <div class="trust-icon" aria-hidden="true">
-          <svg viewBox="0 0 18 18" fill="none"><path d="M2 5l7-3 7 3v4c0 5-7 8-7 8S2 14 2 9V5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M9 7v3M9 12h.01" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-        </div>
-        <h4>Theory&#8209;Grounded Reliability</h4>
-        <p>Reliability is not a moderation layer. It is grounded in the academic theories DSAIN's reasoning architecture is built on.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     FINAL CTA
+     VIII. THE BRIEFING (Final CTA)
      ============================================================ -->
-<section id="contact" style="position:relative; z-index: 2;">
+<section id="briefing" style="position:relative; z-index: 2;">
   <div class="container">
-    <div class="final-cta reveal">
-      <div class="eyebrow">The Strategic Briefing</div>
-      <h2>Give your leadership team a permanent strategic edge.</h2>
-      <p>DSAIN is built for leaders who cannot afford to wait for certainty before making consequential moves.</p>
+    <div class="briefing reveal">
+      <div class="chapter">
+        <span class="num">IX.</span>
+        <span>The Briefing</span>
+      </div>
+      <h2>Give your leadership team a <em class="accent">permanent strategic edge</em>.</h2>
+      <p>DSAIN is built for leaders whose decisions are too consequential to wait for certainty — and too time-sensitive to wait for the consultant's deck. Briefings are scheduled with offices of the CEO and chief strategy or investment officers. Discreet, contextual, on the firm's calendar.</p>
+
       <div class="actions">
         <a href="mailto:rana@dsain.ai" class="btn btn-primary">
           Request a Strategy Briefing
-          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5L8 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <a href="#layer" class="btn btn-ghost">
           Revisit the Intelligence Layer
         </a>
+      </div>
+
+      <div class="protocol">
+        <span class="pip"></span>
+        <span class="key">Format</span>
+        <span class="invitation">By invitation</span>
+        <span style="color:var(--ink-5)">·</span>
+        <span>30-minute briefing tailored to your strategic context</span>
+        <span style="color:var(--ink-5)">·</span>
+        <span>NDA on request</span>
       </div>
     </div>
   </div>
@@ -1667,44 +1976,49 @@ footer {
      ============================================================ -->
 <footer>
   <div class="container">
-    <div class="foot-top">
+    <div class="foot-credo reveal">
+      DSAIN is the executive intelligence layer for leadership teams that <em>see first</em>, decide sharper, and compound advantage over time.
+    </div>
+
+    <div class="foot-grid">
       <div class="foot-brand">
         <a href="#top" class="logo">
-          <span class="logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="14" stroke="url(#logoG)" stroke-width="1.2" opacity=".5"/>
-              <circle cx="16" cy="16" r="9" stroke="url(#logoG)" stroke-width="1.2" opacity=".75"/>
-              <circle cx="16" cy="16" r="3.2" fill="url(#logoG)"/>
-            </svg>
-          </span>
-          <span>DSAIN</span>
+          <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <circle cx="16" cy="16" r="14" stroke="url(#logoG)" stroke-width="1" opacity=".4"/>
+            <circle cx="16" cy="16" r="9"  stroke="url(#logoG)" stroke-width="1" opacity=".7"/>
+            <circle cx="16" cy="16" r="3"  fill="url(#logoG)"/>
+          </svg>
+          <span class="logo-text">DSAIN</span>
         </a>
-        <p>Executive intelligence for strategic advantage.</p>
+        <p>Executive intelligence for strategic advantage. A continuous cognition layer for leadership teams operating at the scale of consequence.</p>
       </div>
+
       <div class="foot-col">
-        <h5>Products</h5>
-        <a href="#products">DSAIN Strategy</a>
-        <a href="#products">DSAIN Capital</a>
-        <a href="#products">DSAIN Lens Suite</a>
+        <h5>Portfolio</h5>
+        <a href="#portfolio">DSAIN Strategy</a>
+        <a href="#portfolio">DSAIN Capital</a>
+        <a href="#portfolio">DSAIN Lens Suite</a>
       </div>
+
       <div class="foot-col">
-        <h5>Platform</h5>
+        <h5>Architecture</h5>
         <a href="#layer">Intelligence Layer</a>
-        <a href="#how">How It Works</a>
-        <a href="#trust">Trust Architecture</a>
+        <a href="#method">Method</a>
         <a href="#dna">Strategy DNA</a>
+        <a href="#reliability">Reliability</a>
       </div>
+
       <div class="foot-col">
-        <h5>Company</h5>
-        <a href="#contact">Contact</a>
-        <a href="#contact">Strategy Briefing</a>
-        <a href="#contact">Research &amp; Press</a>
+        <h5>Office</h5>
+        <a href="#briefing">Strategy Briefing</a>
+        <a href="#briefing">Capital Briefing</a>
+        <a href="#briefing">Press &amp; Research</a>
       </div>
     </div>
 
     <div class="foot-bottom">
       <span>© <span id="year"></span> DSAIN · Decision Science AI Network</span>
-      <span>Built on strategy theory · adversarial deliberation · evidence&#8209;grounded reasoning</span>
+      <span>Theory · Adversarial Deliberation · Evidence</span>
     </div>
   </div>
 </footer>
@@ -1716,10 +2030,10 @@ footer {
 (function(){
   'use strict';
 
-  // ── Year ─────────────────────────────────────────────────
+  // Year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // ── Mobile nav toggle ───────────────────────────────────
+  // Mobile nav toggle
   const navToggle = document.getElementById('navToggle');
   const navMobile = document.getElementById('navMobile');
   if (navToggle && navMobile) {
@@ -1729,14 +2043,13 @@ footer {
     );
   }
 
-  // ── Nav background on scroll ────────────────────────────
+  // Nav scrolled state
   const nav = document.getElementById('nav');
-  let lastY = 0, ticking = false;
+  let ticking = false;
   function onScroll() {
     if (!ticking) {
       window.requestAnimationFrame(() => {
-        const y = window.scrollY;
-        nav.classList.toggle('scrolled', y > 24);
+        nav.classList.toggle('scrolled', window.scrollY > 32);
         ticking = false;
       });
       ticking = true;
@@ -1745,7 +2058,7 @@ footer {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // ── Reveal on scroll ─────────────────────────────────────
+  // Reveal on scroll
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
@@ -1755,21 +2068,25 @@ footer {
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
     revealEls.forEach(el => io.observe(el));
   } else {
     revealEls.forEach(el => el.classList.add('in'));
   }
 
-  // ── Hero canvas: strategic intelligence network ────────
+  // ─────────────────────────────────────────────────────────
+  //  Hero canvas: Strategic Intelligence Field
+  //  Layers: depth haze · foreground graph · signal traces ·
+  //          central pulsing glow · occasional scan rings
+  // ─────────────────────────────────────────────────────────
   const canvas = document.getElementById('heroCanvas');
   if (!canvas || !canvas.getContext) return;
   const ctx = canvas.getContext('2d');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let W = 0, H = 0, dpr = 1;
-  let nodes = [];
-  let mouse = { x: -9999, y: -9999, active: false };
+  let haze = [], nodes = [], traces = [], scanRings = [];
+  let lastTraceT = 0, lastScanT = 0;
 
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -1778,91 +2095,155 @@ footer {
     canvas.width  = Math.floor(W * dpr);
     canvas.height = Math.floor(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    initNodes();
+    init();
   }
 
-  function initNodes() {
-    const isMobile = W < 700;
-    const target = isMobile ? 36 : 78;
+  function init() {
+    const isMobile = W < 720;
+
+    // Depth haze: many small dim points for atmospheric depth
+    const hazeCount = isMobile ? 50 : 95;
+    haze = [];
+    for (let i = 0; i < hazeCount; i++) {
+      haze.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.04,
+        vy: (Math.random() - 0.5) * 0.04,
+        r: Math.random() * 0.7 + 0.3,
+        o: Math.random() * 0.16 + 0.05
+      });
+    }
+
+    // Foreground graph nodes — fewer, brighter, the active signal layer
+    const nodeCount = isMobile ? 18 : 28;
     nodes = [];
-    for (let i = 0; i < target; i++) {
+    for (let i = 0; i < nodeCount; i++) {
       nodes.push({
         x: Math.random() * W,
         y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.18,
-        vy: (Math.random() - 0.5) * 0.18,
-        r: Math.random() * 1.4 + 0.6,
-        // drift phase for subtle pulse
+        vx: (Math.random() - 0.5) * 0.06,
+        vy: (Math.random() - 0.5) * 0.06,
+        r: Math.random() * 0.9 + 0.7,
         ph: Math.random() * Math.PI * 2,
-        // color: cyan-leaning vs blue-leaning
         c: Math.random() < 0.55 ? 'cyan' : 'blue'
       });
     }
+
+    traces = [];
+    scanRings = [];
+    lastTraceT = 0;
+    lastScanT = 0;
   }
 
-  // pulses occasionally radiate from center
-  let pulses = [];
-  function maybeSpawnPulse(t) {
-    if (reduceMotion) return;
-    if (pulses.length < 3 && Math.random() < 0.004) {
-      pulses.push({
-        x: W * 0.5,
-        y: H * 0.45,
-        r: 0,
-        max: Math.max(W, H) * 0.6,
-        born: t
-      });
+  // Spawn a signal trace from a random node to its nearest neighbor
+  function spawnTrace(t, fromIdx, blockedIdx) {
+    if (fromIdx === undefined) {
+      fromIdx = Math.floor(Math.random() * nodes.length);
     }
+    const from = nodes[fromIdx];
+    let toIdx = -1, minD = W < 720 ? 200 : 260;
+    for (let j = 0; j < nodes.length; j++) {
+      if (j === fromIdx || j === blockedIdx) continue;
+      const dx = from.x - nodes[j].x;
+      const dy = from.y - nodes[j].y;
+      const d = Math.hypot(dx, dy);
+      if (d < minD) { minD = d; toIdx = j; }
+    }
+    if (toIdx === -1) return;
+    traces.push({
+      fromIdx, toIdx,
+      born: t,
+      duration: 1300 + Math.random() * 700,
+      // 40% chance to chain one further hop
+      chainsLeft: Math.random() < 0.4 ? 1 : 0
+    });
+  }
+
+  function maybeSpawnTrace(t) {
+    if (reduceMotion) return;
+    if (traces.length >= 3) return;
+    const interval = 4500 + Math.random() * 3500; // 4.5–8s
+    if (t - lastTraceT < interval) return;
+    lastTraceT = t;
+    spawnTrace(t);
+  }
+
+  function maybeSpawnScan(t) {
+    if (reduceMotion) return;
+    if (scanRings.length >= 1) return;
+    const interval = 13000 + Math.random() * 4000; // 13–17s
+    if (t - lastScanT < interval) return;
+    lastScanT = t;
+    scanRings.push({
+      x: W * 0.5,
+      y: H * 0.42,
+      born: t,
+      max: Math.max(W, H) * 0.65
+    });
+  }
+
+  // Easing for trace propagation
+  function easeInOutCubic(x) {
+    return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
   }
 
   function draw(t) {
     ctx.clearRect(0, 0, W, H);
 
-    // soft vignette wash
-    const grad = ctx.createRadialGradient(W*0.5, H*0.45, 0, W*0.5, H*0.45, Math.max(W,H)*0.7);
-    grad.addColorStop(0, 'rgba(34,211,238,0.04)');
-    grad.addColorStop(1, 'rgba(34,211,238,0)');
-    ctx.fillStyle = grad;
+    // ─── Central pulsing glow (composition anchor) ──────────
+    const cx = W * 0.5, cy = H * 0.42;
+    const gPulse = (Math.sin(t * 0.0008) + 1) * 0.5; // 0..1
+    const glowR = 360 + gPulse * 80;
+    const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, glowR);
+    glow.addColorStop(0,   'rgba(95,200,212,' + (0.06 + gPulse * 0.04) + ')');
+    glow.addColorStop(0.4, 'rgba(91,138,255,' + (0.025 + gPulse * 0.02) + ')');
+    glow.addColorStop(1,   'rgba(0,0,0,0)');
+    ctx.fillStyle = glow;
     ctx.fillRect(0, 0, W, H);
 
-    // pulses
-    maybeSpawnPulse(t);
-    pulses = pulses.filter(p => p.r < p.max);
-    pulses.forEach(p => {
-      const age = (t - p.born) / 1000;
-      p.r = age * 220;
-      const alpha = Math.max(0, 0.18 - age * 0.04);
+    // ─── Scan rings (rare, very subtle) ─────────────────────
+    maybeSpawnScan(t);
+    scanRings = scanRings.filter(s => {
+      const age = (t - s.born) / 1000;
+      const r = age * 95;
+      if (r > s.max) return false;
+      const alpha = Math.max(0, 0.09 - age * 0.011);
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(79,142,255,' + alpha + ')';
-      ctx.lineWidth = 1;
+      ctx.arc(s.x, s.y, r, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(95,200,212,' + alpha + ')';
+      ctx.lineWidth = 0.6;
       ctx.stroke();
+      return true;
     });
 
-    // edges
-    const maxDist = W < 700 ? 110 : 140;
+    // ─── Depth haze (background atmosphere) ─────────────────
+    for (let i = 0; i < haze.length; i++) {
+      const h = haze[i];
+      h.x += h.vx; h.y += h.vy;
+      if (h.x < -10) h.x = W + 10;
+      if (h.x > W + 10) h.x = -10;
+      if (h.y < -10) h.y = H + 10;
+      if (h.y > H + 10) h.y = -10;
+
+      ctx.beginPath();
+      ctx.arc(h.x, h.y, h.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(178,196,224,' + h.o + ')';
+      ctx.fill();
+    }
+
+    // ─── Foreground graph: proximity edges ──────────────────
+    const maxDist = W < 720 ? 130 : 165;
     for (let i = 0; i < nodes.length; i++) {
       const a = nodes[i];
-      // mouse interaction (subtle gravitation)
-      if (mouse.active) {
-        const mdx = mouse.x - a.x, mdy = mouse.y - a.y;
-        const md  = Math.hypot(mdx, mdy);
-        if (md < 160) {
-          a.vx += (mdx / md) * 0.0015;
-          a.vy += (mdy / md) * 0.0015;
-        }
-      }
-
       for (let j = i + 1; j < nodes.length; j++) {
         const b = nodes[j];
         const dx = a.x - b.x, dy = a.y - b.y;
         const d = Math.hypot(dx, dy);
         if (d < maxDist) {
-          const op = (1 - d / maxDist) * 0.35;
-          ctx.strokeStyle = (a.c === 'blue' || b.c === 'blue')
-            ? 'rgba(79,142,255,' + op + ')'
-            : 'rgba(34,211,238,' + op + ')';
-          ctx.lineWidth = 0.8;
+          const op = (1 - d / maxDist) * 0.11;
+          ctx.strokeStyle = 'rgba(140,180,220,' + op + ')';
+          ctx.lineWidth = 0.4;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
@@ -1871,68 +2252,115 @@ footer {
       }
     }
 
-    // nodes
+    // ─── Foreground graph: nodes ────────────────────────────
     for (let i = 0; i < nodes.length; i++) {
       const n = nodes[i];
-      n.x += n.vx;
-      n.y += n.vy;
-
-      // damping
-      n.vx *= 0.995;
-      n.vy *= 0.995;
-
-      // wrap
+      n.x += n.vx; n.y += n.vy;
       if (n.x < -10) n.x = W + 10;
       if (n.x > W + 10) n.x = -10;
       if (n.y < -10) n.y = H + 10;
       if (n.y > H + 10) n.y = -10;
 
-      // pulse glow
-      const pulse = (Math.sin(t * 0.001 + n.ph) + 1) * 0.5;
-      const r = n.r + pulse * 0.9;
+      const pulse = (Math.sin(t * 0.0007 + n.ph) + 1) * 0.5;
+      const r = n.r + pulse * 0.4;
+      const col = n.c === 'blue' ? '91,138,255' : '95,200,212';
 
       ctx.beginPath();
       ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
-      ctx.fillStyle = n.c === 'blue'
-        ? 'rgba(79,142,255,' + (0.55 + pulse * 0.35) + ')'
-        : 'rgba(34,211,238,' + (0.55 + pulse * 0.35) + ')';
+      ctx.fillStyle = 'rgba(' + col + ',' + (0.42 + pulse * 0.3) + ')';
+      ctx.fill();
+    }
+
+    // ─── Signal traces (the new sophisticated layer) ────────
+    maybeSpawnTrace(t);
+    const newTraces = [];
+    for (let k = 0; k < traces.length; k++) {
+      const tr = traces[k];
+      const age = (t - tr.born) / tr.duration;
+
+      if (age >= 1) {
+        // chain a follow-on hop?
+        if (tr.chainsLeft > 0) {
+          spawnTrace(t, tr.toIdx, tr.fromIdx);
+        }
+        continue;
+      }
+
+      const from = nodes[tr.fromIdx];
+      const to   = nodes[tr.toIdx];
+      const e    = easeInOutCubic(age);
+      const hx   = from.x + (to.x - from.x) * e;
+      const hy   = from.y + (to.y - from.y) * e;
+
+      // Trailing trace: bright at head, fading toward origin
+      const tailLen = 0.45; // proportion of full path that is the visible tail
+      const tStart  = Math.max(0, e - tailLen);
+      const sx = from.x + (to.x - from.x) * tStart;
+      const sy = from.y + (to.y - from.y) * tStart;
+
+      const grad = ctx.createLinearGradient(sx, sy, hx, hy);
+      grad.addColorStop(0,   'rgba(190,235,245,0)');
+      grad.addColorStop(0.6, 'rgba(190,235,245,0.18)');
+      grad.addColorStop(1,   'rgba(220,250,255,0.85)');
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 1.1;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(sx, sy);
+      ctx.lineTo(hx, hy);
+      ctx.stroke();
+
+      // Bright head dot
+      ctx.beginPath();
+      ctx.arc(hx, hy, 1.7, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(225,250,255,0.92)';
       ctx.fill();
 
-      // outer glow on a few
-      if (i % 11 === 0) {
+      // Soft halo at head
+      const halo = ctx.createRadialGradient(hx, hy, 0, hx, hy, 9);
+      halo.addColorStop(0, 'rgba(190,235,245,0.45)');
+      halo.addColorStop(1, 'rgba(190,235,245,0)');
+      ctx.fillStyle = halo;
+      ctx.beginPath();
+      ctx.arc(hx, hy, 9, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Origin flash (early)
+      if (age < 0.18) {
+        const fa = (1 - age / 0.18);
+        const fr = 4 + fa * 5;
+        const fh = ctx.createRadialGradient(from.x, from.y, 0, from.x, from.y, fr);
+        fh.addColorStop(0, 'rgba(190,235,245,' + (fa * 0.5) + ')');
+        fh.addColorStop(1, 'rgba(190,235,245,0)');
+        ctx.fillStyle = fh;
         ctx.beginPath();
-        ctx.arc(n.x, n.y, r * 4, 0, Math.PI * 2);
-        const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 4);
-        g.addColorStop(0, n.c === 'blue' ? 'rgba(79,142,255,0.25)' : 'rgba(34,211,238,0.25)');
-        g.addColorStop(1, 'rgba(0,0,0,0)');
-        ctx.fillStyle = g;
+        ctx.arc(from.x, from.y, fr, 0, Math.PI * 2);
         ctx.fill();
       }
+
+      // Destination flash (late)
+      if (age > 0.82) {
+        const da = (age - 0.82) / 0.18;
+        const dr = 3 + da * 7;
+        const dh = ctx.createRadialGradient(to.x, to.y, 0, to.x, to.y, dr);
+        dh.addColorStop(0, 'rgba(190,235,245,' + (da * 0.55) + ')');
+        dh.addColorStop(1, 'rgba(190,235,245,0)');
+        ctx.fillStyle = dh;
+        ctx.beginPath();
+        ctx.arc(to.x, to.y, dr, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      newTraces.push(tr);
     }
+    traces = newTraces;
 
     if (!reduceMotion) requestAnimationFrame(draw);
   }
 
-  // mouse tracking on hero
-  const hero = document.querySelector('.hero');
-  if (hero) {
-    hero.addEventListener('mousemove', (e) => {
-      const r = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - r.left;
-      mouse.y = e.clientY - r.top;
-      mouse.active = true;
-    });
-    hero.addEventListener('mouseleave', () => { mouse.active = false; });
-  }
-
   window.addEventListener('resize', resize);
   resize();
-  if (reduceMotion) {
-    // single static frame
-    requestAnimationFrame(draw);
-  } else {
-    requestAnimationFrame(draw);
-  }
+  requestAnimationFrame(draw);
 })();
 </script>
 
