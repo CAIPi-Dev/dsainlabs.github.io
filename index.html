@@ -11,6 +11,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
+<!-- Calendly widget assets -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
 <style>
 /* ============================================================
    DSAIN — Executive Intelligence Layer · Briefing Aesthetic
@@ -1288,6 +1292,16 @@ footer {
   letter-spacing: .14em;
   text-transform: uppercase;
 }
+.foot-bottom .foot-email {
+  color: var(--cyan);
+  text-decoration: none;
+  letter-spacing: .12em;
+  text-transform: lowercase;
+  transition: color .25s var(--ease);
+}
+.foot-bottom .foot-email:hover {
+  color: var(--ink);
+}
 
 /* ============================================================
    REVEALS
@@ -1395,7 +1409,7 @@ footer {
       <a href="#briefing">Briefing</a>
     </div>
 
-    <a href="#briefing" class="nav-cta">
+    <a href="https://calendly.com/dsain/strategy-briefing" data-calendly="https://calendly.com/dsain/strategy-briefing" class="nav-cta">
       Request a Briefing
       <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -1412,7 +1426,7 @@ footer {
     <a href="#portfolio">Portfolio</a>
     <a href="#reliability">Reliability</a>
     <a href="#briefing">Briefing</a>
-    <a href="#briefing" class="nav-cta">Request a Briefing</a>
+    <a href="https://calendly.com/dsain/strategy-briefing" data-calendly="https://calendly.com/dsain/strategy-briefing" class="nav-cta">Request a Briefing</a>
   </div>
 </nav>
 
@@ -1453,7 +1467,7 @@ footer {
       </p>
 
       <div class="hero-actions reveal delay-3">
-        <a href="#briefing" class="btn btn-primary">
+        <a href="https://calendly.com/dsain/strategy-briefing" data-calendly="https://calendly.com/dsain/strategy-briefing" class="btn btn-primary">
           Request a Strategy Briefing
           <svg class="arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -1866,7 +1880,7 @@ footer {
         <div class="portfolio-meta">
           <span class="availability">Enterprise &amp; Institutional</span>
           <span class="audience">Office of the CEO · Boards</span>
-          <a href="#briefing" class="cta">
+          <a href="https://calendly.com/dsain/strategy-briefing" data-calendly="https://calendly.com/dsain/strategy-briefing" class="cta">
             Brief our team
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -1893,7 +1907,7 @@ footer {
         <div class="portfolio-meta">
           <span class="availability">By Invitation</span>
           <span class="audience">Institutional Investors</span>
-          <a href="#briefing" class="cta">
+          <a href="https://calendly.com/dsain/capital-briefing" data-calendly="https://calendly.com/dsain/capital-briefing" class="cta">
             Capital briefing
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -1920,7 +1934,7 @@ footer {
         <div class="portfolio-meta">
           <span class="availability">Free</span>
           <span class="audience">Professionals · Press · Researchers</span>
-          <a href="#briefing" class="cta">
+          <a href="https://calendly.com/dsain/lens-suite" data-calendly="https://calendly.com/dsain/lens-suite" class="cta">
             Get the suite
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -2002,7 +2016,7 @@ footer {
       <p>DSAIN is built for leaders whose decisions are too consequential to wait for certainty — and too time-sensitive to wait for the consultant's deck. Briefings are scheduled with offices of the CEO and chief strategy or investment officers. Discreet, contextual, on the firm's calendar.</p>
 
       <div class="actions">
-        <a href="mailto:strategy@dsain.ca" class="btn btn-primary">
+        <a href="https://calendly.com/dsain/strategy-briefing" data-calendly="https://calendly.com/dsain/strategy-briefing" class="btn btn-primary">
           Request a Strategy Briefing
           <svg class="arr" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11m0 0L7 1.5m5 5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -2092,7 +2106,7 @@ footer {
 
     <div class="foot-bottom">
       <span>© <span id="year"></span> DSAIN · Decision Science AI Network</span>
-      <span>Theory · Adversarial Deliberation · Evidence</span>
+      <span>Direct · <a href="mailto:strategy@dsain.ca" class="foot-email">strategy@dsain.ca</a></span>
     </div>
   </div>
 </footer>
@@ -2106,6 +2120,20 @@ footer {
 
   // Year
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ── Calendly modal triggers ──────────────────────────────
+  // Any anchor with data-calendly="<url>" opens that booking page in a Calendly modal.
+  // Falls back to navigating to the URL if the Calendly widget script hasn't loaded.
+  document.querySelectorAll('a[data-calendly]').forEach(el => {
+    el.addEventListener('click', function(e) {
+      const url = this.getAttribute('data-calendly');
+      if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+        e.preventDefault();
+        window.Calendly.initPopupWidget({ url: url });
+      }
+      // else: let the browser navigate normally to the href fallback
+    });
+  });
 
   // Mobile nav toggle
   const navToggle = document.getElementById('navToggle');
