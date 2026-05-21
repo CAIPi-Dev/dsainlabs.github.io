@@ -1226,6 +1226,55 @@ nav.scrolled {
 }
 
 /* ============================================================
+   MEMBERSHIPS & RECOGNITION
+   ============================================================ */
+.memberships {
+  border-top: 1px solid var(--rule);
+  padding: 56px 0 48px;
+}
+.memberships-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.memberships-label {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.memberships-badges {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.memberships-badges a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity .25s var(--ease);
+}
+.memberships-badges img {
+  height: 48px;
+  width: auto;
+  opacity: 0.92;
+  transition: opacity .25s var(--ease);
+}
+.memberships-badges a:hover img { opacity: 1; }
+@media (max-width: 720px) {
+  .memberships-inner {
+    justify-content: center;
+    text-align: center;
+  }
+  .memberships-badges { justify-content: center; }
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 footer {
@@ -2033,6 +2082,27 @@ footer {
         <span>30-minute briefing tailored to your strategic context</span>
         <span style="color:var(--ink-5)">·</span>
         <span>NDA on request</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MEMBERSHIPS & RECOGNITION
+     ============================================================ -->
+<section class="memberships">
+  <div class="container">
+    <div class="memberships-inner reveal">
+      <div class="memberships-label">Memberships &amp; Recognition</div>
+      <div class="memberships-badges">
+        <a href="https://www.nvidia.com/en-us/startups/"
+           target="_blank"
+           rel="noopener"
+           aria-label="NVIDIA Inception Program Member">
+          <img src="/assets/nvidia-inception-program-badge-rgb-for-screen.png"
+               alt="NVIDIA Inception Program Member" />
+        </a>
+        <!-- Future credentials (SOC 2, ISO 42001, peer-reviewed publication, etc.) extend this row -->
       </div>
     </div>
   </div>
