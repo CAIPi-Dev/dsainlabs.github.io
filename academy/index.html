@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSAIN AI Academy — AI literacy for Grade 7–9, on the University of Calgary campus</title>
+<meta name="description" content="A small Saturday cohort where students in Grades 7–9 learn to create with AI, check what it tells them, and build real projects — safely, on a university campus, designed from the research behind DSAIN's executive intelligence systems.">
+<meta name="theme-color" content="#1B2640">
+ 
+<!-- ============================================================
+     DSAIN AI Academy — landing page (self-contained, no build step)
+     To customise, search this file for the word  REPLACE
+     ============================================================ -->
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ 
+<style>
+  :root{
+    --ink:#1B2640;          /* deep warm indigo — the DSAIN brand tie */
+    --ink-soft:#566089;     /* secondary text */
+    --ink-faint:#8A92AE;
+    --amber:#F2A53D;        /* warm action / accent */
+    --amber-deep:#E4901F;   /* hover */
+    --amber-wash:#FFF4E1;   /* soft accent background */
+    --paper:#FFFFFF;
+    --mist:#F4F6FB;         /* cool, clean section tint (deliberately not cream) */
+    --sky:#E9EFFB;          /* soft blue chip background */
+    --line:#E4E8F2;
+    --ok:#2E9E6B;
+    --maxw:1120px;
+    --r:18px;               /* card radius */
+    --r-sm:11px;
+    --shadow:0 1px 2px rgba(27,38,64,.06), 0 12px 30px rgba(27,38,64,.08);
+    --shadow-sm:0 1px 2px rgba(27,38,64,.05), 0 6px 16px rgba(27,38,64,.06);
+    --font-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --font-body:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  section[id], #reserve, #top{ scroll-margin-top:88px }
+  body{
+    margin:0; font-family:var(--font-body); color:var(--ink);
+    background:var(--paper); line-height:1.6; -webkit-font-smoothing:antialiased;
+    font-size:17px;
+  }
+  @media (max-width:560px){ body{font-size:16px} }
+  h1,h2,h3,h4{font-family:var(--font-display); line-height:1.08; margin:0; font-weight:700; letter-spacing:-.01em}
+  p{margin:0}
+  a{color:inherit}
+  img{max-width:100%; display:block}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px}
+  @media (max-width:560px){ .wrap{padding:0 20px} }
+ 
+  .eyebrow{
+    font-family:var(--font-display); font-weight:600; font-size:.82rem;
+    letter-spacing:.06em; text-transform:uppercase; color:var(--amber-deep);
+  }
+  .lede{color:var(--ink-soft); font-size:1.12rem}
+ 
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:.5rem; cursor:pointer;
+    font-family:var(--font-display); font-weight:600; font-size:1rem;
+    padding:.85rem 1.4rem; border-radius:999px; text-decoration:none;
+    border:1.5px solid transparent; transition:transform .15s ease, background .15s ease, box-shadow .15s ease, border-color .15s ease;
+    white-space:nowrap;
+  }
+  .btn--primary{ background:var(--amber); color:#3A2A06; box-shadow:0 6px 16px rgba(242,165,61,.35) }
+  .btn--primary:hover{ background:var(--amber-deep); transform:translateY(-1px) }
+  .btn--ghost{ background:transparent; color:var(--ink); border-color:var(--line) }
+  .btn--ghost:hover{ border-color:var(--ink); background:var(--mist) }
+  .btn--lg{ padding:1rem 1.7rem; font-size:1.06rem }
+  .btn--light{ background:#fff; color:var(--ink); }
+  .btn--light:hover{ background:var(--amber-wash) }
+  .btn:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible{
+    outline:3px solid var(--amber); outline-offset:2px; border-radius:6px;
+  }
+ 
+  /* ---------- header ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50; background:rgba(255,255,255,.86);
+    backdrop-filter:saturate(160%) blur(12px); border-bottom:1px solid transparent;
+    transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  header.nav.scrolled{ border-color:var(--line); box-shadow:0 4px 20px rgba(27,38,64,.05) }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:68px }
+  .brand{ font-family:var(--font-display); font-weight:800; font-size:1.15rem; letter-spacing:-.02em; text-decoration:none; color:var(--ink) }
+  .brand b{ color:var(--ink) } .brand span{ color:var(--ink-soft); font-weight:600 }
+  .nav-links{ display:flex; align-items:center; gap:1.9rem }
+  .nav-links a.lnk{ text-decoration:none; color:var(--ink-soft); font-weight:500; font-size:.96rem }
+  .nav-links a.lnk:hover{ color:var(--ink) }
+  @media (max-width:860px){ .nav-links a.lnk{ display:none } }
+ 
+  /* ---------- hero ---------- */
+  .hero{ padding:64px 0 24px }
+  .hero-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:54px; align-items:center }
+  .hero h1{ font-size:clamp(2.3rem, 4.6vw, 3.5rem); margin:.7rem 0 0 }
+  .hero h1 .hl{ color:var(--amber-deep); position:relative; white-space:nowrap }
+  .hero p.sub{ margin-top:1.2rem; font-size:1.16rem; color:var(--ink-soft); max-width:34ch }
+  .cta-row{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.9rem }
+  .scarce{ display:inline-flex; align-items:center; gap:.55rem; margin-top:1.6rem; font-size:.95rem; color:var(--ink-soft) }
+  .scarce b{ color:var(--ink); font-family:var(--font-display) }
+  .dot{ width:9px; height:9px; border-radius:50%; background:var(--amber); box-shadow:0 0 0 4px var(--amber-wash) }
+ 
+  /* hero visual — a quiet "verification" card; swap for a real photo if you have one */
+  .hero-card{
+    background:var(--ink); border-radius:24px; padding:26px; color:#fff; box-shadow:var(--shadow);
+    position:relative; overflow:hidden;
+  }
+  .hero-card::after{ content:""; position:absolute; right:-60px; top:-60px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle, rgba(242,165,61,.45), transparent 70%) }
+  .hc-tag{ font-family:var(--font-display); font-size:.78rem; letter-spacing:.05em; text-transform:uppercase; color:#A9B4D8 }
+  .hc-claim{ font-family:var(--font-display); font-size:1.18rem; font-weight:600; margin:.5rem 0 .2rem; line-height:1.25 }
+  .hc-row{ display:flex; gap:.5rem; margin:1.1rem 0 .9rem; flex-wrap:wrap }
+  .chip{ display:inline-flex; align-items:center; gap:.4rem; font-size:.85rem; font-weight:600; padding:.35rem .7rem; border-radius:999px; font-family:var(--font-display) }
+  .chip.challenge{ background:rgba(255,255,255,.12); color:#fff }
+  .chip.verify{ background:var(--amber); color:#3A2A06 }
+  .hc-result{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); border-radius:12px; padding:.8rem .9rem; font-size:.95rem; color:#E7ECFA }
+  .hc-result b{ color:#fff }
+  .hc-check{ color:#7FE0AE; font-weight:700 }
+ 
+  @media (max-width:860px){
+    .hero{ padding:40px 0 8px }
+    .hero-grid{ grid-template-columns:1fr; gap:34px }
+    .hero p.sub{ max-width:48ch }
+    .hero-card{ order:2 }
+  }
+ 
+  /* ---------- trust bar ---------- */
+  .trust{ margin-top:30px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--mist) }
+  .trust-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:0 }
+  .trust-item{ display:flex; gap:.85rem; align-items:flex-start; padding:22px 26px }
+  .trust-item + .trust-item{ border-left:1px solid var(--line) }
+  .trust-ic{ flex:0 0 38px; width:38px; height:38px; border-radius:10px; background:var(--sky); display:grid; place-items:center; color:var(--ink) }
+  .trust-item h4{ font-size:1rem; margin-bottom:.15rem }
+  .trust-item p{ font-size:.9rem; color:var(--ink-soft) }
+  @media (max-width:760px){
+    .trust-grid{ grid-template-columns:1fr }
+    .trust-item + .trust-item{ border-left:none; border-top:1px solid var(--line) }
+  }
+ 
+  /* ---------- generic section ---------- */
+  .sec{ padding:78px 0 }
+  .sec-tint{ background:var(--mist) }
+  .sec-head{ max-width:42ch }
+  .sec-head h2{ font-size:clamp(1.8rem,3.2vw,2.5rem); margin:.5rem 0 0 }
+  .sec-head p{ margin-top:.9rem; color:var(--ink-soft); font-size:1.08rem }
+ 
+  /* outcomes */
+  .out-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:38px }
+  .out-card{ background:var(--paper); border:1px solid var(--line); border-radius:var(--r); padding:26px; box-shadow:var(--shadow-sm) }
+  .out-card .k{ font-family:var(--font-display); font-weight:700; font-size:1.12rem; display:flex; align-items:center; gap:.6rem }
+  .out-card .k .b{ width:30px; height:30px; border-radius:9px; background:var(--amber-wash); color:var(--amber-deep); display:grid; place-items:center; flex:0 0 30px }
+  .out-card p{ margin-top:.6rem; color:var(--ink-soft); font-size:.99rem }
+  .readiness{ margin-top:26px; font-size:1.02rem; color:var(--ink-soft) }
+  .readiness b{ color:var(--ink) }
+  @media (max-width:680px){ .out-grid{ grid-template-columns:1fr } }
+ 
+  /* ---------- the Reliability Cycle (signature) ---------- */
+  .cycle-wrap{ margin-top:42px }
+  .cycle{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; counter-reset:step }
+  .step{
+    position:relative; background:var(--paper); border:1px solid var(--line); border-radius:var(--r);
+    padding:22px 22px 22px; box-shadow:var(--shadow-sm);
+  }
+  .step .num{
+    font-family:var(--font-display); font-weight:800; font-size:.95rem; width:34px; height:34px;
+    border-radius:50%; background:var(--ink); color:#fff; display:grid; place-items:center; margin-bottom:14px;
+  }
+  .step.s6 .num{ background:var(--amber); color:#3A2A06 }
+  .step h4{ font-size:1.14rem }
+  .step .verb-sub{ font-size:.78rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--amber-deep); margin-top:2px }
+  .step p{ margin-top:.5rem; color:var(--ink-soft); font-size:.95rem }
+  .cycle-loop{
+    display:flex; align-items:center; justify-content:center; gap:.6rem; margin-top:22px;
+    font-family:var(--font-display); font-weight:600; color:var(--ink-soft); font-size:.95rem; text-align:center;
+  }
+  .cycle-loop .arc{ color:var(--amber-deep) }
+  @media (max-width:860px){ .cycle{ grid-template-columns:repeat(2,1fr) } }
+  @media (max-width:540px){ .cycle{ grid-template-columns:1fr } }
+ 
+  /* ---------- safety ---------- */
+  .safe-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:38px }
+  .safe-card{ display:flex; gap:1rem; background:var(--paper); border:1px solid var(--line); border-radius:var(--r); padding:24px; box-shadow:var(--shadow-sm) }
+  .safe-ic{ flex:0 0 42px; width:42px; height:42px; border-radius:11px; background:var(--ink); color:#fff; display:grid; place-items:center }
+  .safe-card h4{ font-size:1.06rem; margin-bottom:.3rem }
+  .safe-card p{ color:var(--ink-soft); font-size:.96rem }
+  @media (max-width:680px){ .safe-grid{ grid-template-columns:1fr } }
+ 
+  /* ---------- program at a glance ---------- */
+  .prog-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:38px }
+  .prog-card{ background:var(--paper); border:1px solid var(--line); border-radius:var(--r); padding:22px; box-shadow:var(--shadow-sm) }
+  .prog-card .lab{ font-size:.78rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-faint) }
+  .prog-card .big{ font-family:var(--font-display); font-weight:700; font-size:1.16rem; margin-top:.45rem; line-height:1.2 }
+  .prog-card p{ margin-top:.45rem; color:var(--ink-soft); font-size:.92rem }
+  @media (max-width:860px){ .prog-grid{ grid-template-columns:repeat(2,1fr) } }
+  @media (max-width:480px){ .prog-grid{ grid-template-columns:1fr } }
+ 
+  /* ---------- founder / proof ---------- */
+  .proof-grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:30px; align-items:center }
+  .founder-card{ background:var(--ink); color:#fff; border-radius:var(--r); padding:30px; box-shadow:var(--shadow) }
+  .founder-photo{ width:84px; height:84px; border-radius:50%; background:linear-gradient(135deg,#33406B,#1B2640); border:2px solid rgba(255,255,255,.18); display:grid; place-items:center; color:#9DA8CF; font-family:var(--font-display); font-weight:700; font-size:1.6rem; margin-bottom:16px }
+  .founder-card h3{ color:#fff; font-size:1.3rem }
+  .founder-card .role{ color:#A9B4D8; font-size:.95rem; margin-top:.2rem }
+  .founder-card p{ color:#D7DEF2; margin-top:1rem; font-size:1rem }
+  .proof-later{ border:1px dashed var(--line); border-radius:var(--r); padding:30px; background:var(--mist) }
+  .proof-later h3{ font-size:1.25rem }
+  .proof-later p{ color:var(--ink-soft); margin-top:.7rem }
+  .gallery-ph{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:18px }
+  .gallery-ph div{ aspect-ratio:1; border-radius:10px; background:linear-gradient(135deg,#EAEEF8,#DCE4F4) }
+  @media (max-width:780px){ .proof-grid{ grid-template-columns:1fr } }
+ 
+  /* ---------- pricing / reserve ---------- */
+  .price-grid{ display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:stretch }
+  .price-card{ background:var(--ink); color:#fff; border-radius:24px; padding:36px; box-shadow:var(--shadow); position:relative; overflow:hidden }
+  .price-card::after{ content:""; position:absolute; left:-50px; bottom:-50px; width:180px; height:180px; border-radius:50%; background:radial-gradient(circle, rgba(242,165,61,.4), transparent 70%) }
+  .price-tag{ display:inline-flex; align-items:center; gap:.4rem; background:rgba(255,255,255,.12); color:#fff; font-family:var(--font-display); font-weight:600; font-size:.82rem; padding:.35rem .8rem; border-radius:999px; letter-spacing:.03em }
+  .price-amount{ font-family:var(--font-display); font-weight:800; font-size:3.2rem; line-height:1; margin:18px 0 4px }
+  .price-amount span{ font-size:1.1rem; font-weight:600; color:#A9B4D8 }
+  .price-note{ color:#C3CCEA; font-size:.98rem }
+  .price-list{ list-style:none; padding:0; margin:22px 0 0; position:relative; z-index:1 }
+  .price-list li{ display:flex; gap:.7rem; align-items:flex-start; padding:.4rem 0; color:#E7ECFA; font-size:.98rem }
+  .price-list .tick{ color:var(--amber); font-weight:700; flex:0 0 auto }
+  .fine{ color:#9DA8CF; font-size:.85rem; margin-top:18px }
+ 
+  .reserve-side{ display:flex; flex-direction:column; justify-content:center }
+  .reserve-side h2{ font-size:clamp(1.7rem,3vw,2.3rem) }
+  .reserve-side p{ color:var(--ink-soft); margin-top:.9rem; font-size:1.06rem }
+  .reserve-steps{ list-style:none; padding:0; margin:24px 0 0 }
+  .reserve-steps li{ display:flex; gap:.85rem; align-items:flex-start; padding:.55rem 0 }
+  .reserve-steps .n{ flex:0 0 28px; width:28px; height:28px; border-radius:50%; background:var(--amber-wash); color:var(--amber-deep); font-family:var(--font-display); font-weight:700; display:grid; place-items:center; font-size:.9rem }
+  .reserve-steps b{ font-family:var(--font-display) }
+  @media (max-width:820px){ .price-grid{ grid-template-columns:1fr } }
+ 
+  /* ---------- FAQ ---------- */
+  .faq{ margin-top:38px; border-top:1px solid var(--line) }
+  details.q{ border-bottom:1px solid var(--line) }
+  details.q summary{
+    list-style:none; cursor:pointer; padding:22px 4px; display:flex; justify-content:space-between; gap:1rem;
+    font-family:var(--font-display); font-weight:600; font-size:1.1rem; align-items:center;
+  }
+  details.q summary::-webkit-details-marker{ display:none }
+  details.q summary .pm{ flex:0 0 auto; width:26px; height:26px; border-radius:50%; border:1.5px solid var(--line); display:grid; place-items:center; color:var(--ink-soft); transition:transform .2s ease, background .2s ease, color .2s ease }
+  details.q[open] summary .pm{ background:var(--ink); color:#fff; border-color:var(--ink); transform:rotate(45deg) }
+  details.q .a{ padding:0 4px 24px; color:var(--ink-soft); max-width:70ch }
+ 
+  /* ---------- waitlist ---------- */
+  .wait{ background:var(--ink); color:#fff }
+  .wait-grid{ display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center }
+  .wait h2{ color:#fff; font-size:clamp(1.8rem,3.2vw,2.5rem) }
+  .wait .sub{ color:#C3CCEA; margin-top:1rem; font-size:1.08rem }
+  .wait .why{ color:#9DA8CF; margin-top:1.1rem; font-size:.95rem }
+  form.waitform{ background:#fff; color:var(--ink); border-radius:22px; padding:30px; box-shadow:var(--shadow) }
+  .field{ margin-bottom:16px }
+  .field label{ display:block; font-family:var(--font-display); font-weight:600; font-size:.92rem; margin-bottom:.4rem }
+  .field input, .field select{
+    width:100%; padding:.8rem .9rem; border:1.5px solid var(--line); border-radius:11px; font-family:var(--font-body);
+    font-size:1rem; color:var(--ink); background:#fff; transition:border-color .15s ease;
+  }
+  .field input:focus, .field select:focus{ border-color:var(--amber); outline:none }
+  .row2{ display:grid; grid-template-columns:1fr 1fr; gap:14px }
+  .hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden }
+  .formnote{ font-size:.84rem; color:var(--ink-faint); margin-top:8px }
+  @media (max-width:820px){ .wait-grid{ grid-template-columns:1fr } .row2{ grid-template-columns:1fr } }
+ 
+  /* ---------- footer ---------- */
+  footer.ft{ background:#10182B; color:#9DA8CF; padding:46px 0 36px }
+  .ft-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; align-items:flex-start }
+  .ft-brand{ font-family:var(--font-display); font-weight:800; font-size:1.2rem; color:#fff }
+  .ft-brand + p{ margin-top:.5rem; max-width:38ch; font-size:.92rem }
+  .ft-links{ display:flex; gap:1.6rem; flex-wrap:wrap }
+  .ft-links a{ color:#C3CCEA; text-decoration:none; font-size:.95rem }
+  .ft-links a:hover{ color:#fff }
+  .ft-bottom{ margin-top:34px; padding-top:20px; border-top:1px solid rgba(255,255,255,.08); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:.85rem }
+  .ft-bottom a{ color:#C3CCEA; text-decoration:none }
+ 
+  /* ---------- scroll reveal ---------- */
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease }
+  .reveal.in{ opacity:1; transform:none }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{ opacity:1; transform:none; transition:none }
+    html{ scroll-behavior:auto }
+    .btn{ transition:none }
+  }
+</style>
+</head>
+<body>
+ 
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><b>DSAIN</b> <span>AI Academy</span></a>
+    <nav class="nav-links">
+      <a class="lnk" href="#outcomes">Outcomes</a>
+      <a class="lnk" href="#method">Method</a>
+      <a class="lnk" href="#safety">Safety</a>
+      <a class="lnk" href="#pricing">Pricing</a>
+      <a class="btn btn--primary" data-reserve href="#reserve">Reserve a seat</a>
+    </nav>
+  </div>
+</header>
+ 
+<main id="top">
+ 
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">Grade 7–9 · Saturdays on the University of Calgary campus</span>
+      <h1>Teach your teen to <span class="hl">question AI</span> — not just use it.</h1>
+      <p class="sub">A small Saturday cohort where students learn to create with AI, check what it tells them, and build real projects — safely, guided by the research behind DSAIN’s executive‑intelligence systems.</p>
+      <div class="cta-row">
+        <a class="btn btn--primary btn--lg" data-reserve href="#reserve">Reserve a preview seat</a>
+        <a class="btn btn--ghost btn--lg" href="#waitlist">Join the waitlist</a>
+      </div>
+      <!-- REPLACE: set your real cohort start date below -->
+      <div class="scarce"><span class="dot"></span><span>One founding cohort. <b>12 seats.</b> Next start: <b>[START DATE]</b>.</span></div>
+    </div>
+ 
+    <!-- Hero visual: a quiet "verification" card showing the method in action.
+         REPLACE (optional): swap this whole .hero-card for a real photo of students/classroom. -->
+    <div class="hero-card reveal" aria-hidden="true">
+      <div class="hc-tag">In class · the Reliability Cycle, live</div>
+      <div class="hc-claim">“The Eiffel Tower is 450&nbsp;metres tall.”</div>
+      <div style="color:#A9B4D8; font-size:.86rem">— what the AI confidently wrote</div>
+      <div class="hc-row">
+        <span class="chip challenge">↺ Challenge</span>
+        <span class="chip verify">✓ Verify</span>
+      </div>
+      <div class="hc-result">Students checked a reliable source: it’s <b>330&nbsp;m</b>. Corrected, and <span class="hc-check">disclosed</span> how AI was used.</div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===================== TRUST BAR ===================== -->
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-ic" aria-hidden="true">🛡️</div>
+        <div><h4>Safety comes first</h4><p>Every cohort opens with a parent‑and‑student safety session before any independent AI use.</p></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-ic" aria-hidden="true">🎓</div>
+        <div><h4>On a university campus</h4><p>Taught in a University of Calgary classroom — a serious setting for serious learning.</p></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-ic" aria-hidden="true">✦</div>
+        <div><h4>Designed from real research</h4><p>Built on the same work in reliable AI judgment that powers DSAIN’s executive‑intelligence systems.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===================== OUTCOMES ===================== -->
+<section class="sec" id="outcomes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What they leave with</span>
+      <h2>In eight weeks, your teen will be able to —</h2>
+      <p>Not prompts. Judgment. The skills that matter for high school and a world being reshaped by AI.</p>
+    </div>
+    <div class="out-grid">
+      <div class="out-card reveal"><div class="k"><span class="b">✎</span>Create with AI</div><p>Direct AI to make original writing, images, and projects they’re genuinely proud of.</p></div>
+      <div class="out-card reveal"><div class="k"><span class="b">⚠</span>Challenge it</div><p>Spot when confident AI output is wrong, biased, or simply made up — and probe further.</p></div>
+      <div class="out-card reveal"><div class="k"><span class="b">✓</span>Verify &amp; decide</div><p>Check the facts that matter against reliable sources, then decide what to trust and what to reject.</p></div>
+      <div class="out-card reveal"><div class="k"><span class="b">◎</span>Disclose honestly</div><p>Explain exactly how AI helped — the responsible opposite of passing work off as their own.</p></div>
+    </div>
+    <p class="readiness reveal">Every student finishes with a <b>portfolio piece</b>, a personal <b>AI Use Charter</b> they authored, and a clear next step on the path toward the Grade 10–12 Builder track.</p>
+  </div>
+</section>
+ 
+<!-- ===================== METHOD — the Reliability Cycle (signature) ===================== -->
+<section class="sec sec-tint" id="method">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The method</span>
+      <h2>Every project runs the same six‑step method.</h2>
+      <p>The DSAIN Reliability Cycle is the spine of every session — the difference between <em>using</em> AI and using it well. It’s what makes this more than a prompting class.</p>
+    </div>
+ 
+    <div class="cycle-wrap reveal">
+      <div class="cycle">
+        <div class="step s1"><div class="num">1</div><h4>Define</h4><div class="verb-sub">The goal</div><p>What am I making, and what makes it good?</p></div>
+        <div class="step s2"><div class="num">2</div><h4>Direct</h4><div class="verb-sub">The prompt</div><p>How do I prompt the AI and set its role to get real help?</p></div>
+        <div class="step s3"><div class="num">3</div><h4>Generate</h4><div class="verb-sub">The draft</div><p>What did the AI actually produce — as a collaborator, not an answer machine?</p></div>
+        <div class="step s4"><div class="num">4</div><h4>Challenge</h4><div class="verb-sub">The doubt</div><p>What’s likely wrong, biased, missing, or invented?</p></div>
+        <div class="step s5"><div class="num">5</div><h4>Verify</h4><div class="verb-sub">The check</div><p>How do I confirm the claims and sources that matter?</p></div>
+        <div class="step s6"><div class="num">6</div><h4>Decide &amp; Disclose</h4><div class="verb-sub">The judgment</div><p>What do I keep or reject — and how do I show AI’s part honestly?</p></div>
+      </div>
+      <div class="cycle-loop"><span class="arc">↻</span> Then it begins again — every task, every level, getting harder as the student grows.</div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===================== SAFETY ===================== -->
+<section class="sec" id="safety">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">For parents who want it done right</span>
+      <h2>Hands‑on with AI — without the worry.</h2>
+      <p>The hard questions about teens and AI — privacy, screen time, cheating — answered with structure, not hope.</p>
+    </div>
+    <div class="safe-grid">
+      <div class="safe-card reveal"><div class="safe-ic" aria-hidden="true">🔑</div><div><h4>You stay in control of the account</h4><p>Students use a parent‑approved account that you enable and oversee. We never hold passwords or share credentials. Younger students (age 12) use a parent‑controlled or education path.</p></div></div>
+      <div class="safe-card reveal"><div class="safe-ic" aria-hidden="true">🔒</div><div><h4>Privacy by design</h4><p>Students never enter personal or family information into any tool. We keep only the project work needed to give feedback — not full chat histories.</p></div></div>
+      <div class="safe-card reveal"><div class="safe-ic" aria-hidden="true">⚖️</div><div><h4>Assistance, not outsourcing</h4><p>We explicitly teach the line between getting help and handing in AI’s work — original thinking, honestly disclosed. The opposite of a homework shortcut.</p></div></div>
+      <div class="safe-card reveal"><div class="safe-ic" aria-hidden="true">👥</div><div><h4>Two adults, reviewed tools</h4><p>A two‑adult standard in every session and screened to police and university requirements. Every tool is reviewed before class; if one changes, the method still holds.</p></div></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===================== PROGRAM AT A GLANCE ===================== -->
+<section class="sec sec-tint">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The shape of it</span>
+      <h2>Program at a glance.</h2>
+    </div>
+    <div class="prog-grid">
+      <div class="prog-card reveal"><div class="lab">Schedule</div><div class="big">8‑week level</div><p>4 Saturdays a month, 90 minutes each.</p></div>
+      <div class="prog-card reveal"><div class="lab">Cohort</div><div class="big">Small group</div><p>10–12 students learning together as one continuing cohort.</p></div>
+      <div class="prog-card reveal"><div class="lab">The ladder</div><div class="big">Level 1 → and up</div><p>Begins with Foundations &amp; Safe Use; a clear path toward the Grade 10–12 Builder track.</p></div>
+      <div class="prog-card reveal"><div class="lab">You’ll need</div><div class="big">A laptop</div><p>A laptop or Chromebook, a charger, and a parent‑approved account — we help you set it up.</p></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===================== FOUNDER / PROOF ===================== -->
+<section class="sec">
+  <div class="wrap proof-grid">
+    <!-- REPLACE: founder name, role line, bio, and photo (swap the initials block for a real headshot). -->
+    <div class="founder-card reveal">
+      <div class="founder-photo" aria-hidden="true">R</div>
+      <h3>[Founder name]</h3>
+      <div class="role">Founder, DSAIN · doctoral research in strategic decision‑making</div>
+      <p>“I built DSAIN to make AI reliable for the highest‑stakes decisions. The Academy teaches teens the same discipline early — how to create with AI, challenge it, and think for themselves.”</p>
+    </div>
+    <div class="reveal">
+      <div class="sec-head" style="margin-bottom:18px">
+        <span class="eyebrow">Proof</span>
+        <h2 style="font-size:clamp(1.6rem,2.8vw,2.2rem)">See it before you decide.</h2>
+        <p>Watch a short preview of one real, age‑appropriate task — and see the Reliability Cycle in action.</p>
+      </div>
+      <a class="btn btn--primary" data-reserve href="#reserve">Watch the preview &amp; reserve a seat</a>
+      <!-- Student work & parent stories appear here as the first cohort finishes (do not fabricate). -->
+      <div class="proof-later" style="margin-top:24px">
+        <h3>Student work &amp; parent stories</h3>
+        <p>Our founding cohort is just beginning. Real project samples and parent testimonials will live here as soon as they finish — the honest kind, with permission.</p>
+        <div class="gallery-ph" aria-hidden="true"><div></div><div></div><div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===================== PRICING / RESERVE ===================== -->
+<section class="sec sec-tint" id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:34px">
+      <span class="eyebrow">Founding‑cohort pricing</span>
+      <h2>Premium, and worth it.</h2>
+      <p>Small‑cohort, founder‑led, project‑based AI literacy on a university campus. Founding families lock in today’s price.</p>
+    </div>
+    <div class="price-grid" id="reserve">
+      <!-- REPLACE: confirm the monthly price and the first-level total. Defaults shown are placeholders. -->
+      <div class="price-card reveal">
+        <span class="price-tag">Founding cohort</span>
+        <div class="price-amount">$329<span> / month</span></div>
+        <p class="price-note">Your first level is 8 weeks, billed as two monthly payments (about <b style="color:#fff">$658</b>).</p>
+        <ul class="price-list">
+          <li><span class="tick">✓</span> 4 × 90‑minute Saturday classes each month</li>
+          <li><span class="tick">✓</span> The parent‑and‑student safety session</li>
+          <li><span class="tick">✓</span> Parent‑approved AI access &amp; setup help</li>
+          <li><span class="tick">✓</span> A portfolio piece, feedback, and a completion certificate</li>
+        </ul>
+        <p class="fine">Plus applicable tax. Any third‑party tool costs are disclosed before you enrol.</p>
+      </div>
+      <div class="reserve-side reveal">
+        <span class="eyebrow">How reserving works</span>
+        <h2>Hold your seat in three steps.</h2>
+        <p>A small deposit holds a place and is credited toward your enrolment. With one cohort of twelve, seats are genuinely limited.</p>
+        <ol class="reserve-steps">
+          <li><span class="n">1</span><span><b>Reserve a preview seat.</b> A small, fully‑credited deposit holds your place.</span></li>
+          <li><span class="n">2</span><span><b>Come to the preview.</b> See a real task and the safety model — bring your teen.</span></li>
+          <li><span class="n">3</span><span><b>Enrol if it’s right.</b> Your deposit comes straight off your first payment.</span></li>
+        </ol>
+        <div class="cta-row" style="margin-top:26px">
+          <a class="btn btn--primary btn--lg" data-reserve href="#reserve">Reserve a preview seat</a>
+          <a class="btn btn--ghost btn--lg" href="#waitlist">Join the waitlist instead</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===================== FAQ ===================== -->
+<section class="sec">
+  <div class="wrap" style="max-width:840px">
+    <div class="sec-head reveal" style="max-width:none">
+      <span class="eyebrow">Questions parents ask</span>
+      <h2>The honest answers.</h2>
+    </div>
+    <div class="faq reveal">
+      <details class="q"><summary>Isn’t this just more screen time?<span class="pm">+</span></summary><div class="a">No. Sessions are supervised, project‑based, and built around judgment — students <em>make</em> things and then critique and verify them. The goal is capability and original thinking, not passive consumption.</div></details>
+      <details class="q"><summary>What about privacy and my child’s data?<span class="pm">+</span></summary><div class="a">Students never enter personal or family information into any tool, and we use fictional or public material in class. We collect only what we need to run the program, keep the project work rather than full chat histories, and follow clear retention and deletion rules.</div></details>
+      <details class="q"><summary>Will this encourage cheating — or help prevent it?<span class="pm">+</span></summary><div class="a">Prevent it. We teach the line between getting help and outsourcing, how to think originally, and how to disclose exactly what AI contributed. Academic‑integrity habits are part of every session.</div></details>
+      <details class="q"><summary>My child is 12, or in Grade 7 — can they join?<span class="pm">+</span></summary><div class="a">Yes, with a parent‑controlled or education‑appropriate account that we’ll confirm with you. Where no compliant option exists for a particular tool, we set the minimum at age 13 / Grade 8 — we’ll be clear with you before you enrol.</div></details>
+      <details class="q"><summary>What does my teen actually walk away with?<span class="pm">+</span></summary><div class="a">A real portfolio project, a personal AI Use Charter they authored, a completion certificate, and a clear next level to grow into — through the Creator levels and toward the Grade 10–12 Builder track.</div></details>
+      <details class="q"><summary>Where is it, and what about drop‑off and parking?<span class="pm">+</span></summary><div class="a">[REPLACE: building / room, the drop‑off and pickup points, and weekend parking or transit details once your campus booking is confirmed.]</div></details>
+      <details class="q"><summary>What’s the commitment, and your refund policy?<span class="pm">+</span></summary><div class="a">The first commitment is one 8‑week level (two monthly payments). After that it renews monthly unless you give notice. [REPLACE: state your exact cancellation and refund terms here.]</div></details>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===================== WAITLIST ===================== -->
+<section class="wait sec" id="waitlist">
+  <div class="wrap wait-grid">
+    <div class="reveal">
+      <span class="eyebrow" style="color:var(--amber)">No payment to join</span>
+      <h2>Not ready for this cohort? Join the waitlist.</h2>
+      <p class="sub">We open one cohort at a time. Add your spot and we’ll tell you the moment the next seat — or the next level, or the Grade 10–12 Builder track — opens. Waitlist families get priority.</p>
+      <p class="why">It’s also how we know where to grow next. The more demand we see for a level or band, the sooner we open it.</p>
+    </div>
+ 
+    <!-- REPLACE: paste your Formspree (or other) form endpoint into the action below. -->
+    <form class="waitform reveal" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
+      <div class="field">
+        <label for="pname">Parent name</label>
+        <input id="pname" name="parent_name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="grade">Student’s grade</label>
+          <select id="grade" name="student_grade" required>
+            <option value="" disabled selected>Choose…</option>
+            <option>Grade 7</option><option>Grade 8</option><option>Grade 9</option>
+            <option>Grade 10</option><option>Grade 11</option><option>Grade 12</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="track">Interested in</label>
+          <select id="track" name="interested_in" required>
+            <option value="" disabled selected>Choose…</option>
+            <option>Creator track (Grade 7–9)</option>
+            <option>Builder track (Grade 10–12)</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+      </div>
+      <!-- honeypot: hidden anti-spam field, leave empty -->
+      <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn--primary btn--lg" type="submit" style="width:100%; justify-content:center">Join the waitlist</button>
+      <p class="formnote">No payment. We’ll only email you about the Academy, and you can leave anytime.</p>
+    </form>
+  </div>
+</section>
+ 
+</main>
+ 
+<!-- ===================== FOOTER ===================== -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand">DSAIN AI Academy</div>
+        <p>The youth education program of DSAIN — translating research in reliable human–AI judgment into how the next generation learns to create.</p>
+      </div>
+      <nav class="ft-links">
+        <a href="#outcomes">Outcomes</a>
+        <a href="#method">Method</a>
+        <a href="#safety">Safety</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#waitlist">Waitlist</a>
+        <!-- REPLACE: link back to your main site -->
+        <a href="https://dsain.ca">DSAIN.ca</a>
+      </nav>
+    </div>
+    <div class="ft-bottom">
+      <span>© <span id="yr"></span> DSAIN · Calgary, Alberta</span>
+      <!-- REPLACE: your contact email -->
+      <a href="mailto:[hello@dsain.ca]">[hello@dsain.ca]</a>
+    </div>
+  </div>
+</footer>
+ 
+<script>
+  // ---- Reserve button wiring -------------------------------------------
+  // REPLACE the line below with your Stripe Payment Link (https://buy.stripe.com/...).
+  // Until you do, every "Reserve" button scrolls to the pricing/reserve section.
+  const RESERVE_URL = "REPLACE_WITH_YOUR_STRIPE_PAYMENT_LINK";
+  document.querySelectorAll('[data-reserve]').forEach(function(a){
+    if (RESERVE_URL.indexOf('http') === 0) { a.href = RESERVE_URL; a.target = "_blank"; a.rel = "noopener"; }
+    else { a.setAttribute('href', '#reserve'); }
+  });
+ 
+  // ---- Sticky header shadow on scroll ----------------------------------
+  var nav = document.getElementById('nav');
+  var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 8); };
+  onScroll(); window.addEventListener('scroll', onScroll, { passive:true });
+ 
+  // ---- Footer year -----------------------------------------------------
+  document.getElementById('yr').textContent = new Date().getFullYear();
+ 
+  // ---- Scroll reveal (respects reduced motion) -------------------------
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+</body>
+</html>
