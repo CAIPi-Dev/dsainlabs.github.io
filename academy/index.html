@@ -86,8 +86,9 @@
   }
   header.nav.scrolled{ border-color:var(--line); box-shadow:0 4px 20px rgba(27,38,64,.05) }
   .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:68px }
-  .brand{ font-family:var(--font-display); font-weight:800; font-size:1.15rem; letter-spacing:-.02em; text-decoration:none; color:var(--ink) }
-  .brand b{ color:var(--ink) } .brand span{ color:var(--ink-soft); font-weight:600 }
+  .brand{ display:flex; align-items:center; gap:.55rem; font-family:var(--font-display); font-weight:600; font-size:1.15rem; letter-spacing:-.02em; text-decoration:none; color:var(--ink) }
+  .brand img{ height:30px; width:auto; display:block }
+  .brand span{ color:var(--ink-soft); font-weight:600 }
   .nav-links{ display:flex; align-items:center; gap:1.9rem }
   .nav-links a.lnk{ text-decoration:none; color:var(--ink-soft); font-weight:500; font-size:.96rem }
   .nav-links a.lnk:hover{ color:var(--ink) }
@@ -290,7 +291,7 @@
 <!-- ===================== NAV ===================== -->
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top"><b>DSAIN</b> <span>AI Academy</span></a>
+    <a class="brand" href="#top"><img src="../assets/dsain_logo.png" alt="DSAIN"><span>AI Academy</span></a>
     <nav class="nav-links">
       <a class="lnk" href="#outcomes">Outcomes</a>
       <a class="lnk" href="#method">Method</a>
